@@ -1,8 +1,5 @@
 # [Peter]'s Notes
-want to commit this
-next line to commit
-
-Summary: going through process to commit to github
+This repository contains notes for Lighthouse Webdevelopment
 
 
 [Peter](https://github.com/pheyboer)
