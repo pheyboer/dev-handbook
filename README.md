@@ -1,5 +1,6 @@
-# [Peter]'s Notes
-This repository contains notes for Lighthouse Webdevelopment
+# Peter's Notes
 
+## Summary
+This repository contains notes by [Peter](https://github.com/pheyboer) for Lighthouse Webdevelopment
 
-[Peter](https://github.com/pheyboer)
+# Table of Contents
