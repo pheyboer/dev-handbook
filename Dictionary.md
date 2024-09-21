@@ -11,6 +11,33 @@
   -  Prcoessing and Logic
   -  Break code down into small steps - incremental solutions
   
+### Directories
+  * Useful commands
+    - mkdir to make directory
+    - cd to change directory
+    - touch to create file
+
+### Git
+  * Initialize
+    - git init
+  * Add file
+    - git add
+  * Commit changes
+    - git commit -m "message"
+  * Push to github
+    - git push
+  * Git cloning
+    - Go to directory
+    - clone repository
+    - git init (be careful for nested git repositories)
+    - git clone (use SSH)
+  * Git for Lighthouse Testing
+    - git clone
+    - go to directory
+    - get token from compass
+    - npm run start-exam (token)
+    
+
 ### Terms
 
 * Variables
@@ -166,6 +193,34 @@ for (const key in obj) {
 * Node.js
   - Package manager: npm
     - Packages are self contained code libraries we can install and use in projects
+
+* Unit Testing
+  - Tells us if code is working
+  - It's just: ```npm test```
+  - Writing code that tests other code
+
+```
+// Example of a simple function
+function largestNumber(array) {
+  return array.reduce((previousValue, currentValue) => {  
+    return Math.max(previousValue, currentValue);
+  });
+}
+
+```
+```
+// Example of a test for that function
+const array = [1,2,3,4,5];
+const largest = largestNumber(array);
+assert.equal(largest, 5);
+
+```
+  - Mocha and Chai packages to write automated tests
+    - BDD: Behavior Driven Development 
+      -Write test to check behaviour of code
+      - Mocha: name test folder test, this is where it finds test files
+
+
 * Asynchronus Control Flow
 * Promises
 * Object Manipulation
