@@ -23,8 +23,11 @@
   - Function - variables declared within a function are scoped to that function. Accessible only within function
   - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
 
-
-* Object Iteration
+* # How we write a function
+  ```
+  function myFunction(a, b, c) {
+    return a + b + c; }
+* # Object Iteration
 * For Loop to iterate over the objects in an array
 ```
   function printArrayElements(arr) {
@@ -48,7 +51,7 @@ printArrayElements(exampleArray);
 
 
 * Callbacks
-  - 
+  - A function we pass to another function
 * Slice process arguments
 * Arrays
 * Data types
@@ -102,8 +105,16 @@ const myObj = {
 
 myObj.sayFullName(); // My full name is Lorem Ipsum
 ```
+ - Object iteration with ```for...in```
+    - Iterate through object's keys. CANT use ```for...of```
+```
+const obj = { a: 1, b: 2, c: 3 };
 
-
+for (const key in obj) {
+  // we can use the key to access the value
+  const value = obj[key];
+}
+```
 
 
 * Data Structures
@@ -114,18 +125,25 @@ myObj.sayFullName(); // My full name is Lorem Ipsum
     Implement a function with example
 
 * Arrow Functions
+  - Annymous by nature
+  - 
 
 * Template Literals
 
 * Recursion
-  Recursive Case, Base Case
+  - Recursive Case, Base Case 
 
 * Command Line Arguments
+  - Accessible via the ```process``` object: ```process.argv```
+  - Allow you to pass information to your Node.js scripts
 
 * Linting
   Eslint - analyze code for potential errors and enforces standard code
 
 * Higher Order Functions
+  - Functions that can take other functions as arguments or return functions as their output
+  - Accepting functions as arguments
+  - Can return another function
 
 * Annonymous Functions
   - Functions that are defined without a name. Used as arguments to other functions, for callbacks
