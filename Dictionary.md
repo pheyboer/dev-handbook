@@ -138,7 +138,9 @@ for (const key in obj) {
   - Allow you to pass information to your Node.js scripts
 
 * Linting
-  Eslint - analyze code for potential errors and enforces standard code
+ -  Eslint - analyze code for potential errors and enforces standard code
+ - Debuggin procedures
+ - How to decipher an error message
 
 * Higher Order Functions
   - Functions that can take other functions as arguments or return functions as their output
@@ -150,6 +152,27 @@ for (const key in obj) {
   or when defining functions that will not be reused
   - Useful when function only needed once or for specific context
   - Cannot be called again unless they are assigned to a variable or passed as an argument
+
+* Modules
+  - Node's way of organizing code into individual files
+  - Allows you to resuse functionality accoss different parts of project
+  - Dont need to copy paste code
+    - Define code once in a module then import whenever needed
+    - Reduces redundancy, makes codebase easier to maintain, and minimizes risks of error
+  - every js file in node is implicitly a module
+  - module.exports tells node what to export from a file. Defaults to {}
+  - can use ```require``` with relative paths (doesn't need js extension)
+  - ```const sayHelloTo = require('./myModule');```
+* Node.js
+  - Package manager: npm
+    - Packages are self contained code libraries we can install and use in projects
+* Asynchronus Control Flow
+* Promises
+* Object Manipulation
+* SQL
+* Algorithms
+* APIs
+* Refactoring
 
 
 
