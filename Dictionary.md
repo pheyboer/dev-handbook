@@ -36,7 +36,7 @@
     - go to directory
     - get token from compass
     - npm run start-exam (token)
-    
+
 
 ### Terms
 
@@ -218,7 +218,10 @@ assert.equal(largest, 5);
   - Mocha and Chai packages to write automated tests
     - BDD: Behavior Driven Development 
       -Write test to check behaviour of code
-      - Mocha: name test folder test, this is where it finds test files
+    - Mocha: name test folder test, this is where it finds test files
+    - ```describe``` and ```it``` to set up unit test
+    - ```assert``` for unit tests
+    - Don't create failing tests. Disrupts mocha/chai workflow
 
 
 * Asynchronus Control Flow
