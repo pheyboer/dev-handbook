@@ -1,5 +1,8 @@
 # Dictionary of Terms and Notes
 
+### Odin Project
+  - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
+
 ## Lecture Notes
   * Objects (W1D3) https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
   * Callbacks (W1D4) https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4 
@@ -11,33 +14,6 @@
   -  Prcoessing and Logic
   -  Break code down into small steps - incremental solutions
   
-### Directories
-  * Useful commands
-    - mkdir to make directory
-    - cd to change directory
-    - touch to create file
-
-### Git
-  * Initialize
-    - git init
-  * Add file
-    - git add
-  * Commit changes
-    - git commit -m "message"
-  * Push to github
-    - git push
-  * Git cloning
-    - Go to directory
-    - clone repository
-    - git init (be careful for nested git repositories)
-    - git clone (use SSH)
-  * Git for Lighthouse Testing
-    - git clone
-    - go to directory
-    - get token from compass
-    - npm run start-exam (token)
-
-
 ### Terms
 
 * Variables
@@ -75,6 +51,16 @@ printArrayElements(exampleArray);
 
 * forEach
 
+* Split
+  - ```.split(/\s+/)``` divides string into an array, where each element corresponds to a part of the string that was separated by whitespace.
+  - Example:
+```
+  
+    const trimmedName = "John Doe Smith";
+const nameParts = trimmedName.split(/\s+/);
+console.log(nameParts); // ["John", "Doe", "Smith"]
+
+```
 
 
 * Callbacks
@@ -216,12 +202,17 @@ assert.equal(largest, 5);
 
 ```
   - Mocha and Chai packages to write automated tests
+    - Mocha testing framework
+    - Chai assertion library
     - BDD: Behavior Driven Development 
       -Write test to check behaviour of code
-    - Mocha: name test folder test, this is where it finds test files
-    - ```describe``` and ```it``` to set up unit test
-    - ```assert``` for unit tests
-    - Don't create failing tests. Disrupts mocha/chai workflow
+    - Mocha Instructions
+      - Initialize a project as a num package
+      - ```npm init -y``` 
+      - not in test folder
+       - Add test framework eg. 'mocha' to scripts
+       - update scripts
+       
 
 
 * Asynchronus Control Flow
