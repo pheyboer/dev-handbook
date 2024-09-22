@@ -215,7 +215,93 @@ assert.equal(largest, 5);
        
 
 
-* Asynchronus Control Flow
+* ## Asynchronus Control Flow
+  - ## Callbacks
+    - Functions passed as arguments to be executed once an operation completes
+```    
+function fetchData(callback) {
+    setTimeout(() => {
+        callback("Data received");
+    }, 1000);
+}
+
+fetchData((data) => {
+    console.log(data);
+});
+
+```
+  - ## Promises
+   - Objects that represent the eventual completion (or failure) of an asynchronus operation
+```
+const fetchData = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Data received");
+        }, 1000);
+    });
+};
+
+fetchData().then((data) => {
+    console.log(data);
+});
+```
+  - Async/ Await
+    - Syntax that allows you to write asynchronus code that looks synchronus, easier to read and maintain
+```
+const fetchData = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Data received");
+        }, 1000);
+    });
+};
+
+const getData = async () => {
+    const data = await fetchData();
+    console.log(data);
+};
+
+getData();
+```
+  - Error Handling
+   -  handling errors in asynchronus code done with ```.catch()``` for promises or try/catch blocks with async/await
+```
+const fetchData = () => {
+    return new Promise((_, reject) => {
+        setTimeout(() => {
+            reject("Error fetching data");
+        }, 1000);
+    });
+};
+
+const getData = async () => {
+    try {
+        const data = await fetchData();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+getData()
+```
+  - Async control flow libraries
+   - Libraries like ```async.js``` can provide additional control flow patterns like series, parallel, and waterfall for managing complex asynchronus workflows 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * Promises
 * Object Manipulation
 * SQL
