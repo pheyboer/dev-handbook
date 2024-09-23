@@ -197,6 +197,7 @@ const counter = new Counter(); // 1, 2, 3, ...
 ```
   - Use Cases:
     - Callbacks: commonly used in array methods ```.map()```, ```.filter()```, and ```.reduce()```
+    - ```.reduce``` callback function on each element of the array, in order, passing return value from calculation on previous element
   - Arrow functions do not have their own ```arguments``` object
   - Not suitable for methods
   - Cannot be used as constructor function
