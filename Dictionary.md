@@ -63,8 +63,22 @@ console.log(nameParts); // ["John", "Doe", "Smith"]
 ```
 
 
-* Callbacks
-  - A function we pass to another function
+*  ## Callbacks
+  - A function we pass to another function as arguments
+```  
+function greet(name, callback) {
+    console.log(`Hello, ${name}!`);
+    callback();
+}
+
+function sayGoodbye() {
+    console.log("Goodbye!");
+}
+
+// Passing sayGoodbye as a callback to greet
+greet("Alice", sayGoodbye);
+```
+
 * Slice process arguments
 * Arrays
 * Data types
@@ -130,43 +144,89 @@ for (const key in obj) {
 ```
 
 
-* Data Structures
-* Dot Syntax
+* ## Data Structures
+* ## Dot Syntax
 
 
-* Function
+* ## Function
     Implement a function with example
 
-* Arrow Functions
+* ## Arrow Functions
+  - Concise way to write functions
   - Annymous by nature
-  - 
+```
+ const add = (a, b) => {
+    return a + b;
+};
+```
+```
+const add = (a, b) => a + b; // Implicit return
 
-* Template Literals
+```
+```
+const square = x => x * x; // No parentheses needed for single parameter
+```
+  - No binding of ```this```
+    - Arrow functions dont have their own binding of ```this```
+    - Useful for callbacks
+```
+function Counter() {
+    this.count = 0;
 
-* Recursion
+    // Using a regular function would bind 'this' to the function itself
+    setInterval(function() {
+        this.count++; // 'this' is not the Counter instance
+        console.log(this.count);
+    }, 1000);
+}
+
+const counter = new Counter(); // NaN is printed
+
+// Using an arrow function preserves 'this'
+function Counter() {
+    this.count = 0;
+
+    setInterval(() => {
+        this.count++; // 'this' refers to the Counter instance
+        console.log(this.count);
+    }, 1000);
+}
+
+const counter = new Counter(); // 1, 2, 3, ...
+
+```
+  - Use Cases:
+    - Callbacks: commonly used in array methods ```.map()```, ```.filter()```, and ```.reduce()```
+  - Arrow functions do not have their own ```arguments``` object
+  - Not suitable for methods
+  - Cannot be used as constructor function
+
+* ## Template Literals
+
+* ## Recursion
   - Recursive Case, Base Case 
 
-* Command Line Arguments
+* ## Command Line Arguments
   - Accessible via the ```process``` object: ```process.argv```
   - Allow you to pass information to your Node.js scripts
 
-* Linting
+* ## Linting
  -  Eslint - analyze code for potential errors and enforces standard code
  - Debuggin procedures
  - How to decipher an error message
 
-* Higher Order Functions
+* ## Higher Order Functions
   - Functions that can take other functions as arguments or return functions as their output
   - Accepting functions as arguments
   - Can return another function
 
-* Annonymous Functions
+* ## Annonymous Functions
   - Functions that are defined without a name. Used as arguments to other functions, for callbacks
   or when defining functions that will not be reused
   - Useful when function only needed once or for specific context
   - Cannot be called again unless they are assigned to a variable or passed as an argument
 
-* Modules
+* ## Modules
   - Node's way of organizing code into individual files
   - Allows you to resuse functionality accoss different parts of project
   - Dont need to copy paste code
@@ -215,7 +275,7 @@ assert.equal(largest, 5);
        
 
 
-* ## Asynchronus Control Flow
+* # Asynchronus Control Flow
   - ## Callbacks
     - Functions passed as arguments to be executed once an operation completes
 ```    
@@ -263,7 +323,7 @@ const getData = async () => {
 
 getData();
 ```
-  - Error Handling
+  - ## Error Handling
    -  handling errors in asynchronus code done with ```.catch()``` for promises or try/catch blocks with async/await
 ```
 const fetchData = () => {
@@ -285,7 +345,7 @@ const getData = async () => {
 
 getData()
 ```
-  - Async control flow libraries
+  -  ### Async control flow libraries
    - Libraries like ```async.js``` can provide additional control flow patterns like series, parallel, and waterfall for managing complex asynchronus workflows 
 
 
