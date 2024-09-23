@@ -5,14 +5,18 @@
 
 ## Lecture Notes
   * Objects (W1D3) https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
-  * Callbacks (W1D4) https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4 
+  * Callbacks (W1D4) https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
+  * TDD (W2D1)
+  *  
 
 ## Recipe
   - Clarify Question
   - Define Inputs
-  -  Define Outputs
-  -  Prcoessing and Logic
-  -  Break code down into small steps - incremental solutions
+  - Define Outputs
+  - Prcoessing and Logic
+  - Break code down into small steps - incremental solutions
+      - Write out pseudocode for each step
+  - 
   
 ### Terms
 
@@ -20,6 +24,13 @@
   - var - function scoped or globally scoped
   - let - block scoped (inside loop or conditionals)
   - const - block scoped
+* Terms
+  - ! means no
+  - ```.reduce``` 
+
+
+
+
 
 * Scoping
   - Global - variable declared outside any function or block. Accessible anywhere
@@ -45,11 +56,52 @@ printArrayElements(exampleArray);
 ```
 
 
-*  For...in
+*   ## For...in
+  - Iterate over properties of an object
+  - Loop through keys of object
+```  
+const person = {
+    name: 'Alice',
+    age: 25,
+    city: 'New York'
+};
 
-* For...of
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+```
 
-* forEach
+
+* ## For...of
+  - Iterate through objects
+    - arrays, strings, maps, sets
+    - if object is not iterable (plain object) ```TypeError```
+  - Returns VALUES not keys
+```
+const greeting = 'Hello';
+
+for (const char of greeting) {
+    console.log(char);
+}
+```
+  - Output: 
+```
+H
+e
+l
+l
+o
+```
+
+* ## forEach
+  - Execute provided function once for each element in the array
+  - Can iterate over elements without needining to manage the loop counter
+```
+array.forEach(callback(currentValue, index, array) {
+    // Code to execute for each element
+});
+```
+
 
 * Split
   - ```.split(/\s+/)``` divides string into an array, where each element corresponds to a part of the string that was separated by whitespace.
