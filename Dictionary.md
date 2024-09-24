@@ -25,11 +25,30 @@
   - let - block scoped (inside loop or conditionals)
   - const - block scoped
 * Terms
-  - ! means no
-  - ```.reduce``` 
+  - ```!``` Logical NOT operator
+    - Inverts truthiness of a value
+  - ```.reduce``` Reduce an array of values to a single value
+    - Example: the sum of the elements of an array
+    - Reduces an array to primitives
+```    
+    array.reduce(callback(accumulator, currentValue, index, array), initialValue);
+```
+  - ```.sort``` sort elements of an array in place. VERY USEFUL
+    - modifies original array and returns reference to same array
+    - Sorts in ascending order
+    - Can find range with this
+    - Single digits it will sort correctly. Bigger digits will not
+```
+    let numbers = [4, 2, 5, 1, 3];
 
+// Sort in ascending order
+numbers.sort((a, b) => a - b);
+console.log(numbers); // Output: [1, 2, 3, 4, 5]
 
-
+// Sort in descending order
+numbers.sort((a, b) => b - a);
+console.log(numbers); // Output: [5, 4, 3, 2, 1]
+```
 
 
 * Scoping
