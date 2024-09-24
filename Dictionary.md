@@ -25,6 +25,7 @@
   - let - block scoped (inside loop or conditionals)
   - const - block scoped
 * Terms
+  - ```Infinity``` is highest number in JS
   - ```!``` Logical NOT operator
     - Inverts truthiness of a value
   - ```.reduce``` Reduce an array of values to a single value
