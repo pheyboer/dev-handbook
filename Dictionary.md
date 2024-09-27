@@ -7,7 +7,8 @@
   * Objects (W1D3) https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
   * Callbacks (W1D4) https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
   * TDD (W2D1)
-  *  
+  *  Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
+  
 
 ## Recipe
   - Clarify Question
@@ -20,11 +21,99 @@
   
 ### Terms
 
-* Variables
+*  # Variables
   - var - function scoped or globally scoped
   - let - block scoped (inside loop or conditionals)
   - const - block scoped
 * Terms
+  - # Scoping
+  - Global - variable declared outside any function or block. Accessible anywhere
+  - Function - variables declared within a function are scoped to that function. Accessible only within function
+  - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
+
+  - ## Pseudocode
+    - 
+```    
+Loop from 100 to 200:
+  Let num = the current step in the loop
+  If num % 3 is equal to 0 and num % 4 is equal to 0:
+    Print "LoopyLighthouse"
+  Else if num % 3 is equal to 0:
+    Print "Loopy"
+  Else if num % 4 is equal to 0:
+    Print "Lighthouse"
+  Otherwise
+    Print num
+  End if
+End loop
+```
+
+* # How we write a function
+  ```
+  function myFunction(a, b, c) {
+    return a + b + c; }
+* # Object Iteration
+* ### For Loop 
+  - To iterate over the objects in an array
+```
+  function printArrayElements(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+
+// Example usage:
+const exampleArray = [1, 2, 3, 4, 5];
+printArrayElements(exampleArray); 
+```
+
+
+*   ### For...in
+  - Iterate over properties of an object
+  - Loop through keys of object (indexes)
+```  
+const person = {
+    name: 'Alice',
+    age: 25,
+    city: 'New York'
+};
+
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+```
+
+
+* ### For...of
+  - Iterate through objects
+    - arrays, strings, maps, sets
+    - if object is not iterable (plain object) ```TypeError```
+  - Returns VALUES not keys
+```
+const greeting = 'Hello';
+
+for (const char of greeting) {
+    console.log(char);
+}
+```
+  - Output: 
+```
+H
+e
+l
+l
+o
+```
+
+* ### forEach
+  - Execute provided function once for each element in the array
+  - Can iterate over elements without needining to manage the loop counter
+```
+array.forEach(callback(currentValue, index, array) {
+    // Code to execute for each element
+});
+```
+
   - ```Infinity``` is highest number in JS
   - ```!``` Logical NOT operator
     - Inverts truthiness of a value
@@ -52,76 +141,8 @@ console.log(numbers); // Output: [5, 4, 3, 2, 1]
 ```
 
 
-* Scoping
-  - Global - variable declared outside any function or block. Accessible anywhere
-  - Function - variables declared within a function are scoped to that function. Accessible only within function
-  - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
-
-* # How we write a function
-  ```
-  function myFunction(a, b, c) {
-    return a + b + c; }
-* # Object Iteration
-* For Loop to iterate over the objects in an array
-```
-  function printArrayElements(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-  }
-}
-
-// Example usage:
-const exampleArray = [1, 2, 3, 4, 5];
-printArrayElements(exampleArray); 
-```
-
-
-*   ## For...in
-  - Iterate over properties of an object
-  - Loop through keys of object
-```  
-const person = {
-    name: 'Alice',
-    age: 25,
-    city: 'New York'
-};
-
-for (const key in person) {
-    console.log(`${key}: ${person[key]}`);
-}
-```
-
-
-* ## For...of
-  - Iterate through objects
-    - arrays, strings, maps, sets
-    - if object is not iterable (plain object) ```TypeError```
-  - Returns VALUES not keys
-```
-const greeting = 'Hello';
-
-for (const char of greeting) {
-    console.log(char);
-}
-```
-  - Output: 
-```
-H
-e
-l
-l
-o
-```
-
-* ## forEach
-  - Execute provided function once for each element in the array
-  - Can iterate over elements without needining to manage the loop counter
-```
-array.forEach(callback(currentValue, index, array) {
-    // Code to execute for each element
-});
-```
-
+* ParseINT - turns string to number
+* ParseFloat - for decimals
 
 * Split
   - ```.split(/\s+/)``` divides string into an array, where each element corresponds to a part of the string that was separated by whitespace.
