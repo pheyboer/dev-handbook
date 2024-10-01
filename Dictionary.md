@@ -53,6 +53,22 @@ End loop
   function myFunction(a, b, c) {
     return a + b + c; }
 * # Object Iteration
+ - Properties rea Key-Value pairs associated with an Object
+```
+const person = {
+  name: 'Alice',
+  age: 30,
+  isStudent: false
+};
+Object Constructor:
+
+javascript
+Copy code
+const person = new Object();
+person.name = 'Alice';
+person.age = 30;
+person.isStudent = false;
+```
 * ### For Loop 
   - To iterate over the objects in an array
 ```
