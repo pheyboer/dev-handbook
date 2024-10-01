@@ -155,10 +155,24 @@ console.log(numbers); // Output: [1, 2, 3, 4, 5]
 numbers.sort((a, b) => b - a);
 console.log(numbers); // Output: [5, 4, 3, 2, 1]
 ```
+* Function for Sum of 2 numbers with assertion test
+```
+// FUNCTION IMPLEMENTATION
+const sum = function (a, b) {
+  return a + b;
+};
 
+// TEST CODE
+console.assert(sum(1, 2) === 3);
+console.assert(sum(1, 20) === 3); // bad / incorrect assertion, and we see it fail!
+```
 
+* 
 * ParseINT - turns string to number
 * ParseFloat - for decimals
+
+* Console.assert
+  - Static method write an error message to the console if assertion is false. If true nothing happens
 
 * Split
   - ```.split(/\s+/)``` divides string into an array, where each element corresponds to a part of the string that was separated by whitespace.
@@ -319,6 +333,26 @@ const counter = new Counter(); // 1, 2, 3, ...
 * ## Command Line Arguments
   - Accessible via the ```process``` object: ```process.argv```
   - Allow you to pass information to your Node.js scripts
+  - ```.slice``` to take out parts of the array into a new object array
+  - Example:
+ ``` 
+  const args = process.argv.slice(2); //slice out first 2 command line arguments
+const sum = function(numbers) { //create function called sum
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) { //loop through array
+    total += Number(numbers[i]); // turn string to number
+  }
+  return total;
+};
+console.log("Sum: ", sum(args));
+```
+- Example 2, Tail: use slice to return everything exept first item (head) of array
+```
+const tail = function(array) {
+  return array.slice(1);
+};
+```
+
 
 * ## Linting
  -  Eslint - analyze code for potential errors and enforces standard code
