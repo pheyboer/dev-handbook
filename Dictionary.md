@@ -4,7 +4,6 @@
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
 ## Lecture Notes
-  * Use Andy's or Francois Notes
   * Objects (W1D3) https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
   * Callbacks (W1D4) https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
   * TDD (W2D1)
@@ -18,24 +17,31 @@
   - Prcoessing and Logic
   - Break code down into small steps - incremental solutions
       - Write out pseudocode for each step
-  - 
+
 
  ## VSCode Shortcuts
   https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 
-  ## Git Shortcuts
+ ## Git Shortcuts
+  https://education.github.com/git-cheat-sheet-education.pdf
 
-  
+ ## Markdown shortcuts
+ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+ ## Javascript Cheatsheet
+ https://htmlcheatsheet.com/js/
+
+ ## Vim CheatSheet
+ http://www.viemu.com/vi-vim-cheat-sheet.gif
 
 
-### Terms
-
-*  # Variables
+  ## Variables
   - var - function scoped or globally scoped
   - let - block scoped (inside loop or conditionals)
   - const - block scoped
-* Terms
-  - # Scoping
+
+ ## Terms
+  - ## Scoping
   - Global - variable declared outside any function or block. Accessible anywhere
   - Function - variables declared within a function are scoped to that function. Accessible only within function
   - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
@@ -57,11 +63,13 @@ Loop from 100 to 200:
 End loop
 ```
 
-* # How we write a function
-  ```
+ # How we write a function
+```  
   function myFunction(a, b, c) {
     return a + b + c; }
-* # Object Iteration
+```
+
+ # Object Iteration
  - Properties rea Key-Value pairs associated with an Object
 ```
 const person = {
@@ -78,7 +86,7 @@ person.name = 'Alice';
 person.age = 30;
 person.isStudent = false;
 ```
-* ### For Loop 
+ ### For Loop 
   - To iterate over the objects in an array
 ```
   function printArrayElements(arr) {
@@ -93,7 +101,7 @@ printArrayElements(exampleArray);
 ```
 
 
-*   ### For...in
+   ### For...in
   - Iterate over properties of an object
   - Loop through keys of object (indexes)
 ```  
@@ -119,7 +127,7 @@ for (const key in dog) {
 }
 ```
 
-* ### For...of
+ ### For...of
   - Iterate through objects
     - arrays, strings, maps, sets
     - if object is not iterable (plain object) ```TypeError```
@@ -140,7 +148,7 @@ l
 o
 ```
 
-* ### forEach
+ ### forEach
   - Execute provided function once for each element in the array
   - Can iterate over elements without needining to manage the loop counter
 ```
@@ -152,6 +160,7 @@ array.forEach(callback(currentValue, index, array) {
   - ```Infinity``` is highest number in JS
   - ```!``` Logical NOT operator
     - Inverts truthiness of a value
+
 
 ### Array Methods
   * ```.push()``` adds new element to end of array and returns new length of array
