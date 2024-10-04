@@ -19,7 +19,15 @@
   - Break code down into small steps - incremental solutions
       - Write out pseudocode for each step
   - 
+
+ ## VSCode Shortcuts
+  https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+
+  ## Git Shortcuts
+
   
+
+
 ### Terms
 
 *  # Variables
@@ -144,17 +152,80 @@ array.forEach(callback(currentValue, index, array) {
   - ```Infinity``` is highest number in JS
   - ```!``` Logical NOT operator
     - Inverts truthiness of a value
-  - ```.reduce``` Reduce an array of values to a single value
+
+### Array Methods
+  * ```.push()``` adds new element to end of array and returns new length of array
+```
+let arr = [1, 2, 3];
+arr.push(4); // arr is now [1, 2, 3, 4]
+```
+  * ```.pop()``` removes last element from array and returns that element
+```
+let arr = [1, 2, 3];
+let lastElement = arr.pop(); // lastElement is 3, arr is now [1, 2]
+```
+  * ```.shift()``` removes first element from array and returns that element
+```
+let arr = [1, 2, 3];
+let firstElement = arr.shift(); // firstElement is 1, arr is now [2, 3]
+```
+  * ```.unshift()``` adds element to begining of array and returns new length of array
+```
+let arr = [2, 3];
+arr.unshift(1); // arr is now [1, 2, 3]
+```
+  * ```.splice()``` remove or replace element and add new element in its place
+```
+let arr = [1, 2, 3, 4];
+arr.splice(1, 2, 'a', 'b'); // arr is now [1, 'a', 'b', 4]
+```
+  * ```.forEach``` executes provided function once for each element in array
+```
+let arr = [1, 2, 3];
+arr.forEach((num) => {
+    console.log(num); // prints 1, 2, 3
+});
+```
+  * ```.map()``` creates new array with results of calling a function on every element in the calling array
+```
+let arr = [1, 2, 3];
+let doubled = arr.map(num => num * 2); // doubled is [2, 4, 6]
+```
+  * ```.filter()``` creates new array with all elements that pass the test implemented by provided function
+```
+let arr = [1, 2, 3, 4];
+let evens = arr.filter(num => num % 2 === 0); // evens is [2, 4]
+```
+  * ```.reduce()``` reduce array to a single value. results in a single output value
     - Example: the sum of the elements of an array
     - Reduces an array to primitives
 ```    
-    array.reduce(callback(accumulator, currentValue, index, array), initialValue);
+  let arr = [1, 2, 3];
+  let sum = arr.reduce((acc, num) => acc + num, 0); // sum is 
 ```
-  - ```.sort``` sort elements of an array in place. VERY USEFUL
-    - modifies original array and returns reference to same array
-    - Sorts in ascending order
-    - Can find range with this
-    - Single digits it will sort correctly. Bigger digits will not
+
+  * ```.find()``` returns value of first element of array that satisfies test function
+```
+let arr = [1, 2, 3];
+let found = arr.find(num => num > 1); // found is 2
+```
+  * ```.included()``` check if array has a certain value. Returns true or false
+```
+let arr = [1, 2, 3];
+let hasTwo = arr.includes(2); // hasTwo is true
+```
+  * ```.sort()``` sorts elements of array. Returns sorted array
+    - Very useful
+    - modified original array and returns reference to same array
+    - Sorts in asccending order
+    - Can use this to find the Range
+    - Single digits will sort correctly, big digits will not.
+    
+```
+let arr = [3, 1, 2];
+arr.sort(); // arr is now [1, 2, 3]
+
+```
 ```
     let numbers = [4, 2, 5, 1, 3];
 
@@ -166,7 +237,21 @@ console.log(numbers); // Output: [1, 2, 3, 4, 5]
 numbers.sort((a, b) => b - a);
 console.log(numbers); // Output: [5, 4, 3, 2, 1]
 ```
-* Function for Sum of 2 numbers with assertion test
+
+  * ```.join()``` joins element of array intro a string, separated by specified operator
+```
+let arr = ['Hello', 'World'];
+let str = arr.join(' '); // str is "Hello World"
+```
+  * ```.reverse()``` reverses elements of array
+```
+let arr = [1, 2, 3];
+arr.reverse(); // arr is now [3, 2, 1]
+```
+
+
+
+*  ### Function for Sum of 2 numbers with assertion test
 ```
 // FUNCTION IMPLEMENTATION
 const sum = function (a, b) {
