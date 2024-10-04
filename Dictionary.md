@@ -4,10 +4,11 @@
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
 ## Lecture Notes
+  * Use Andy's or Francois Notes
   * Objects (W1D3) https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
   * Callbacks (W1D4) https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
   * TDD (W2D1)
-  *  Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
+  * Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
   
 
 ## Recipe
@@ -98,7 +99,17 @@ for (const key in person) {
     console.log(`${key}: ${person[key]}`);
 }
 ```
+```
+const dog = {
+  faveToy: 'squeaky ball',
+  breed: 'labrador',
+  name: 'dioji',
+};
 
+for (const key in dog) {
+  console.log('value', dog[key]);
+}
+```
 
 * ### For...of
   - Iterate through objects
@@ -205,8 +216,12 @@ greet("Alice", sayGoodbye);
 * Slice process arguments
 * Arrays
 * Data types
-  - Primitive: String, number, boolean, undefined, null, symbol, bigInt
+  - Primitive: String, number, boolean, undefined, null, symbol, (bigInt)
+  - 7 Fundamental types of Javascript: 6 above plus Objects
   - Reference: Objects, Arrays, Functions
+  - Data Types are Primitives OR objects
+  - Dot syntax works on nested objects
+  - function that doesnt have a return: it will be undefined
 
 
 * Objects
@@ -215,6 +230,7 @@ greet("Alice", sayGoodbye);
   - In arrays, use index to access a value
   - Use key to access value
   - Array is type of object
+  - Object is like a table with 2 columns
 
 ```
   const myObj = {
@@ -231,7 +247,10 @@ console.log(myObj['lastName']); // Ipsum
 ```
 - Functions inside Objects
   - Objects are key/value pairs. Functions are values. You can store functions inside of an object
-  - Refernce other properties in an object by using 'this'
+  - Reference other properties in an object by using 'this'
+  - ```this``` works within context of object
+  - ```this``` DOES NOT work with arrow functions
+    - reference to the oject where ```this``` is used
 ```
 const myObj = {
   firstName: 'Lorem',
