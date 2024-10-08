@@ -4,9 +4,11 @@
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
 ## Lecture Notes
-  * Objects (W1D3) https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
-  * Callbacks (W1D4) https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
-  * TDD (W2D1)
+  * Objects  https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
+  * Callbacks  https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
+    - https://vimeo.com/1015946338/633db77663
+    - https://github.com/andydlindsay/flex-sep23-2024/tree/main/m01w02-2
+  * TDD 
   * Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
   
 
@@ -25,6 +27,23 @@
  ## Git Shortcuts
   https://education.github.com/git-cheat-sheet-education.pdf
 
+ ## Git Cloning and Commiting
+  - Go to directory
+  - ```git init``` to create new git repository
+  - Make sure git is initalized (be careful for nested Git Repositories)
+  - ```git clone <SSH URL>``` always use SSH
+  - ```git status```
+  - ```git add <file name>```
+  - ```git commit -m "Commit Message"```
+  - ```git push```
+  - Double check branches and origin
+
+  ### For Lighthouse Labs Testing
+ - Git clone
+  - Go to directory
+  - Get token from Compass
+  - ```npm run start-exam [exam token]```
+
  ## Markdown shortcuts
  https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
@@ -41,13 +60,12 @@
   - const - block scoped
 
  ## Terms
-  - ## Scoping
+   ## Scoping
   - Global - variable declared outside any function or block. Accessible anywhere
   - Function - variables declared within a function are scoped to that function. Accessible only within function
   - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
 
-  - ## Pseudocode
-    - 
+  - ## Pseudocode 
 ```    
 Loop from 100 to 200:
   Let num = the current step in the loop
@@ -86,7 +104,7 @@ person.name = 'Alice';
 person.age = 30;
 person.isStudent = false;
 ```
- ### For Loop 
+ * ### For Loop C-Style
   - To iterate over the objects in an array
 ```
   function printArrayElements(arr) {
@@ -101,9 +119,12 @@ printArrayElements(exampleArray);
 ```
 
 
-   ### For...in
-  - Iterate over properties of an object
+  * ## For...in
+  - OBJECTS
+  - Iterates over keys (property names)
+  - Iterates through ARRAYS AND OBJECTS
   - Loop through keys of object (indexes)
+  - Use when you need to access property keys
 ```  
 const person = {
     name: 'Alice',
@@ -127,9 +148,11 @@ for (const key in dog) {
 }
 ```
 
- ### For...of
-  - Iterate through objects
-    - arrays, strings, maps, sets
+ * ## For...of
+  - ARRAYS
+  - Iterates over values
+  - Iterates through: arrays, strings, maps, sets. NOT OBJECTS
+  - Use when you want to iterate over values of an ARRAY
     - if object is not iterable (plain object) ```TypeError```
   - Returns VALUES not keys
 ```
@@ -148,7 +171,7 @@ l
 o
 ```
 
- ### forEach
+ * ### forEach
   - Execute provided function once for each element in the array
   - Can iterate over elements without needining to manage the loop counter
 ```
@@ -162,7 +185,7 @@ array.forEach(callback(currentValue, index, array) {
     - Inverts truthiness of a value
 
 
-### Array Methods
+# Array Methods
   * ```.push()``` adds new element to end of array and returns new length of array
 ```
 let arr = [1, 2, 3];
@@ -291,7 +314,7 @@ console.log(nameParts); // ["John", "Doe", "Smith"]
 ```
 
 
-*  ## Callbacks
+  # Callbacks
   - A function we pass to another function as arguments
 ```  
 function greet(name, callback) {
@@ -309,7 +332,8 @@ greet("Alice", sayGoodbye);
 
 * Slice process arguments
 * Arrays
-* Data types
+
+## Data types
   - Primitive: String, number, boolean, undefined, null, symbol, (bigInt)
   - 7 Fundamental types of Javascript: 6 above plus Objects
   - Reference: Objects, Arrays, Functions
@@ -318,13 +342,17 @@ greet("Alice", sayGoodbye);
   - function that doesnt have a return: it will be undefined
 
 
-* Objects
+## Objects
   - Key/value pairs
   - The key in an object is always a string
   - In arrays, use index to access a value
   - Use key to access value
   - Array is type of object
   - Object is like a table with 2 columns
+  - Object is a bundle of information known as ```state```
+  - When property's value is a function, it is called a method
+  - Behaviour: what the method does
+  - ```this``` refers to the object that the method was called on
 
 ```
   const myObj = {
@@ -378,6 +406,39 @@ for (const key in obj) {
   const value = obj[key];
 }
 ```
+
+* ## Object Oriented Programming
+  - OOP software development paradigm
+  - popular way to solve code organization, re-use and modularity
+  - Javascript is not strictly OO in the way that Java or Ruby are
+  - Functional programming is an alternative paradigm
+  - classes are most popular way to perform OO
+    - Javascripts object system is based on ```prototypes``` not classes
+    - Classes added in ES6
+  - In OOP classes are templates that we use to create instances of objects
+    - A class describes what the object is going to be and we can create new objects using the class
+  - To declare a new class use the ```class``` keyword
+    - To create a new object from a class use the ```new``` keyword
+  - ```constructor``` special kind of method for setting default values for any new objects properties
+  - Class pattern allows us to DRY up code by defining the default state and behaviours in one place
+  - Classes promote code modularity
+    - define a blueprint once and create multiple instances from it
+    - each instance inherits properties and methods from the class
+      - reduces redundancy
+    - Instead of deining multiple object literals with same methods and properties, a class is defined once, and instances created from the class will all share the same method implementation but can maintain different states.
+    - The encapsulation of related data and behaviours within a class structure promotes modularity and makes code cleaner and easier to maintain ***
+    - OO bundles together state and logic into an object that can be represented into a single variable 
+
+* ## Inheritance
+  - Duplication problem
+    - Two classes that share the same behaviour and state information
+  - Inheritance: build a new class based on an existing class
+    - Remove duplicatoin by moving shared code from two classes into another class
+  - ```extends``` superclass vs subclass
+
+
+
+
 
 
 * ## Data Structures
@@ -483,6 +544,9 @@ const tail = function(array) {
   - Useful when function only needed once or for specific context
   - Cannot be called again unless they are assigned to a variable or passed as an argument
 
+
+# TDD Test Driven Development
+
 * ## Modules
   - Node's way of organizing code into individual files
   - Allows you to resuse functionality accoss different parts of project
@@ -518,12 +582,17 @@ const largest = largestNumber(array);
 assert.equal(largest, 5);
 
 ```
-  - Mocha and Chai packages to write automated tests
-    - Mocha testing framework
-    - Chai assertion library
-    - BDD: Behavior Driven Development 
-      -Write test to check behaviour of code
-    - Mocha Instructions
+-  ### Mocha and Chai 
+    - Packages to write automated tests
+
+-  Mocha
+    - Testing framework. Looks in ```test``` folder for files to run
+    - ```module.exports``` and ```require```
+    - Use ```.gitignore``` to ignore sensitive files
+  - Chai assertion library
+  - BDD: Behavior Driven Development 
+    - Write test to check behaviour of code
+   - Mocha Instructions
       - Initialize a project as a num package
       - ```npm init -y``` 
       - not in test folder
