@@ -249,9 +249,14 @@ let hasTwo = arr.includes(2); // hasTwo is true
   * ```.sort()``` sorts elements of array. Returns sorted array
     - Very useful
     - modified original array and returns reference to same array
+    - uses lexigraphical sorting
     - Sorts in asccending order
     - Can use this to find the Range
-    - Single digits will sort correctly, big digits will not.
+    - Single digits will sort correctly, big digits will not -lexigraphical sorting
+    - deceding order use ```array.reverse```
+    - Accepts function reference
+      - Sorted based on relationship between each pair of elements a and b
+      - <0, >0, or 0
     
 ```
 let arr = [3, 1, 2];
@@ -500,9 +505,31 @@ const counter = new Counter(); // 1, 2, 3, ...
   - Cannot be used as constructor function
 
 * ## Template Literals
+  - Enclosed with backticks ```(`)```
+  - Can have multi-line strings
+  - String interpolation - dynamic strings
+  - Tagged templates
 
-* ## Recursion
-  - Recursive Case, Base Case 
+* # Recursion
+  - Technique where a function calls itself in order to solve a problem
+  - Key components:
+    - Base Case: Condition that stops recursion. Without this, function calls itself indefinitely leading to stack overflow
+    - Recursive Case: The function calls itsself with modified arguments that bring it closer to the base case 
+```
+function factorial(n) {
+  // Base case: factorial of 0 is 1
+  if (n === 0) {
+    return 1;
+  }
+  // Recursive case: n! = n * (n - 1)!
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // Output: 120
+```
+  - Tail Recursion:
+    - Recursive call is the last operation in the function
+    - Javascript does not have built in tail call optimization
 
 * ## Command Line Arguments
   - Accessible via the ```process``` object: ```process.argv```
@@ -584,12 +611,36 @@ assert.equal(largest, 5);
 ```
 -  ### Mocha and Chai 
     - Packages to write automated tests
+    - To install ```npm install mocha chai --save-dev``` saves as dev dependecies
+    - replace ```test``` with 'mocha' in JSON
+    - to run ```npm run test```
 
 -  Mocha
     - Testing framework. Looks in ```test``` folder for files to run
     - ```module.exports``` and ```require```
     - Use ```.gitignore``` to ignore sensitive files
-  - Chai assertion library
+    - In JS file add
+    - In test file use require
+```      
+      const assert = require('chai').assert;
+      const app = require('../app');
+```
+    describe/it statement in test file
+      describe('App', function() {
+        it('app should return hello', function () {
+          assert.equal(app(), 'hello');
+        });
+      });
+  -    
+
+  - Chai
+    - Assertion library
+    - describe desired output of code
+    - ```should``` ```it``` and ```assert```
+    - 
+
+
+
   - BDD: Behavior Driven Development 
     - Write test to check behaviour of code
    - Mocha Instructions
@@ -616,7 +667,7 @@ fetchData((data) => {
 });
 
 ```
-  - ## Promises
+- # Promises
    - Objects that represent the eventual completion (or failure) of an asynchronus operation
 ```
 const fetchData = () => {
