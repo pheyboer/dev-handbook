@@ -11,6 +11,26 @@
   * TDD 
   * Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
   
+## Test Topics
+ - Test 1:
+    - Count numbers in Array
+    - Sum numbers of Array - can use ```.reduce```
+    - Find the mean of an Array
+    - Find the minimum Value of an Array
+    - Find the maximum value of an Array
+    - Find the range of an Array - can use ```.sort```
+    - Find the meadian value of an Array
+    - Find the Mode of an Array
+    - Find the Standard Deviation of an Array
+    - Review of test 1: will use ```.sort``` on test 2
+  - Test 2:
+    - All of test 1 topics
+    - Functions as Objects
+    - Comparisons (how to tell if two arrays are equal)
+    - Callbacks
+  - Test 3:
+    - Test 1 and 2 topics
+
 
 ## Recipe
   - Clarify Question
@@ -345,6 +365,9 @@ greet("Alice", sayGoodbye);
   - Data Types are Primitives OR objects
   - Dot syntax works on nested objects
   - function that doesnt have a return: it will be undefined
+  - Primitive types dont have properties
+  - Primitive types have corresponding Objects
+  
 
 
 ## Objects
@@ -745,8 +768,4 @@ getData()
 * Algorithms
 * APIs
 * Refactoring
-
-
-
-
-
+* test topics
