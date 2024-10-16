@@ -456,6 +456,8 @@ for (const key in obj) {
     - Instead of deining multiple object literals with same methods and properties, a class is defined once, and instances created from the class will all share the same method implementation but can maintain different states.
     - The encapsulation of related data and behaviours within a class structure promotes modularity and makes code cleaner and easier to maintain ***
     - OO bundles together state and logic into an object that can be represented into a single variable 
+  - Getters:
+  - Setters:
 
 * ## Inheritance
   - Duplication problem
@@ -745,8 +747,24 @@ const getData = async () => {
 
 getData()
 ```
-  -  ### Async control flow libraries
-   - Libraries like ```async.js``` can provide additional control flow patterns like series, parallel, and waterfall for managing complex asynchronus workflows 
+
+
+## Async control flow libraries
+- Libraries like ```async.js``` can provide additional control flow patterns like series, parallel, and waterfall for managing complex asynchronus workflows
+
+- Transposition:
+  - Rearrange arrays
+  - Eg: transform rows into columns in a matrix
+  - 2D array (matrix) transposition would be converting rows to columns
+    - Rows become columns. Columns become rows
+  - Example: Transpose 2D matrix
+    - Initalize empty array
+    - Loop over each column
+    - Loop over each row
+    - Transpose: 
+      - Initalize empty array for each column in original matrix
+      - Fill array with elements from original matrix 
+
 
 
 
