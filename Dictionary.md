@@ -86,7 +86,7 @@
   - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
 
   - ## Pseudocode 
-```    
+```js    
 Loop from 100 to 200:
   Let num = the current step in the loop
   If num % 3 is equal to 0 and num % 4 is equal to 0:
@@ -102,14 +102,14 @@ End loop
 ```
 
  # How we write a function
-```  
+```js  
   function myFunction(a, b, c) {
     return a + b + c; }
 ```
 
  # Object Iteration
  - Properties rea Key-Value pairs associated with an Object
-```
+```js
 const person = {
   name: 'Alice',
   age: 30,
@@ -126,7 +126,7 @@ person.isStudent = false;
 ```
  * ### For Loop C-Style
   - To iterate over the objects in an array
-```
+```js
   function printArrayElements(arr) {
   for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
@@ -145,7 +145,7 @@ printArrayElements(exampleArray);
   - Iterates through ARRAYS AND OBJECTS
   - Loop through keys of object (indexes)
   - Use when you need to access property keys
-```  
+```js  
 const person = {
     name: 'Alice',
     age: 25,
@@ -156,7 +156,7 @@ for (const key in person) {
     console.log(`${key}: ${person[key]}`);
 }
 ```
-```
+```js
 const dog = {
   faveToy: 'squeaky ball',
   breed: 'labrador',
@@ -175,7 +175,7 @@ for (const key in dog) {
   - Use when you want to iterate over values of an ARRAY
     - if object is not iterable (plain object) ```TypeError```
   - Returns VALUES not keys
-```
+```js
 const greeting = 'Hello';
 
 for (const char of greeting) {
@@ -183,7 +183,7 @@ for (const char of greeting) {
 }
 ```
   - Output: 
-```
+```js
 H
 e
 l
@@ -194,7 +194,7 @@ o
  * ### forEach
   - Execute provided function once for each element in the array
   - Can iterate over elements without needining to manage the loop counter
-```
+```js
 array.forEach(callback(currentValue, index, array) {
     // Code to execute for each element
 });
@@ -207,62 +207,62 @@ array.forEach(callback(currentValue, index, array) {
 
 # Array Methods
   * ```.push()``` adds new element to end of array and returns new length of array
-```
+```js
 let arr = [1, 2, 3];
 arr.push(4); // arr is now [1, 2, 3, 4]
 ```
   * ```.pop()``` removes last element from array and returns that element
-```
+```js
 let arr = [1, 2, 3];
 let lastElement = arr.pop(); // lastElement is 3, arr is now [1, 2]
 ```
   * ```.shift()``` removes first element from array and returns that element
-```
+```js
 let arr = [1, 2, 3];
 let firstElement = arr.shift(); // firstElement is 1, arr is now [2, 3]
 ```
   * ```.unshift()``` adds element to begining of array and returns new length of array
-```
+```js
 let arr = [2, 3];
 arr.unshift(1); // arr is now [1, 2, 3]
 ```
   * ```.splice()``` remove or replace element and add new element in its place
-```
+```js
 let arr = [1, 2, 3, 4];
 arr.splice(1, 2, 'a', 'b'); // arr is now [1, 'a', 'b', 4]
 ```
   * ```.forEach``` executes provided function once for each element in array
-```
+```js
 let arr = [1, 2, 3];
 arr.forEach((num) => {
     console.log(num); // prints 1, 2, 3
 });
 ```
   * ```.map()``` creates new array with results of calling a function on every element in the calling array
-```
+```js
 let arr = [1, 2, 3];
 let doubled = arr.map(num => num * 2); // doubled is [2, 4, 6]
 ```
   * ```.filter()``` creates new array with all elements that pass the test implemented by provided function
-```
+```js
 let arr = [1, 2, 3, 4];
 let evens = arr.filter(num => num % 2 === 0); // evens is [2, 4]
 ```
   * ```.reduce()``` reduce array to a single value. results in a single output value
     - Example: the sum of the elements of an array
     - Reduces an array to primitives
-```    
+```js    
   let arr = [1, 2, 3];
   let sum = arr.reduce((acc, num) => acc + num, 0); // sum is 
 ```
 
   * ```.find()``` returns value of first element of array that satisfies test function
-```
+```js
 let arr = [1, 2, 3];
 let found = arr.find(num => num > 1); // found is 2
 ```
   * ```.included()``` check if array has a certain value. Returns true or false
-```
+```js
 let arr = [1, 2, 3];
 let hasTwo = arr.includes(2); // hasTwo is true
 ```
@@ -278,12 +278,12 @@ let hasTwo = arr.includes(2); // hasTwo is true
       - Sorted based on relationship between each pair of elements a and b
       - <0, >0, or 0
     
-```
+```js
 let arr = [3, 1, 2];
 arr.sort(); // arr is now [1, 2, 3]
 
 ```
-```
+```js
     let numbers = [4, 2, 5, 1, 3];
 
 // Sort in ascending order
@@ -296,12 +296,12 @@ console.log(numbers); // Output: [5, 4, 3, 2, 1]
 ```
 
   * ```.join()``` joins element of array intro a string, separated by specified operator
-```
+```js
 let arr = ['Hello', 'World'];
 let str = arr.join(' '); // str is "Hello World"
 ```
   * ```.reverse()``` reverses elements of array
-```
+```js
 let arr = [1, 2, 3];
 arr.reverse(); // arr is now [3, 2, 1]
 ```
@@ -309,7 +309,7 @@ arr.reverse(); // arr is now [3, 2, 1]
 
 
 *  ### Function for Sum of 2 numbers with assertion test
-```
+```js
 // FUNCTION IMPLEMENTATION
 const sum = function (a, b) {
   return a + b;
@@ -330,7 +330,7 @@ console.assert(sum(1, 20) === 3); // bad / incorrect assertion, and we see it fa
 * Split
   - ```.split(/\s+/)``` divides string into an array, where each element corresponds to a part of the string that was separated by whitespace.
   - Example:
-```
+```js
   
     const trimmedName = "John Doe Smith";
 const nameParts = trimmedName.split(/\s+/);
@@ -341,7 +341,7 @@ console.log(nameParts); // ["John", "Doe", "Smith"]
 
   # Callbacks
   - A function we pass to another function as arguments
-```  
+```js  
 function greet(name, callback) {
     console.log(`Hello, ${name}!`);
     callback();
@@ -382,7 +382,7 @@ greet("Alice", sayGoodbye);
   - Behaviour: what the method does
   - ```this``` refers to the object that the method was called on
 
-```
+```js
   const myObj = {
   firstName: 'Lorem',
   lastName: 'Ipsum'
@@ -401,7 +401,7 @@ console.log(myObj['lastName']); // Ipsum
   - ```this``` works within context of object
   - ```this``` DOES NOT work with arrow functions
     - reference to the oject where ```this``` is used
-```
+```js
 const myObj = {
   firstName: 'Lorem',
   sayHello: function () {
@@ -413,7 +413,7 @@ myObj.sayHello(); // hello
 console.log(myObj); // { firstName: 'Lorem', sayHello: [Function: sayHello] }
 ```  
   - Reference other properties in an object by using 'this'
-```
+```js
 const myObj = {
   firstName: 'Lorem',
   lastName: 'Ipsum',
@@ -426,7 +426,7 @@ myObj.sayFullName(); // My full name is Lorem Ipsum
 ```
  - Object iteration with ```for...in```
     - Iterate through object's keys. CANT use ```for...of```
-```
+```js
 const obj = { a: 1, b: 2, c: 3 };
 
 for (const key in obj) {
@@ -456,7 +456,23 @@ for (const key in obj) {
     - Instead of deining multiple object literals with same methods and properties, a class is defined once, and instances created from the class will all share the same method implementation but can maintain different states.
     - The encapsulation of related data and behaviours within a class structure promotes modularity and makes code cleaner and easier to maintain ***
     - OO bundles together state and logic into an object that can be represented into a single variable 
-  - Getters:
+  - Getters: method that retrieves a property value
+```js
+  const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+};
+
+console.log(person.fullName); // Output: "John Doe"
+
+```
+
+
+
+
   - Setters:
 
 * ## Inheritance
@@ -481,22 +497,22 @@ for (const key in obj) {
 * ## Arrow Functions
   - Concise way to write functions
   - Annymous by nature
-```
+```js
  const add = (a, b) => {
     return a + b;
 };
 ```
-```
+```js
 const add = (a, b) => a + b; // Implicit return
 
 ```
-```
+```js
 const square = x => x * x; // No parentheses needed for single parameter
 ```
   - No binding of ```this```
     - Arrow functions dont have their own binding of ```this```
     - Useful for callbacks
-```
+```js
 function Counter() {
     this.count = 0;
 
@@ -540,7 +556,7 @@ const counter = new Counter(); // 1, 2, 3, ...
   - Key components:
     - Base Case: Condition that stops recursion. Without this, function calls itself indefinitely leading to stack overflow
     - Recursive Case: The function calls itsself with modified arguments that bring it closer to the base case 
-```
+```js
 function factorial(n) {
   // Base case: factorial of 0 is 1
   if (n === 0) {
@@ -561,7 +577,7 @@ console.log(factorial(5)); // Output: 120
   - Allow you to pass information to your Node.js scripts
   - ```.slice``` to take out parts of the array into a new object array
   - Example:
- ``` 
+ ```js 
   const args = process.argv.slice(2); //slice out first 2 command line arguments
 const sum = function(numbers) { //create function called sum
   let total = 0;
@@ -573,7 +589,7 @@ const sum = function(numbers) { //create function called sum
 console.log("Sum: ", sum(args));
 ```
 - Example 2, Tail: use slice to return everything exept first item (head) of array
-```
+```js
 const tail = function(array) {
   return array.slice(1);
 };
@@ -618,7 +634,7 @@ const tail = function(array) {
   - It's just: ```npm test```
   - Writing code that tests other code
 
-```
+```js
 // Example of a simple function
 function largestNumber(array) {
   return array.reduce((previousValue, currentValue) => {  
@@ -627,7 +643,7 @@ function largestNumber(array) {
 }
 
 ```
-```
+```js
 // Example of a test for that function
 const array = [1,2,3,4,5];
 const largest = largestNumber(array);
@@ -646,17 +662,18 @@ assert.equal(largest, 5);
     - Use ```.gitignore``` to ignore sensitive files
     - In JS file add
     - In test file use require
-```      
+```js      
       const assert = require('chai').assert;
       const app = require('../app');
 ```
-    describe/it statement in test file
+    
+  - describe/it statement in test file
       describe('App', function() {
         it('app should return hello', function () {
           assert.equal(app(), 'hello');
         });
       });
-  -    
+    
 
   - Chai
     - Assertion library
@@ -680,7 +697,7 @@ assert.equal(largest, 5);
 * # Asynchronus Control Flow
   - ## Callbacks
     - Functions passed as arguments to be executed once an operation completes
-```    
+```js    
 function fetchData(callback) {
     setTimeout(() => {
         callback("Data received");
@@ -694,7 +711,7 @@ fetchData((data) => {
 ```
 - # Promises
    - Objects that represent the eventual completion (or failure) of an asynchronus operation
-```
+```js
 const fetchData = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -709,7 +726,7 @@ fetchData().then((data) => {
 ```
   - Async/ Await
     - Syntax that allows you to write asynchronus code that looks synchronus, easier to read and maintain
-```
+```js
 const fetchData = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -727,7 +744,7 @@ getData();
 ```
   - ## Error Handling
    -  handling errors in asynchronus code done with ```.catch()``` for promises or try/catch blocks with async/await
-```
+```js
 const fetchData = () => {
     return new Promise((_, reject) => {
         setTimeout(() => {
