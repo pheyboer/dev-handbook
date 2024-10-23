@@ -10,6 +10,9 @@
     - https://github.com/andydlindsay/flex-sep23-2024/tree/main/m01w02-2
   * TDD 
   * Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
+  * Networking 
+    - Part 1: https://vimeo.com/1012900013/6c1c4c8c17
+    - Part 2: https://vimeo.com/1012899907/ee980ed2ae?share=copy 
   
 ## Test Topics
  - Test 1:
@@ -436,6 +439,15 @@ for (const key in obj) {
 ```
 
 * ## Object Oriented Programming
+  - Programming paradigm where we use objects to encapsulate data and behaviour
+    - these are properties of the object
+    - we do this to reduce duplicated code and to break up code into sensibly divided -
+    - OOP by itsself does not require the use of classes
+  - A class is a blueprint from which instances of objects can be created
+  - Classes have data in the form of calue properties and behaviour in the form of methods
+  - classes can inherit behaviour from other classes using the ```extends``` keyword
+  - Subclasses can override methods that are inherited in their superclass
+  - Javascript gives us ```get``` and ```set``` keywords to define methods that are data getters and setters 
   - OOP software development paradigm
   - popular way to solve code organization, re-use and modularity
   - Javascript is not strictly OO in the way that Java or Ruby are
@@ -469,11 +481,50 @@ for (const key in obj) {
 console.log(person.fullName); // Output: "John Doe"
 
 ```
+  - Setters: allows you to set a property value
+```js
+const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    set fullName(name) {
+        const parts = name.split(' ');
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    }
+};
 
+person.fullName = 'Jane Smith';
+console.log(person.firstName); // Output: "Jane"
+console.log(person.lastName);  // Output: "Smith"
+```
+- Full example:
+```js
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
 
+    set fullName(name) {
+        const parts = name.split(' ');
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    }
+}
 
-  - Setters:
+const person = new Person('John', 'Doe');
+console.log(person.fullName); // Output: "John Doe"
+person.fullName = 'Jane Smith';
+console.log(person.firstName); // Output: "Jane"
+```
+  - public vs private setters
+  - add information about super keyword
+  - Dependency Injection: passing an object the things  it needs rather than having the object access them itself. makes code more modular and testable
+  - Single Responsibility Principle - change in one part wont affect other unrelated parts of our app
 
 * ## Inheritance
   - Duplication problem
@@ -697,6 +748,25 @@ assert.equal(largest, 5);
 * # Asynchronus Control Flow
   - ## Callbacks
     - Functions passed as arguments to be executed once an operation completes
+    - Code modularity
+
+const forEach = (array, action) => {
+  for (const element of array) {
+    action(element)
+  }
+}
+
+const logThatElement = (element) => console.log(element);
+
+const logThatElementButFancy = (element) => console.log("🔥🔥" + element)
+
+const someArray = [1, 2, 3, 4, 5]
+
+forEach(someArray, logThatElement)
+
+
+
+
 ```js    
 function fetchData(callback) {
     setTimeout(() => {
@@ -709,8 +779,47 @@ fetchData((data) => {
 });
 
 ```
+
+
+
 - # Promises
+
+
    - Objects that represent the eventual completion (or failure) of an asynchronus operation
+   - Common use is when we want to run network requests to fetch data from APIs
+    - Use ```.then .catch .finally```
+
+
+```js
+const boilWater = () => {
+  return new Promise((resolve, reject) => {
+    if (Math.random() > 0.5) {
+      return resolve();
+    }
+    return reject("Oven Broke");
+  });
+};
+
+// boilWater()
+//   .then(() => console.log("water is boiling!"))
+//   .catch(() => console.log("The oven broke"));
+
+const putThePastaInWater = () => {
+  return new Promise ((resolve, reject) => {
+    if (Math.random() > 0.5) {
+      return resolve();
+    }
+    return reject("Pasta fell on floor");
+  });
+};
+
+boilWater()
+  .then(() => putThePastaInWater())
+  .then(() => console.log("Pasta boiling was success"))
+  .catch((error) => console.log(error));
+```
+
+
 ```js
 const fetchData = () => {
     return new Promise((resolve) => {
@@ -769,7 +878,7 @@ getData()
 ## Async control flow libraries
 - Libraries like ```async.js``` can provide additional control flow patterns like series, parallel, and waterfall for managing complex asynchronus workflows
 
-- Transposition:
+## Transposition:
   - Rearrange arrays
   - Eg: transform rows into columns in a matrix
   - 2D array (matrix) transposition would be converting rows to columns
@@ -782,6 +891,53 @@ getData()
       - Initalize empty array for each column in original matrix
       - Fill array with elements from original matrix 
 
+## Networking and TCP
+- Two or more computers communicate with each other
+- Transmission Control Protocol
+- MAC address: name
+  - 48 bits, 6 bytes long
+- IP address: telephone number
+
+## HTTP
+- URL: Uniform Resource Locator
+  - URL has: 
+  - Protocol
+  - Domain (or Host)
+  - Port
+  - Resource Path
+  - Query Parameters
+  - Anchor
+- 9 HTTP request methods, but we only need to consider 4
+  - ```get```: used to get data from the server
+  - ```post```: used to create new data
+  - ```put```: used for editing existing data on the server
+  - ```delete```: used to delete existing data
+- Status Codes:
+  - 200: Everything went great
+  - 201: Request succeeded and new resource has been created as result
+  - 404: Resource not found
+  - 500: The server had an error
+  - 451: Resource not available due to legal reasons
+- HTTP is request-response protocol where client makes requests and server sends responses
+- HTTP is a text based protocol
+- HTTP requests must contain verb/method(```get```) and the Path ```/about```
+- HTTP requests arent always to recieve data but sometimes to save data, done via a ```post``` instead of a ```get```
+- requests and responses both contrain key-value based headers
+- URL: Server uses path to determine which resource to access. Parameters add additional information about what the client is interested in
+- UDP: User Datagram Protocol
+  - Smaller header size (8 bytes) which results in smaller packet sizes
+  - Connectionless ie. there is no need to establish or maintain a connection
+  - No error recovery (any corrupted packets are discarded)
+  - Packets can arrive in any order
+  - Useful for streaming/low latency applications
+  - Example: Twitch
+- TCP: Transmission Control Protocol
+  - Larger header size (20 bytes)
+  - Requires a connection (3-way handshake)
+  - Corrupted packets are reported to the server and are re-sent
+  - Packets arrive in order
+  - Useful when guaranteed communication is needed
+  - reliable, safe. will resend if packages are missing
 
 
 
@@ -797,7 +953,6 @@ getData()
 
 
 
-* Promises
 * Object Manipulation
 * SQL
 * Algorithms
