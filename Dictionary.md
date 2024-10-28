@@ -13,6 +13,7 @@
   * Networking 
     - Part 1: https://vimeo.com/1012900013/6c1c4c8c17
     - Part 2: https://vimeo.com/1012899907/ee980ed2ae?share=copy 
+  * Promises https://vimeo.com/1023023372/115ef98d8a?share=copy
   
 ## Test Topics
  - Test 1:
@@ -34,7 +35,21 @@
   - Test 3:
     - Test 1 and 2 topics
 
-
+## Technical Interviews
+  - Ask clarifying questions
+    - What kind of values are there?
+    - How big is the size of the input?
+    - How is the input stored?
+  - Topics: First Interview
+    - JavaScript fundamentals
+    - Coding best practices and readability
+    - Async vs. Sync code execution
+    - Writing functions
+    - Using loops and objects
+ - Topics: Second Interview
+    - ERD
+    - Table relationships
+    - Using loops and objects
 ## Recipe
   - Clarify Question
   - Define Inputs
@@ -783,11 +798,164 @@ fetchData((data) => {
 
 
 - # Promises
+A promise represents the eventual result of an asynchronous operation. The primary way of interaction with a promise is through its then method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.
+
+A promise is an object
+Promises do not rely on anything other than basic JavaScript
+As of ES6, JavaScript has promises supported natively in its code. In other words, they are built into the language (via Promise)
+
+There's more to promises than just avoiding nested callbacks, such as:
+
+Error handling becomes much simpler with promises
+Promises make asynchronous code easier to unit test
+Promise.all (introduced by MPJ's video) can be used to run multiple async operations in parallel and have a single callback to see all the results together
+
+- There are four stages in creating Promises:
+
+  - Wrapping (syntax, or the Promise structure)
+
+  - Thening (when it works)
+
+  - Catching (recovery, when there's an error)
+
+  - Chaining (where you create long sequences of asynchronous work)
+
+- Four states of a Promise:
+
+  1. Fulfilled (it worked!)
+
+  2.  Rejected (failed)
+
+  3.  Pending (still waiting...)
+
+  4.  Settled (something happened)
+
+##
+
+- Objects that represent the eventual completion (or failure) of an asynchronus operation
+- Handles Asynchronus operations
+- Common use is when we want to run network requests to fetch data from APIs
+- Three states:
+  - Pending: initial state
+  - Fulfilled: operation completed successfully, promise has a resulting value
+  - Rejected: operation failed. Promise has reason for failure (error)
+- Promise needs two callback functions, one for success (resolve) and one for failure (reject).
+```js
+let myPromise = new Promise((resolve, reject) => {
+  // Asynchronous operation
+  let success = true; // Example condition
+
+  if (success) {
+    resolve("Operation was successful!");
+  } else {
+    reject("Operation failed.");
+  }
+});
+```
+  
+- Handle result of promise using ```.then()``` and ```.catch()```
+```js
+myPromise
+  .then(result => {
+    console.log(result); // "Operation was successful!"
+  })
+  .catch(error => {
+    console.log(error); // "Operation failed."
+  });
+```
+- Chaining Promises
+```js
+myPromise
+  .then(result => {
+    console.log(result);
+    return new Promise((resolve) => resolve("Next step!"));
+  })
+  .then(nextResult => {
+    console.log(nextResult); // "Next step!"
+  })
+  .catch(error => {
+    console.log(error);
+  });
+```
+- Promise.all: multiple promises in parallel
+
+```js
+Promise.all([promise1, promise2, promise3])
+  .then(results => {
+    console.log(results); // Array of results
+  })
+  .catch(error => {
+    console.log(error); // If any promise is rejected
+  });
+
+```
+- ```Promise.finally```: execute block of code after a promise has settled, regardless of whether it was fulfilled or rejected. The code inside ```.finally()``` will run no matter what
+
+```js
+let myPromise = new Promise((resolve, reject) => {
+  let success = true; // Change this to false to test rejection
+
+  if (success) {
+    resolve("Operation was successful!");
+  } else {
+    reject("Operation failed.");
+  }
+});
+
+myPromise
+  .then(result => {
+    console.log(result); // This runs if the promise is fulfilled
+  })
+  .catch(error => {
+    console.log(error); // This runs if the promise is rejected
+  })
+  .finally(() => {
+    console.log("Cleanup actions or final steps."); // This always runs
+  });
+
+```
+- ```Promise.all```: takes an array of promises and returns single promise that resolves when all of the promises in the array have resolved or array is empty
+  - if any promises reject, ```promise.all``` immediately rejects with the reason of the first promise is rejected
+
+```js
+let promise1 = Promise.resolve(3);
+let promise2 = 42; // Non-promise values are treated as resolved promises
+let promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.all([promise1, promise2, promise3])
+  .then(values => {
+    console.log(values); // [3, 42, 'foo']
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+```
+
+- ```Promise.any```: method that takes an iterable of Promise objects and returns single promise that resolves as soon as any of the other promises fulfills
+  - if not promises fulfill, returned promise is rejected with ```AggregateError``` (built in error type)
+
+```js
+let promise1 = Promise.reject('Error in promise1');
+let promise2 = Promise.reject('Error in promise2');
+let promise3 = new Promise((resolve) => {
+  setTimeout(resolve, 100, 'Success from promise3');
+});
+
+Promise.any([promise1, promise2, promise3])
+  .then(value => {
+    console.log(value); // "Success from promise3"
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
 
 
-   - Objects that represent the eventual completion (or failure) of an asynchronus operation
-   - Common use is when we want to run network requests to fetch data from APIs
-    - Use ```.then .catch .finally```
+- Use ```.then .catch .finally```
+- Explain .all .any .allsettled .race
 
 
 ```js
@@ -940,6 +1108,28 @@ getData()
   - reliable, safe. will resend if packages are missing
 - HTTP:
 - Needle:
+- JSON: a subset of JavaScript that allows string-representation of objects 
+  - A way to convert objects into text
+  - requires quotes around keys
+  - Built on two structures
+  - a collection of name/value pairs
+  - an ordered list of values
+  - Serialization: converts objects (or data structures) into a format that can be transmitted between computers (Object --> string)
+    - The opposite (string --> Object) is called deserialization
+  - ```JSON.parse()``` parse a string as JSON and return value
+    - optionally transform the produced value and its properties
+  - ```JSON.stringify()``` return JSON string of the value
+  - JSON is language independent 
+
+## APIs Application Programming Interface
+  - Allows systems to work together
+  - Sets of requirements that govern how one applicatoin can talk to another
+  - lets apps 'piggyback' on their offerings
+  - REST API: Representational State Transfer
+    - call from client to server and you get data back
+  
+## Promises
+  - there is a section for promises above - merge the 2 when understood
 
 
 
@@ -954,8 +1144,7 @@ getData()
 
 
 
-
-
+ ## 
 * Object Manipulation
 * SQL
 * Algorithms
