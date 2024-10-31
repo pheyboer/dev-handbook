@@ -64,6 +64,7 @@
       - Write out pseudocode for each step
 
 ## Example Technical Interview Question
+put example here from lecture
 
 
 
