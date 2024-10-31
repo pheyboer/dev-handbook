@@ -10,10 +10,15 @@
     - https://github.com/andydlindsay/flex-sep23-2024/tree/main/m01w02-2
   * TDD 
   * Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
-  * Networking 
+  * Networking and HTTP
     - Part 1: https://vimeo.com/1012900013/6c1c4c8c17
     - Part 2: https://vimeo.com/1012899907/ee980ed2ae?share=copy 
   * Promises https://vimeo.com/1023023372/115ef98d8a?share=copy
+    - My cohort: https://github.com/letsandeepio/2024-09-23-Sep-23-Flex/tree/main/w5-promises
+    - video : https://vimeo.com/1023314847/4fbf0205a6?share=copy
+  * Web Servers https://vimeo.com/960857186/ea63eff652
+    - code repo https://github.com/andydlindsay/flex-may13-2024/tree/main/m03w06-1
+
   
 ## Test Topics
  - Test 1:
@@ -58,6 +63,9 @@
   - Break code down into small steps - incremental solutions
       - Write out pseudocode for each step
 
+## Example Technical Interview Question
+
+
 
  ## VSCode Shortcuts
   https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
@@ -90,6 +98,10 @@
 
  ## Vim CheatSheet
  http://www.viemu.com/vi-vim-cheat-sheet.gif
+
+ ## HTML Cheatsheet
+ https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf
+
 
 
   ## Variables
@@ -1119,7 +1131,14 @@ getData()
   - ```JSON.parse()``` parse a string as JSON and return value
     - optionally transform the produced value and its properties
   - ```JSON.stringify()``` return JSON string of the value
-  - JSON is language independent 
+  - JSON is language independent
+- CRUD
+  - Create: ```post```
+  - Read: ```get```
+  - Update: ```put```
+  - Delete: ```delete```
+  - when we send a safe request to read some information (safe as in a request that should have no side effects on the server), we should use the ```GET``` method. When we send a request to create a resource we should use POST. When we update a resource in an idempotent way we should use ```PUT```, otherwise when updating in a non-idempotent way we should use ```POST```. If we are requesting to delete a resource, we should use ```DELETE```.
+  - Instead of PUT and DELETE, we will use POST.
 
 ## APIs Application Programming Interface
   - Allows systems to work together
@@ -1128,14 +1147,38 @@ getData()
   - REST API: Representational State Transfer
     - call from client to server and you get data back
   
-## Promises
-  - there is a section for promises above - merge the 2 when understood
+## HTML
+  - <link> used to attach a stylesheet
+  - <div> generic division element container for flow content
+  - <ol> for ordered list
+  - <font> not valid in HTML5 - use CSS
 
+## CSS Cascading Style Sheets
+  ```html- Inline <p style=""> 
+  - internal (within head) <style></style> 
+  - external - new file (style.css)
+    - <link rel="stylesheet" href="style.css">
+    - add id and class to <p>
+```
 
-
-
-
-
+## Webservers
+  - create server
+ - Express: routing and middlewear framework for building web servers. put express documentation link
+ - request response
+ - .get (order matters) .send
+ - res.send
+ - params: allows us to interchange information inside of URL. (req.params)
+  - no limiti to how many params we have 
+ - handle dynamic paths by setting up an object
+  - reference object to retrieve information
+  - dynamic routing
+- EJS javascript into html
+  - set view engine
+  - app.set("view engine", 'ejs')
+  - make new folder called 'views'
+  - extension: .ejs
+  - res.render
+- middlewear: most helpful is MORGAN(put in dev mode) - good for debugging 
 
 
 
