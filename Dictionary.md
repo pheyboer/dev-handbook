@@ -139,6 +139,7 @@
     - time between the beginning of a block of scope (function OR let/const declaration) and actual declaration of the variable within that block
     - let and const: initial value: uninitialized
     - function expression and arrows: let or const, not useable before declared (TDZ)
+    - never use arrow function with a method
 
 ## ```this``` variable
   - special variable created for every function
@@ -441,8 +442,10 @@ greet("Alice", sayGoodbye);
   - function that doesnt have a return: it will be undefined
   - Primitive types dont have properties
   - Primitive types have corresponding Objects
-  
-
+  - Objects are called REFERENCE TYPES
+  - primitives stored in call stack
+  - variables hold memory address
+  - 
 
 ## Objects
   - Key/value pairs
