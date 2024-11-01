@@ -1,5 +1,7 @@
 # Dictionary of Terms and Notes
 
+# Tech Interview Thursday November 7, 6pm
+
 ### Odin Project
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
@@ -18,6 +20,9 @@
     - video : https://vimeo.com/1023314847/4fbf0205a6?share=copy
   * Web Servers https://vimeo.com/960857186/ea63eff652
     - code repo https://github.com/andydlindsay/flex-may13-2024/tree/main/m03w06-1
+  * CRUD: https://github.com/letsandeepio/2024-09-23-Sep-23-Flex/tree/main/w6-CRUD_with_express
+    - https://docs.google.com/presentation/d/1AEk4UVsEeggDgSzO0vKO2caWPAtDqwr-4t7vw7-GKFY/edit#slide=id.p
+
 
   
 ## Test Topics
@@ -64,17 +69,16 @@
       - Write out pseudocode for each step
 
 ## Example Technical Interview Question
-put example here from lecture
+  - video: https://vimeo.com/1024956107/7ec592c4a7?share=copy
+  - example: https://github.com/jatanassian/flex-september-2024/tree/main/breakout_tech-interview
 
-
-
- ## VSCode Shortcuts
+## VSCode Shortcuts
   https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 
- ## Git Shortcuts
+## Git Shortcuts
   https://education.github.com/git-cheat-sheet-education.pdf
 
- ## Git Cloning and Commiting
+## Git Cloning and Commiting
   - Go to directory
   - ```git init``` to create new git repository
   - Make sure git is initalized (be careful for nested Git Repositories)
@@ -91,32 +95,71 @@ put example here from lecture
   - Get token from Compass
   - ```npm run start-exam [exam token]```
 
- ## Markdown shortcuts
+## Markdown shortcuts
  https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
- ## Javascript Cheatsheet
+## Javascript Cheatsheet
  https://htmlcheatsheet.com/js/
 
- ## Vim CheatSheet
+## Vim CheatSheet
  http://www.viemu.com/vi-vim-cheat-sheet.gif
 
- ## HTML Cheatsheet
+## HTML Cheatsheet
  https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf
 
 
-
-  ## Variables
+## Variables
   - var - function scoped or globally scoped
   - let - block scoped (inside loop or conditionals)
   - const - block scoped
 
- ## Terms
-   ## Scoping
-  - Global - variable declared outside any function or block. Accessible anywhere
-  - Function - variables declared within a function are scoped to that function. Accessible only within function
-  - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
+## Terms
+   ### Scoping
+   - Scoping: How variables are organized and accessed
+   - Scope: space or environment in where a variable is declared
+   - Lexical scoping: controlled by placement of functions and blocks in the code
+    - Global - variable declared outside any function or block. Accessible anywhere
+    - Function - variables declared within a function are scoped to that function. Accessible only within function (local scope)
+    - Block - variable confined to the block {} in which they are declared such as within 'it' or 'for'. Accessible within block
+      - let and const block scoped
+      - functions are blocked scoped when in strict mode
 
-  - ## Pseudocode 
+  - ```var``` : block scopes dont apply. function scoped
+  - Scope chain (order in which functions are written in the code) VS Call stack (order in which functions are called)
+    - scope chain has nothing to do with order in which functions are called
+    - scope chain is a one way street. a scope will never have access to variables of an inner scope (can only look up not down)
+
+  - You can have repeated variable names if they are not in the same scope
+  - can have different functions with same parameter names
+
+### Hoisting
+  - move variable and function declarations to the top of their scope during compile phase
+    - Variable accessible/usable in code before declared
+  - Temporal dead zone (TDZ):
+    - time between the beginning of a block of scope (function OR let/const declaration) and actual declaration of the variable within that block
+    - let and const: initial value: uninitialized
+    - function expression and arrows: let or const, not useable before declared (TDZ)
+
+## ```this``` variable
+  - special variable created for every function
+  - takes the value of the owner of the function
+  - points to the owner of the function
+  - method - has ```this``` property
+  - simple function call (undefined)
+    - strict mode can use
+  - arrow functions: dont have own ```this``` keyword (parent function)
+  - ```this``` does not point to the function itself
+
+## Strict Mode
+  - to enable: at top of page write ```"use strict"```
+  - eliminates silent errors (assign a value to undeclared variable with throw error)
+  - disallows duplicate Parameters
+  - prevents ```this``` from defaulting
+  - disallows certain syntax (reserved words)
+  - throws error for invalid useage
+  - no ```with``` statements
+
+## Pseudocode 
 ```js    
 Loop from 100 to 200:
   Let num = the current step in the loop
@@ -138,7 +181,7 @@ End loop
     return a + b + c; }
 ```
 
- # Object Iteration
+# Object Iteration
  - Properties rea Key-Value pairs associated with an Object
 ```js
 const person = {
@@ -339,7 +382,7 @@ arr.reverse(); // arr is now [3, 2, 1]
 
 
 
-*  ### Function for Sum of 2 numbers with assertion test
+### Function for Sum of 2 numbers with assertion test
 ```js
 // FUNCTION IMPLEMENTATION
 const sum = function (a, b) {
@@ -370,7 +413,7 @@ console.log(nameParts); // ["John", "Doe", "Smith"]
 ```
 
 
-  # Callbacks
+# Callbacks
   - A function we pass to another function as arguments
 ```js  
 function greet(name, callback) {
@@ -1140,6 +1183,15 @@ getData()
   - Delete: ```delete```
   - when we send a safe request to read some information (safe as in a request that should have no side effects on the server), we should use the ```GET``` method. When we send a request to create a resource we should use POST. When we update a resource in an idempotent way we should use ```PUT```, otherwise when updating in a non-idempotent way we should use ```POST```. If we are requesting to delete a resource, we should use ```DELETE```.
   - Instead of PUT and DELETE, we will use POST.
+  - app.listen to start
+
+  - using nodemon, ejs and express for projects
+  - separate html
+  - ejs (views folder) - .ejs file (html templating) -- render the template res.render
+  - body parser middlewear
+  - morgan middlewear
+  - view engine .set (ejs)
+  - middlewear .use (morgan body parser)
 
 ## APIs Application Programming Interface
   - Allows systems to work together
@@ -1180,6 +1232,8 @@ getData()
   - extension: .ejs
   - res.render
 - middlewear: most helpful is MORGAN(put in dev mode) - good for debugging 
+-Post data params req .params.id
+qwury string params
 
 
 
