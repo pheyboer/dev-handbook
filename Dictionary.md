@@ -445,7 +445,8 @@ greet("Alice", sayGoodbye);
   - Objects are called REFERENCE TYPES
   - primitives stored in call stack
   - variables hold memory address
-  - 
+  - objects stored in heap
+  - const is immutable: only true for primitive values but not reference values
 
 ## Objects
   - Key/value pairs
