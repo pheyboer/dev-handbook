@@ -824,7 +824,7 @@ assert.equal(largest, 5);
   - ## Callbacks
     - Functions passed as arguments to be executed once an operation completes
     - Code modularity
-
+```js
 const forEach = (array, action) => {
   for (const element of array) {
     action(element)
@@ -839,7 +839,7 @@ const someArray = [1, 2, 3, 4, 5]
 
 forEach(someArray, logThatElement)
 
-
+```
 
 
 ```js    
