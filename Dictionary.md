@@ -1,9 +1,12 @@
 # Dictionary of Terms and Notes
 
-# Tech Interview Thursday November 7, 6pm
+# Tech Interview
 
 ### Odin Project
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
+
+### UDEMY
+  - https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22628657#overview
 
 ## Lecture Notes
   * Objects  https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
@@ -22,6 +25,11 @@
     - code repo https://github.com/andydlindsay/flex-may13-2024/tree/main/m03w06-1
   * CRUD: https://github.com/letsandeepio/2024-09-23-Sep-23-Flex/tree/main/w6-CRUD_with_express
     - https://docs.google.com/presentation/d/1AEk4UVsEeggDgSzO0vKO2caWPAtDqwr-4t7vw7-GKFY/edit#slide=id.p
+  * CSS
+    - lecture notes here good css info and example pikachu
+    - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m3w8
+  * DOM and JQUERY
+    - https://github.com/letsandeepio/2024-09-23-Sep-23-Flex/tree/main/w8-client-side-javascript-jquery
 
 
   
@@ -44,6 +52,8 @@
     - Callbacks
   - Test 3:
     - Test 1 and 2 topics
+    - The test consists of 5 questions, primarily centered around general JavaScript (not Express or the browser-related topics we've covered recently). You can expect to engage with arrays, objects, algorithms, and recursive functions, with a strong emphasis on logical reasoning.
+    - Review: Intro to Async, Music Library, Week 3, Array and object manipulation, Callbacks
 
 ## Technical Interviews
   - Ask clarifying questions
@@ -114,7 +124,11 @@
   - const - block scoped
 
 ## Terms
-   ### Scoping
+  ### Node.js
+    - Javascript runtime built on CHrome's V8 Javascript engine
+    - Core API provides EventEmitter class that is the basis for event driven patterns
+
+  ### Scoping
    - Scoping: How variables are organized and accessed
    - Scope: space or environment in where a variable is declared
    - Lexical scoping: controlled by placement of functions and blocks in the code
@@ -1239,14 +1253,263 @@ getData()
 -Post data params req .params.id
 qwury string params
 
+## Security and HTTP
+  - Encryption vs Hashing:
+    - 
+  - dont store passwords as plain text - hash
+  - cookies - use key and encrypt
+  - dont use http use https so there is no man in the middle
+
+  - bcrypt.js to hash passwords (npm i bcrypt) (npm i bcyptjs)
+  - import bcrypt at top
+  - function to save plain text password to database
+   - before you save password to database: hash the password before save
+    - const hashedPassword = 
+    - use a salt to pass
+    - salt: value provided to hashing function that will ensure different hash every time
+
+benefit of hashing: one way process. cant get it back vs encrptying password
+hashSync then compareSync
+compareSync test string against hash
+
+cookie parser saves cookies as plain text files - not good
+protect login and logout routes with cookies 
+encrypt cookies with 3rd party library (npm i cookie-session)
+
+dont need cookie parser in project (tinyapp) should take it out says sandeep
+
+to start using cookie session: app.use (middlewear) call cookie session
+import cookie session object
+use it
+give it name
+and keys
+to set: req.session.email 
+clear cookie: set to null
+grab from req.session object
+clear encrypted cookie
+
+bcrypt - require it from bcrryptjs
+
+to make sure targets are always encrypted tarket route: / register req should be hashed
+when you save password: you should hash it
+method to hash: hashsync ------bcrypt.hashsync(password, salt)
+generate salt in global scope
+create variable salt const salt = genSaltSync()
+use hashedPassword instead of real password
+before saving passwords we are hashing them
+problem: old passwords still saved as plain text
+
+compareSync - compare plainstring password to hashed value
+
+### REST API (Restful API conventions)
+  - representational state transfer
+  - set of conventions, to ensure conventions are same between projects and developers
+  - use http verbs to express what the request wants to accomplish
+  - advantages: be able to explain this
+  representation: represent information as JSON, XML, HTML
+  cookie to keep track of which user
+  server doesnt keep track
+  stateless architecture
+  transfer: transfer of information
+
+  what happens if you dont follow REST conventions:
+  
+  7 http verbs
+  - set of conventions that deals with accessing and manipulating resources over HTTP
+  - GitHub API is RESTful, can be used to manage resources which can be accessed using an API endpoint (URL)
+  - BREAD: Browse, Read, Edit, Add, Delete
+  - A resource in REST is an abstraction for a document or image, or temporal service
+
+## Stack
+  - Collection of technologies used in a given system
+  - Project we work on has stack
+    - Web server: Node.js
+    - Middleware: Express
+    - Template Engine EJS
+    - Database: none, just an in memory object
+    - could also include: Hoisting/Infrastructure: Railway.app
+  - Full stack: back end and front end
+    - back end: server side technologies like web servers (Node.js), databases
+    - front end: what a user sees and interacts with such as html/css/javascript and everything on client side (in the browser)
+
+## CSS Cascading Style Sheet
+  - specifies a pages appearance
+  - Made of static rules: each rule takes selectors and gives specific values to a number of visual properties
+    - properties applied to page elements indicated by SELECTOR
+  - Precedence or Cascade
+    - rules with more specific selector take precedence over a less specific one
+    - a rule occurring later in the stylesheet overwrites a previous one
+    - Precedence is for each property, not the entire block
+  - Precedence Rules:
+    - E Highest
+    - F inline style
+    - A: 3 specifiers: name of the element (p), its class (class1), and attribute (attr='value')
+    - C: same specificity as B but appears after
+    - B
+    - D
+    - ID has highest priority
+    - inline style overwrites any styles in external stylesheets
+    - !important overrides other declarations and is bad practice
+    - Hex code colors: example: #FF0000 is red
+    - ```ID``` used to identify unique elements on page
+    - ```class```es are used to identify elements of the same type
+    - element can only have 1 id but many classes
+    - Classes imply stylistic or behavioural properties about an element
+    - classes should be used more than ID
+    - ID used when you have a unique element that behaves differently
+      - also used when you need to reference them from the URL
+      - IDs can work faster when targeting elements by ID
+      - ID is unique identifier only used once on page
+    - Use neither classes nor ID unless necessary
+    - class identifier of element and can be used multiple times per day
+  - FlexBox: layout module to adapt to different screen sizes and displays
+    - ```diplay: flex``` add to parent property
+      - also referred to as container element
+      - flex direction defines direction
+      - Child properties:
+```js
+  Given the CSS selectors below, which one would have the highest specificity and why?
+
+p {
+  color: green;
+}
+
+.text-primary {
+  color: blue;
+}
+
+#header p {
+  color: red;
+}
+```
+  Specificity Calculation:
+  Selector: p
+
+  It targets all ```<p>``` elements.
+  Specificity: (0, 0, 1, 0)
+  0 ID selectors
+  0 class selectors
+  1 type (element) selector (p)
+  0 inline styles
+
+  Selector: ```.text-primary```:
+    - It targets any element with the class text-primary.
+    Specificity: (0, 1, 0, 0)
+    0 ID selectors
+    1 class selector (.text-primary)
+    0 type (element) selectors
+    0 inline styles
+
+  Selector: ```#header p```:
+  It targets all ```<p>``` elements inside an element with the ID header.
+  Specificity: (1, 0, 1, 0)
+  1 ID selector (#header)
+  0 class selectors
+  1 type (element) selector (p)
+  0 inline styles
+  Highest Specificity:
+  #header p has a specificity score of (1, 0, 1, 0), which is the highest among the three selectors.
+  The reasoning behind this is that it contains an ID selector (#header), which has the highest weight in specificity. It also has one type (element) selector (p).
+
+  - Box Model:
+    - How elements are displayed and sized on a webpage
+    - Content:
+    - Padding:
+    - Border:
+    - Margin:
+    - Order surrounding HTML: padding, border, margin
+
+## Semantic HTML
+  - helpful structured HTML
+  - non semantic not helpful structure
+  - ```<article>``` splits page up into different sections
+  - ```<section>```
+
+## Normalize.css
+  - Can use necolas in midterm project. renders page across different browsers
+  - normalize.css
+  - 
+
+# DOM - Document Object Model
+  - DOM Events occur on a web page as a user moves their mouse, clicks, double-clicks, scrolls, presses a key, releases a key, etc
+  - Event driven architecture
+    - when x happens do y
+    - x is event. y is event handler
+    - x is click of button. handler y turns on lightbulb
+    - server running node.js: incoming request event. callback function handles the event(and could give response)
+  - DevTools
+  - Javascript manipulates the DOM
 
 
+  - BOM: window screen document
+  - DOM organized in a tree (DOM elements nested within other elements)
+    - client side
+    - events like onClick, onFocus, onLoad
+    - Events that affect child element bubble up through its parents
+      - event propogation
+      - stop event propogation with stopPropogation()
+    - BUBBLING
+      - most events bubble (focus does not)
+      - to stop mutliple alerts while maintaining button functionality by using event.stopPropogation() method
 
+```js
+button.onclick = function(event) {
+  event.stopPropogation();
+};
+```
+  - ensures that after the button's specific actions are executed, the event does not travel up the DOM tree and trigger any parent handlers. This effectively prevents multiple alerts due to event bubbling
+  - when an element is clicked CAPTURING happens first then BUBBLING
+  - When you set event it is handled during bubbling phase
+  - event.stopPropogation() stops an event from triggering subsequent handleres
 
+  - DOM traversal if you have parent grab the child
+    
+  - DOM event Object:
+    - contains properties that provide detials about the event
+    - basic, mouse, keyboard, focus, touch, event, event handling,
+    -  isTrusted, altKey, bubbles, button, buttons, cancelBubble, cancelable, clientX, clientY, composed, ctrlKey, currentTarget, defaultPrevented, detail, eventPhase, fromElement, layerX, layerY, metaKey, movementX, movementY, offsetX, offsetY, pageX, pageY, relatedTarget, returnValue, screenX, screenY, shiftKey, sourceCapabilities, srcElement, target, timeStamp, toElement, type, view, which, x, y.
+  - ```keypress``` event triggered only for characters
+    - event is fired when a key that produces a printable character is pressed down
+  - ```keydown``` shift is example. not a character producing key
+    - event is fired when ANY/ALL key is pressed. event is fired before the character is actually inserted
+  - Example: capitol leter 'A' (hold down shift then press a)
+    - keydown: first shift triggers keydown and then will trigger its own keydown event
+    - keypress: after a is pressed, the keypress event will first because a is character producing
+    - keyup: finally when keys are released keyup event triggered in the reverse order
+  - Webform action: specifies endpoint where the form makes a submission request
+  - login form is typically post
+  - search form submission typically use get
+  - cancel button to go back: use ```<a>``` element
 
+## JQUERY 
+  - library to demonstrate client side events
+  - helps with dom manipulation
+  - concise - cleaner API
+    - wraps native functions with cleaner API
+  - animations
+  - cross browser support - fixes browser compatibility issues
+    - $(window).width()
+  - EVENTS in JQUERY
+    - listen for events
+  - JQUERY helper function is simplified and easier to use
+    - $(window).width() abstracts the differences in how browsers implement features
+    - consistent and reliable way to get information like the viewport width across all browsers
 
+## Javscript in HTML
+  - if at the end of the body will load the rest of the page first
+  - if you put it at the top it will block rest of the page 
+  - link to script in head ```<script src="></script>```
+  - HTML that you write is parsed by the browser and turned into the DOM
+- To do list 
+    - 
 
- ## 
+    how do you ensure javascript is running after you load page - put it at the end of the body interview question
+    DOM traversal interview question
+
+    $(document).ready(function() {}) - run jquery code inside of this*** very important
+    - create jquery element 
+
+## 
 * Object Manipulation
 * SQL
 * Algorithms
