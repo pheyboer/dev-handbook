@@ -30,6 +30,12 @@
     - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m3w8
   * DOM and JQUERY
     - https://github.com/letsandeepio/2024-09-23-Sep-23-Flex/tree/main/w8-client-side-javascript-jquery
+  * AJAX
+    - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m3w9/AJAXLecture
+  * SQL
+    - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/220/lectures/15297?workbook_id=web-flex-v2-m05w11 
+    - PostgreSQL peterheyboer pass lighthouse
+    
 
 
   
@@ -54,6 +60,9 @@
     - Test 1 and 2 topics
     - The test consists of 5 questions, primarily centered around general JavaScript (not Express or the browser-related topics we've covered recently). You can expect to engage with arrays, objects, algorithms, and recursive functions, with a strong emphasis on logical reasoning.
     - Review: Intro to Async, Music Library, Week 3, Array and object manipulation, Callbacks
+    
+  ## For testing use node version 10 (nvm use 10) regularly use node version 20 (nvm use 20)
+
 
 ## Technical Interviews
   - Ask clarifying questions
@@ -117,6 +126,9 @@
 ## HTML Cheatsheet
  https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf
 
+## Crow foot notation cheet sheet
+  https://www.vivekmchawla.com/erd-crows-foot-relationship-symbols-cheat-sheet/ 
+
 
 ## Variables
   - var - function scoped or globally scoped
@@ -145,6 +157,17 @@
 
   - You can have repeated variable names if they are not in the same scope
   - can have different functions with same parameter names
+
+
+
+## Dot Notation and Bracket Notation
+  - 2 ways to access or modify the properties of objects
+  - Dot notation:
+    - access or set properties on object
+  - Bracket Notation:
+    -  can use any string, character, or number as property names
+    - 
+
 
 ### Hoisting
   - move variable and function declarations to the top of their scope during compile phase
@@ -629,6 +652,7 @@ console.log(person.firstName); // Output: "Jane"
 
 * ## Data Structures
 * ## Dot Syntax
+* ## fs readfile
 
 
 * ## Function
@@ -1480,6 +1504,7 @@ button.onclick = function(event) {
   - login form is typically post
   - search form submission typically use get
   - cancel button to go back: use ```<a>``` element
+  - URL encoded is the default content type for web form submissions
 
 ## JQUERY 
   - library to demonstrate client side events
@@ -1495,6 +1520,71 @@ button.onclick = function(event) {
     - $(window).width() abstracts the differences in how browsers implement features
     - consistent and reliable way to get information like the viewport width across all browsers
 
+## AJAX 
+  - Asynchronous JavaScript and XML
+  - passed to a JavaScript function
+  - JavaScript will modify the DOM to reflect the response from the server
+  - use a JavaScript function to make an HTTP request to the server for the latest weather data. This function could be triggered to run every minute using setInterval(). Once the data is received, another JavaScript function would update the DOM with the new weather data, thus refreshing the displayed information without needing to reload the entire page.
+  - improving user experience by keeping the page responsive, increasing efficiency by only requesting and updating necessary data, and reducing server load since the entire page isn't being reloaded.
+
+- AJAX LECTURE
+  - Server side rendering: EJS (tinyApp)
+    - data, fetches all done via server
+  - Client side rendering: Tweeter
+    - client being the users device (smartphone, computer)
+  - server side rendering - another computer 
+  - old reddit vs new reddit example (uses ajax call)
+    - allows for async calls for information
+    - content on page doesnt change
+  - downsides to csr/ajax: all relies on users machine
+  - ssr everyone has same experience
+  - fetch uses ajax (ISS project)
+  - vanilla version: XMLHTTPRequest -> XHR
+    - now we are using fetch to make async calls
+  - use fetch to get info from API (takes 1 argument)
+    - its a promise so you can use .then()
+    - parse JSON
+  - API usually replies in JSON
+  - document.querySelector
+  - addEventListener
+  - document.addEventListener('DOM content loaded')
+  - $(document).ready (AJAX) is the same thing nad less to type
+    - write functions inside
+  - can disable button after fetch has been made
+    - searchButton.disabled = true
+    - talked about nodes and parents ```<h2>``` if you put text in middle it is considered child and h2 will be parent. created a node 
+    - can redo everything with JQUERY
+    - import CDN
+      - JQUERY second one on cdn not min (it doesnt have ajax)
+      - class '.'
+      - id '#'\
+  - create element in list ```$(`<li>`)```
+  - fetch(vanilla) api vs ajax call(JQUERY)
+    - get and post
+    - only key that is needed for ajax request is URL
+      - dont have to parse with JQUERY
+    - other 2 keys are success and error (dont need .then()) - error is like .catch()
+      - incorporate everything into success key
+    - JQUERY.ajax (also axios that i can learn later on)
+    - shorthand AJAX
+      - ```$.get(URL)``` or .post
+        - takes .then() because it is a promise
+    - by default forms refresh page - use preventDefualt ( at the begining of form)
+
+    - ajax post
+    - form request to server different than ajax form
+    - CORS cross scripting policy
+      - servers have this by default
+      - enable CORS - require cors
+        - so you can take requests
+        - cors is only private serer
+
+    - for tweeter get request at top of document.ready
+    - 2 get requests in Bryans to do example one at top one later on
+    - to delete something use app.post (lighthouse labs)
+    - axios has delete
+
+
 ## Javscript in HTML
   - if at the end of the body will load the rest of the page first
   - if you put it at the top it will block rest of the page 
@@ -1509,6 +1599,264 @@ button.onclick = function(event) {
     $(document).ready(function() {}) - run jquery code inside of this*** very important
     - create jquery element 
 
+## Responsive Design
+  - how webpages look across different devices
+  - overflow pattern: keep links on one line but truncate the list at edge of screen. swipe horizontally to reveal hidden links, but they arent immidiately visible
+    - scales to any device but users might miss links that arent visible
+  - progressive disclosure: navigation hidden by default and provide toggle mechanism for users to show and hide content.
+    - make sure button is labeled
+  - Carousels: common method of hiding away content
+    - better at solving organizational problems
+    - prevents a page from getting too long and cluttered
+    - hybrid approach: show content in carousel for small screens. display some content in a grid for larger screens.
+    - for narrow screens display items in a row using flexbox
+      - the row of items extends beyond the edge of the screen
+        - use ```overflow-x: auto``` to allow horizontal swiping
+    - ```scroll-snap``` feature ensures items swipe feels smooth
+    - ```scroll-snap-type: inline mandatory``` snaps items into place
+    - when the screen is large enough (wider than 50em) switch to grid and display items in rows and columns without hiding anything
+  - Disable Viewport: should be on every webpage in the ```<head>``` area
+```<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />```
+  - easier to expand content then cut
+  - viewport is area of browser
+  - percentages are relative to parent
+  - SASS extension (superset) - make css easier
+  - superset is typescript in javascript
+  - can create variable names in SASS file
+
+# Algorithms
+  - set of instructions for accomplishing a specific task
+  - steps you take to accomplish something is an algorithm
+  - measure speed of algorithm by counting the number of ELEMENTARY OPERATIONS
+    - ex: let number = 0; number += 2; console.log(number)
+    - if an algorithm performs n operators we say the running time is n
+  - Elementary operations: operation that takes fixed amount of time to perform
+  - most are 1 or n
+  - i < array.length; // n + 1 
+
+```js
+let result = 0; // 1
+
+for (
+  let i = 0; // 1
+  i < array.length; // n + 1
+  i++ // n
+) {
+  let number = array[i]; // n
+  result += number; // n
+}
+
+console.log(result); // 1
+
+```
+  -  running time of the entire algorithm 3 + (n * 3) + n + 1 which can be simplified to 4 + (n * 4). A more conventional way to write this math expression is 4n + 4.
+  - Time complexity is often referred to as running time
+  - Algorithms that don't deal with dynamic data, like loops, usually take constant time (no n involved)
+  - Algorithms that iterate over data, involve using n based on the size of the data
+  - time complexity is linear, or O(n).
+- Examples:
+  - constant time complexity parts are:
+    - let total = 0; This is an elementary operation and takes a fixed amount of time.
+    - console.log(total); This is also an elementary operation and takes a fixed amount of time.
+  - linear time complexity part:
+    - for (let i = 0; i < array.length; i++) { total += array[i]; } This part of the code iterates over the array, and the number of iterations depends on the size of the array (n). Each iteration involves an elementary operation (total += array[i];), making this part of the code linear in time complexity.
+  - linear loop depends on n. constants elementary operations
+  - i++ and console.log count as n
+  - i < array.length is n +1
+  - i = 0, counts as 1
+
+```js
+// 1. Array initialization: (1 operation)
+const array = [1, 2, 3, 4, 5];  // O(1), array initialization
+
+// 2. Variable initialization: (1 operation)
+let largest = 0;  // O(1), initializing 'largest' variable
+
+// 3. Loop setup: 
+//    - Loop setup and first condition check take 1 operation
+//    - The loop runs 'n' times, where 'n' is array.length, and each iteration involves:
+for (let i = 0; i < array.length; i++) {  // O(n) - Loop runs n times
+  // 4. Inside the loop body (each iteration of the loop):
+  
+  // 4.1 Array access: (1 operation per iteration)
+  const element = array[i];  // O(1), accessing the element at index i
+  
+  // 4.2 Comparison: (1 operation per iteration)
+  if (element > largest) {  // O(1), comparing element with 'largest'
+  
+    // 4.3 Assignment: (1 operation per iteration, happens only if condition is true)
+    largest = element;  // O(1), updating 'largest' value if condition is true
+  }
+}
+// End of loop. 5n + 4 is the answer
+```
+  - Binary Search: algorithm used to search for something in a set of ordered data
+    - halving approach
+    - efficient for finding an item from a sorted list of items. repeatedly divides the portion in half
+    - most common way: find an item in an array
+    - main idea is to keep track of the current range of reasonable guesses
+  - Binary search guessing game (english):
+    - step-by-step description of using binary search to play the guessing game:
+    - Let min = 1  and max = n.
+    - Guess the average of max and min, rounded down so that it is an integer.
+    - If you guessed the number, stop. You found it!
+    - If the guess was too low, set min to be one larger than the guess.
+    - If the guess was too high, set max to be one smaller than the guess.
+    - Go back to step two.
+  - Prime search game Binary search
+    - Let min = 0 and max = n-1.
+    - Compute guess as the average of max and min, rounded down (so that it is an integer).
+    - If array[guess] equals target, then stop. You found it! Return guess.
+    - If the guess was too low, that is, array[guess] < target, then set min = guess + 1.
+    - Otherwise, the guess was too high. Set max = guess - 1.
+    - Go back to step 2.
+  - Binary search: in an array of a million would require only about 20 comparisons. linear up to 1 million
+  - algorithm input size doubles: time complexity O(log n)
+
+  - Difference between linear and quadratic time
+
+  ```js
+  function arrayContainsSum(array, sum) {
+
+  for (
+    let i = 0; // 1
+    i < array.length; // n + 1
+    i++ // n
+    ) {
+    const element1 = array[i]; // n
+
+    for (
+      let ii = 0; // n
+      ii < array.length; //n + n^2
+      ii++ // n^2
+      ) {
+
+      const element2 = array[ii]; // n^2
+
+      if (element1 + element2 === sum) { // n^2
+        return true;
+      }
+    }
+  }
+  return false; // 1
+  }
+  // Add all the operations together to get a running time of 3 + 5n + 4n^2
+  ```
+  - n^2 causes high growth curve. avoid with nested for loops
+  ```js
+  for (let i = 0; i < array.length; i++) {
+    console.log(array[i]); // n
+  }
+  ```
+  - nesting of loops adds many extra operations to an algorithm 
+  - linear faster than quadratic
+
+  - Quadratic algorithms have a much slower running time than linear algorithms
+    - can be created by nesting loops. common when comparing every item in an array to every other item in that array
+  - Separate arrays run in a * b times
+
+## Big O Notation
+  - official way to determine efficiency of algorithms
+  - written as ```o()``` 
+    - describes how the number of steps in algo scales relative to its input
+    - does the algo grow linearly, exponentially, or logarithmically?
+
+  - 3 main criteria:
+    - only care about arbitrarily large input
+      - Big O notation focuses on how an algorithm performs when it's given arbitrarily large input.
+    - drop the non dominant terms
+      - only care about mentioning the highest order term ```O(n^4)```
+    - drop constant terms
+      - Big O notation is used to describe how an algorithm's complexity grows relative to its input. It is not used to describe the exact running time of an algorithm.
+      - when an algorithm grows lineraly it is said to have O(n) complexity
+  - Examples:
+    - 2n + 3 will grow linearly, O(n)
+    - 100n^2 will grow exponentially, O(n^2)
+    - log n + 1000000000 will grow logarithmically, O(log n)
+
+  - More examples:
+    - Constant O(1) - always takes the same amount of time ```array[2];``` no matter how big array is ```array[2] + array[3] + array[4];```
+    - Linear O(n) - operations grow lineraly relative to its input
+      - summing every number in an array is an example
+    - Quadratic O(n^2) - operations directly proportional to the square of the size of the input
+      - find all duplicates in array, first unique number in array
+    - Logarithmic O(log n) - operations directly proportional to the logarithm of the size of the input
+
+  - as the input size n grows larger, constants and non-dominant terms become insignificant. In the expression 1000n + n^2, for instance, the 1000n term becomes negligible compared to n^2 as n increases, so we simplify the complexity to O(n^2). This simplification makes it easier to compare the efficiencies of different algorithms.
+
+
+## SQL - Structured Query Language
+- Relational Database Management Systems (RDBMS)
+  - type of management systems (eg PostgreSQL, SQL, Oracle)
+  - one database per application
+    - one database has many tables
+  - PK: primary key: first most important key for any row of a table
+  - FK: Foreign Key: values we use to trace our routes between tables
+- ERD entity relationship diagram - how tables are connected
+  - Entity
+  - Attribute
+  - Primary Key
+  - Relationship
+  - Cardinality -crows foot
+- Bridge table for ERD
+- DDL - data definition language
+  - how we create our database
+- DML -data manipulation language
+- schema: blueprint of what table will look like
+- INTEGER
+- TEXT/VARCHAR limit is 255
+- Serial primary key
+- ORDER BY clauses come after WHERE
+- The LIMIT clause should be at the end
+- SELECT queries start with the SELECT clause
+- PostgreSQL: might need to restart everytime computer restarts
+  - default PostgreSQL user will be labber with labber as the password
+- To start PSQL
+  - ```sudo service postgresql start``` peter heyboer lighthouse every time
+  - ```psql``` 
+  - ```sudo -i -u postgres``` *** this works to login to postresql as super user
+  - then run ```psql```
+  - switch to bootcampx database ```\c bootcampx```
+  - exit postgresql with ```\q```
+  - connect right to database ```psql -U peterheyboer -d bootcampx```
+  - connect to database as superuse ```psql -U postgres -d bootcampx```
+- JOING TABLES
+  - INNER JOIN - gives us rows where there is a match between 2 tables
+  - OUTER JOIN - times when we do want to include datya where
+    - LEFT RIGHT FULL
+    - returns all results for one of the tables even when the join condition is not met
+
+- consider a scenario where you have a students table and a projects table. If you want to list all students along with their project names, including students who haven't started any projects yet, a LEFT JOIN would be appropriate. Here's how you might write the SQL query:
+
+## Database Design 
+  - state of the system - entire data delt with at the time
+    - what are the different pieces of data 
+- Data: information stored by a computer
+- databse: easy access and manage
+- user story: as a user i should be able to log in
+  - there are a lot of user stories. scenarios
+  - entity
+- database: adapt to changing needs over time
+- normalize data by making another table DRY
+- entities tables crows foot is the relationship between
+- NOT NULL means there has to be some value cannot be left empty 
+- Primary Key - uniquely idenifty record in your database
+  - must be unique cannot be null
+  - PK and FK must be same data type
+- table and field names written in snake_case
+- table names pluralized
+- refer to PK as ID
+- crows foot relationship types
+  - one to one - related to one and only one example sin to person name
+  - one to many - employee and position, author and books, user and posts
+  - many to many - movies and actors example, students and courses
+  many - many never represent it as that. break it down into one to many relationships
+  - making an ERD - draw.io
+  - one tomany : parent and child relationship. authors parents books are child of parent
+  - earaser.io is a whiteboard to draw on 
+  - cant put FK into 2 tables? - use bridge table
+  - many to many use a bridge table - third table (junction/middle table) makes one-to-many relationships
+
 ## 
 * Object Manipulation
 * SQL
@@ -1516,3 +1864,4 @@ button.onclick = function(event) {
 * APIs
 * Refactoring
 * test topics
+* add part about fs readfile****************
