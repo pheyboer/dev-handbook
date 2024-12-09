@@ -1,11 +1,5 @@
 # Technical Interview Prep
 
-- 2pm est nov 14
-
-- Share screen
-- Camera on
-- Eye contact
-
 ## Strategy
   - Introduce yourself
     - name, background, web dev experience (udemy), passion, what can you bring to the company
