@@ -1837,7 +1837,7 @@ for (let i = 0; i < array.length; i++) {  // O(n) - Loop runs n times
   - there are a lot of user stories. scenarios
   - entity
 - database: adapt to changing needs over time
-- normalize data by making another table DRY
+- Normalization: normalize data by making another table DRY
 - entities tables crows foot is the relationship between
 - NOT NULL means there has to be some value cannot be left empty 
 - Primary Key - uniquely idenifty record in your database
@@ -1856,12 +1856,16 @@ for (let i = 0; i < array.length; i++) {  // O(n) - Loop runs n times
   - earaser.io is a whiteboard to draw on 
   - cant put FK into 2 tables? - use bridge table
   - many to many use a bridge table - third table (junction/middle table) makes one-to-many relationships
+- 1NF: first normal form
+  - ensures data is stored in a consistent and structured way
+  - in 1nf form if table has atomicity, uniqueness of rows, no repeating groups
+  - put relationships in own table
+
+
+
 
 ## 
-* Object Manipulation
-* SQL
-* Algorithms
-* APIs
-* Refactoring
-* test topics
+
+
+
 * add part about fs readfile****************
