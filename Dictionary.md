@@ -35,6 +35,12 @@
   * SQL
     - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/220/lectures/15297?workbook_id=web-flex-v2-m05w11 
     - PostgreSQL peterheyboer pass lighthouse
+    - LightBnB Instructions:
+      - cd /home/peterheyboer/lighthouse/LightBnB
+      - ```sudo service postgresql start``` peter heyboer lighthouse every time
+      - sudo -u postgres psql -d lightbnb
+      - \i migrations/01_schema.sql
+
     
 
 
@@ -60,6 +66,11 @@
     - Test 1 and 2 topics
     - The test consists of 5 questions, primarily centered around general JavaScript (not Express or the browser-related topics we've covered recently). You can expect to engage with arrays, objects, algorithms, and recursive functions, with a strong emphasis on logical reasoning.
     - Review: Intro to Async, Music Library, Week 3, Array and object manipulation, Callbacks
+  - Test 4:
+    - asynchronus control flow using callbacks
+    - one stretch question on promises
+  - Test 5: SQL
+    - ability to craft SQL SELECT statements
     
   ## For testing use node version 10 (nvm use 10) regularly use node version 20 (nvm use 20)
 
@@ -1860,8 +1871,63 @@ for (let i = 0; i < array.length; i++) {  // O(n) - Loop runs n times
   - ensures data is stored in a consistent and structured way
   - in 1nf form if table has atomicity, uniqueness of rows, no repeating groups
   - put relationships in own table
+- Foreign Key:
+  - field in one table that refers to Primary Key in another table. This is how we model relationships
+  - in one to many relationship: FORIEGN KEY IS ON THE MANY SIDE
+- Many to many relationships - make into multiple one to many relationships with bridge table (join table)
+- SQL commands that we use to define the database schema are Data Definition Language statements (DDL) (CREATE ALTER DROP)
+- store a number in PostgreSQL, ten numeric types: SMALLINT, INTEGER, BIGINT, DECIMAL, NUMERIC, REAL, DOUBLE, SMALLSERIAL, SERIAL, BIGSERIAL.
+- ```ALTER TABLE```
+```
+ ALTER TABLE table_name
+ADD COLUMN new_column_name data_type constraint;
+```
+
+- delete table: DROP TABLE IF EXISTS users CASCADE;
+- If the primary key is SERIAL, then the foreign key should be INTEGER.
+- Names, emails, usernames and passwords can all be stored as VARCHAR(255). Students to cohorts would be cohort_id. The type would be INTEGER .
+- Dates would use the DATE type. If we needed date and time, use TIMESTAMP.
+- INSERT INTO
+- Delete: DELETE FROM table_name WHERE condition;
+  - always include a where clause when deleting 
+- Update: UPDATE students
+SET name='Callisto Caiazzo', email='ccaiazzo@gmail.com', github='callcazz'
+WHERE id = 3;
 
 
+## SQL to EXPRESS
+  - need to know for midterm - refer to lecture
+  - client makes request to server. server sends response.
+  - server talks to database. database response back to client
+  - adding database now. database sends back response via JSON
+  - server sends back to client to be displayed in browser
+  - request from client to database is possible*
+  - steps: login to psql (psql -U development)
+  - to add the file use \i
+  - PostgreSQL
+  - BREAD - browse, read, edit, add, delete
+  - npm init -y
+  - create new config file
+  - default port for postgresql is 5432
+  - make query after connection is made
+  - console.table to see it in a table 
+  - fetchAll vs query
+  - fetchAll remove callback
+    - can make it so it only returns results. catch errors with .catch
+    - fetchAll can export function
+  - sanitize querys - parameterized queries (array of values)
+  - pool and client connect to database
+    - client is a one way connect
+    - in the event of many users coming to website and inserting info: use pool
+    - more than one connection at a time: use pool
+    - const {pool} = pg;
+    - client and pool are the exact same
+  - 1 file for each table in queries
+  - pool and config and pg require in different file (connection.js)
+  - .env (add to gitignore)
+    - dependency - dotenv
+    - hide information so it doesnt get pushed to github
+    - process.env. (placeholdesr in connection file for config)
 
 
 ## 
