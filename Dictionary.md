@@ -40,10 +40,26 @@
       - ```sudo service postgresql start``` peter heyboer lighthouse every time
       - sudo -u postgres psql -d lightbnb
       - \i migrations/01_schema.sql
-
+  * Team Git Workflow Breakout
+    - https://web.compass.lighthouselabs.ca/activities/4076/lectures/15347
+    - https://gist.github.com/andydlindsay/c0dd09a93d603b64a6fec7addd3a92e5
     
 
+## Projects
 
+## LightBnB
+  - nvm use 20
+  - PostgreSQL peterheyboer pass lighthouse
+    - LightBnB Instructions:
+      - cd /home/peterheyboer/lighthouse/LightBnB
+      - ```sudo service postgresql start``` peter heyboer lighthouse every time
+      - sudo -u postgres psql -d lightbnb
+      - \i migrations/01_schema.sql
+  -   Run the app ```npm run local``` and view it at ```localhost:3000```
+  - connect to database and run local host from another terminal
+  1. nvm use 20
+  2. ```sudo service postgresql start``` peter heyboer lighthouse
+  3. ```sql -U development -d lightbnb``` logs into lightbnb database as development user
   
 ## Test Topics
  - Test 1:
@@ -177,7 +193,7 @@
     - access or set properties on object
   - Bracket Notation:
     -  can use any string, character, or number as property names
-    - 
+  - Make more notes on differences
 
 
 ### Hoisting
@@ -207,6 +223,35 @@
   - disallows certain syntax (reserved words)
   - throws error for invalid useage
   - no ```with``` statements
+
+## Fs.readfile
+  - read contents of file asynchronously
+  - belongs to fs (file system) module which provides functions for interacting with file system
+    - reading, writing, modifying files
+  - Aysnchronus: program continues executing while while is being read, avoiding blocking the mian thread
+    - ideal for I/O operations in a non blocking way
+  - Callback based: function accepts a callback that is invoked once the file reading operation is complete
+    - ```fs.readFile(path, encoding, callback);```
+  ```js
+  const fs = require('fs');
+
+  fs.readFile('example.txt', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading the file:', err);
+    } else {
+      console.log('File content:', data);
+    }
+  });
+  ```
+
+
+
+
+
+## module.exports
+  - used to export and import variables, functions, objects from one file to another
+  - can add key/value pairs like any object. Values will be available in the file that requires them
+  - module.exports is a special object that needs a require statement that will run all the code in the specified file
 
 ## Pseudocode 
 ```js    
@@ -1971,13 +2016,23 @@ WHERE id = 3;
         - git checkout to change branch 
         - git merge main
         - vscode shows on bottom left which branch you are on
+        - make sure you are working on your branch
+        - git status to check modifications
+        - pull request: merge my branch into main
+      - decide if you want pull requests or to push locally
+      - pull request is industry standard
+  - other peoples branches: 
+    - keep your branch up to date
+    - branch off of someone elses branch ( git checkout -b) - main is fine 
 
 
-
+## Data Structures - Trees
+  - Each circle in the tree represents a Node
+  - A node represents a key entity and contains data about that entity
+    - All connections between notes are edges
 
 
 
 
 
 ##
-* add part about fs readfile****************
