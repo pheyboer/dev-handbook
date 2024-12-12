@@ -1933,8 +1933,51 @@ WHERE id = 3;
 ## Team git workflow (breakout session) - for Midterm
   - Midterm work in teams. Chose project together
   - git vs github
+  - git:
     - make sure you know how to see branches
     - git is common line application (version control software)
+    - git allows for incremental changes of code (snapshots of code over time - commits)
+    - changes stored locally in '.git'
+    - git init
+  - Github - not local. in the cloud, remote from computer
+    - application that runs on the web. It is where we can push code to to collaborate
+  - Cloning: copy of a repo from github to local machine
+  - Forking: creates a copy of the repo on Github
+    - takes repo (with commit history) to your github
+    - does not update local machine
+    - all happens on github
+    - if you want on your device, you fork and then clone
+    - Use this template button is an example - but does not contain commit history
+  - Merge Conflicts: two or more devs changing the same code in the same file
+    - git log: shows the log
+    - highlights the line and gives 3 options with how to deal with it
+      - 1: accept the current changes - keep code
+      - 2: accept incoming changes - keep the code im pulling down 
+      - 3: accept both
+      - talk to the other devs about the conflict
+      - we will see intentional merge conflict in project
+  - Team Git Workflow: 
+    - final project repo from scratch
+    - midterm will Use this template
+      - one person on team will be owner of repo that we will create
+      - add teammates as collaborators
+        - go into settings and manually add them in
+        - only owner can add collaborators
+        - git add remote origin
+        - as professional developer never work on master or main branch
+        - create new branch: git checkout -b 'namebranch' (create and move to branch)
+        - make sure branch is compatible with main branch
+        - git pull origin main
+        - git checkout to change branch 
+        - git merge main
+        - vscode shows on bottom left which branch you are on
 
 
+
+
+
+
+
+
+##
 * add part about fs readfile****************
