@@ -1930,8 +1930,11 @@ WHERE id = 3;
     - process.env. (placeholdesr in connection file for config)
 
 
-## 
-
+## Team git workflow (breakout session) - for Midterm
+  - Midterm work in teams. Chose project together
+  - git vs github
+    - make sure you know how to see branches
+    - git is common line application (version control software)
 
 
 * add part about fs readfile****************
