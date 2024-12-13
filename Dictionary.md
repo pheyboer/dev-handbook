@@ -2030,7 +2030,58 @@ WHERE id = 3;
   - Each circle in the tree represents a Node
   - A node represents a key entity and contains data about that entity
     - All connections between notes are edges
+  - Node at the very top of the tree is called Root Node
+    - Nodes on the very bottom are Leaf Nodes
+    - Every node except for Root has a single parent node
+    - every node that is not a leaf node has one or more children nodes
+  - All children with the same parent are siblings
+  - Use a method to link the nodes
+    ```js  
+    addSubordinate(subordinate) {
+      this.subordinates.push(subordinate);
+      subordinate.boss = this;
+    }
+    ```
+  - link nodes ```ada.addSubordinate(craig);```
+  - trees are good to use when data has hierarchial relationships
+  - can build a tree as long as nodes have a single parent and many children
 
+  - tree traversal: 
+    - breadth first traversal will check the nodes cloest to the root node before checking further away
+      - start with root node
+      - move onto the roots children
+      - move onto those nodes children
+    - Depth first traversal
+      - visit each node on an entire path, all the way out to a leaf node before visiting nodes on the next path
+
+  - Sub trees
+    - tree is a recursive data structure
+    - recursive case: if thres a subtree, traverse subtree
+    - base base: if theres no subtree, do nothing
+  - Depth first traversal:
+    - visit root node of tree
+    - get first unvisited child sub tree of current node
+    - do step 1 with sub tree
+
+    ```js
+      class Node {
+
+      constructor(data) {
+        this.data = data;
+        this.parent = null;
+        this.children = [];
+      }
+
+      depthFirstTraversal() {
+
+        console.log(this); // 1
+
+        for (const childNode of this.children) {
+          childNode.depthFirstTraversal(); // 2
+        }
+      }
+    }
+    ```
 
 
 
