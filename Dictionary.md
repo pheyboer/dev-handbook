@@ -51,8 +51,83 @@
 ## Projects
 
 # Midterm Project
-  - Group
+  - Group - find out later this week. when group is formed it starts
   - Lectures
+  - have a database and work with postgres
+  - have good plan and map out project. break it into smaller pieces
+  - weeks 14 and 15
+  - back on the 6th
+  - Jan 6th to 18th midterm
+  - presentation on 18th of january
+  - 2 weeeks for midterms
+  - project manager - mentor
+  - list requirements of app
+  - projects
+    - Wiki map 6/10: 
+    - quiz app:5/10 can make it themed, as long as filling requirements
+    - story creator:4/10 one person starts a story, another adds to it
+    - decision maker
+    - passwordKeeper one of the easiest. can use encrpytion method in tinyapp
+    - smart todo list 8 or 9/10
+    - resource wall 5/10
+    - buy/sell listing website 5/10
+    - Schoodle: more modern doodle app (event scheduling)
+    - food pick up ordering: 9/10 for 1 restaurant
+      - 2 views 1 admin 1 customer
+      - admin edit the website
+      - sms component
+    - hardest to easiest
+      - hardest: smart todo list. food pickup ordering is most work because you are working on 2 views. and the sms component which takes a lot of time
+      - easiest: probably schoodle
+
+      wiki map harder than decision maker
+      most difficult part is chat integration
+      can pick the same projects 
+      no limit to how many people pick the same project
+      - byran did wiki maps and 2 other groups in his cohort
+      - pokemon go uses leaflet and it is free
+      - use free APIs
+    - create user stories - keep it simple
+    - if you submit MVP you will pass
+    - user login/registration - dont need to do this. have users created in database. do not waste time on this
+      - set up fake login route
+      - fake users built into app. dont need to register new users
+    - 5 minutes for presentation only
+    - figma.com wireframe template - know what colours and schemes you are going to use
+    - vertically - each memember works on own feature - feature based (project is feature based)
+    - horizonatlly - each dev focus on front end or back end, or database
+  - everyone on group same node version so no complications
+    - nvm 16. nvm install 16. nvm alias default 16
+  - whole group should have same database
+  - instead of app using express router so they dont all exist in server.js
+  - Demo of app
+    - 5 minutes
+    - intro team
+    - present app and features
+    - why the feature was implemented
+    - challenges faced
+    - tech stack used
+  - 2 weeks for midterm
+    - spend at least 1-3 days only on planning. no code touched just plan
+    - user stoires, erd, routes, wire frame
+    - then start coding
+    - coding for a week or week and a half
+    - 4 days debugging and practice
+    - within last 4 days dont add new featurtes
+      - dont present buggy app
+
+# Holidays
+  - work on udemy
+  - stretch work
+  - revisit project
+  - codewars or leetcode or neetcode
+  - take a peek at the node skeleton
+    - https://github.com/lighthouse-labs/node-skeleton
+  - learn and understand the midterm
+  - read on javascript methods
+
+# Final Project
+  - can use midterm skeleton code
 
 ## LightBnB
   - nvm use 20
