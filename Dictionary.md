@@ -43,9 +43,16 @@
   * Team Git Workflow Breakout
     - https://web.compass.lighthouselabs.ca/activities/4076/lectures/15347
     - https://gist.github.com/andydlindsay/c0dd09a93d603b64a6fec7addd3a92e5
+  - Midterm Lecture:
+    - other cohort: https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/4589/lectures/14606?workbook_id=web-flex-v2-m05w13
+    - my cohort:
     
 
 ## Projects
+
+# Midterm Project
+  - Group
+  - Lectures
 
 ## LightBnB
   - nvm use 20
@@ -59,7 +66,7 @@
   - connect to database and run local host from another terminal
   1. nvm use 20
   2. ```sudo service postgresql start``` peter heyboer lighthouse
-  3. ```sql -U development -d lightbnb``` logs into lightbnb database as development user
+  3. ```psql -U development -d lightbnb``` logs into lightbnb database as development user
   
 ## Test Topics
  - Test 1:
@@ -1881,6 +1888,9 @@ for (let i = 0; i < array.length; i++) {  // O(n) - Loop runs n times
   - OUTER JOIN - times when we do want to include datya where
     - LEFT RIGHT FULL
     - returns all results for one of the tables even when the join condition is not met
+- Use SQL to query your data, not JavaScript. JS is a lot slower
+  - indexed version of JS is better but still slower
+- nested query - select inside of a select
 
 - consider a scenario where you have a students table and a projects table. If you want to list all students along with their project names, including students who haven't started any projects yet, a LEFT JOIN would be appropriate. Here's how you might write the SQL query:
 
