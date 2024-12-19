@@ -45,7 +45,8 @@
     - https://gist.github.com/andydlindsay/c0dd09a93d603b64a6fec7addd3a92e5
   - Midterm Lecture:
     - other cohort: https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/4589/lectures/14606?workbook_id=web-flex-v2-m05w13
-    - my cohort:
+    - my cohort: https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/4589/lectures/15383?workbook_id=web-flex-v2-m05w13
+    
     
 
 ## Projects
