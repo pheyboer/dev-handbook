@@ -1970,6 +1970,9 @@ for (let i = 0; i < array.length; i++) {  // O(n) - Loop runs n times
 
 - consider a scenario where you have a students table and a projects table. If you want to list all students along with their project names, including students who haven't started any projects yet, a LEFT JOIN would be appropriate. Here's how you might write the SQL query:
 
+  - SQL notes
+  - 
+
 ## Database Design 
   - state of the system - entire data delt with at the time
     - what are the different pieces of data 
