@@ -2172,7 +2172,334 @@ WHERE id = 3;
     }
     ```
 
+# Midterm
+- https://web.compass.lighthouselabs.ca/p/web-flex-2/projects/midterm-proj
+- https://doodle.com/en/
+- node skeleton
+  https://github.com/lighthouse-labs/node-skeleton
+
+- 
 
 
+# Midterm Project Notes
 
-##
+Option 9: Schoodle
+Doodle is great for scheduling events within a group. Your job is to create a simpler, more modern version of it.
+
+Requirements:
+- visitors can create an event proposal in much the same way as Doodle, by specifying:
+  - event title and description
+  - their own name and email
+- organizers can then send the unique URL to possible attendees via their own communication workflow (email, Slack, Messenger, etc.)
+- attendees visit the unique URL and:
+  - specify their name and email
+  - specify their availability (yes/no only) for each possible time slot
+  - view all responses including their own
+  - modify their response
+- the unique URL should be secret and thus not use a simple auto-incrementing integer but instead a larger ID that is harder to guess (much like how secret gists work on GitHub)
+- note: this app does not follow the typical user authentication process: users don't need to register or log in and the only way to access the Schoodles is via links
+
+ ## Simplified Requirements for Schoodle
+- visitors create event by specifying event title, description, and their own email and name
+- organizers send unique URL
+- attendees visit URl and specify name and email. availability for each time slot. view all responses including their own. modify response.
+- URL should be secret and not use auto incrementing integer 
+- no login required
+## Key Features of Schoodle (Revised):
+Event Creation:
+
+Users create events with details like name, description, date, and time slots.
+Each event will have a unique link that participants can use to access the scheduling poll.
+
+Poll Creation:
+
+The event creator generates multiple time slots for participants to choose from.
+The event link is shared with the participants.
+
+Availability Voting:
+
+Participants vote for available time slots from the ones offered in the poll.
+Each user can mark their availability for each time slot.
+
+Final Scheduling:
+
+Once everyone has voted, the app automatically suggests the best time based on availability.
+The event creator can confirm the final time and send out a notification.
+
+No User Registration/Login:
+
+Users do not need to sign up or log in. They access the poll directly through a unique link.
+User interaction is completely anonymous (no user profile management).
+
+Link Expiry:
+
+Event links could have an expiry time, or the event creator can choose to close the poll once a final decision is made.
+Simple Architecture Design:
+
+1. Frontend (Client-Side)
+Technologies: React.js or plain HTML/CSS/JS (lighter approach for the front end).
+
+Key Components:
+
+Home page: For creating a new Schoodle event (without requiring login).
+Event Page: Where users view and vote on available time slots.
+Confirmation Page: Once the voting is completed, the event creator sees the final time, and participants are notified.
+Time Slot Voting: A simple interface where users can mark times as "Available," "Unavailable," or "Preferred."
+UI/UX:
+
+Material-UI or Tailwind CSS for modern, responsive design.
+2. Backend (Server-Side)
+Technologies: Node.js with Express.js (light and scalable).
+
+Key Features:
+
+Unique Event Links: The app generates unique, time-sensitive links for each event. These links could be hash-based or use a simple ID to identify each event.
+No Authentication: Since there's no login system, no need to handle sessions or user accounts.
+Create Poll: Event creator submits details for the poll (event name, time slots, etc.), and the system generates a unique event URL.
+Submit Votes: Participants vote on the time slots without needing an account. Votes are tied to a specific event via the link.
+Final Time Suggestion: After all participants vote, the backend calculates the most suitable time and makes it visible to all participants.
+Database: PostgreSQL for storing:
+
+Events Table: Stores event details (ID, name, description, date, time slots).
+Votes Table: Stores individual votes for each time slot (linked to event ID).
+Participants Table: A table that logs votes per event, but does not require user information (just unique IDs per vote).
+Link Expiry & Access:
+
+Links could be set to expire after a certain time or once the event is closed (e.g., after the creator selects the final time).
+When participants access the link, the app checks whether the link is valid and if the event is still open for voting.
+
+3. Database Schema (Simplified)
+Event Table:
+
+Event ID (primary key)
+Event Name
+Event Description
+Time slots (array or multiple entries for time options)
+Link (unique URL)
+Expiry Time (optional)
+Poll Status (open, closed, or finalized)
+Vote Table:
+
+Vote ID (primary key)
+Event ID (foreign key)
+Participant ID (not stored, just a unique hash or anonymous ID tied to the vote)
+Time Slot ID (reference to the time slot being voted on)
+Availability (Available, Unavailable, Preferred)
+Time Slot Table:
+
+Time Slot ID (primary key)
+Event ID (foreign key)
+Start Time
+End Time
+
+4. Notifications (Optional)
+Once the poll is closed, participants and the event creator can receive notifications about the final decision. You could implement:
+Email Notifications: Use services like SendGrid to notify participants when the poll closes and when a time is finalized.
+Real-time Notifications: If you want a more interactive experience, use WebSockets (e.g., Socket.io) for instant updates on time slot votes or event status.
+
+5. No User Authentication
+Since there's no user authentication or registration:
+Each participant's votes are tracked via a unique hash or session ID, which could be embedded in the event link.
+Data Anonymity: No need to store personal information, just votes associated with each unique link.
+
+6. Link Handling
+Generating Links: When an event creator creates a new poll, a unique URL is generated (e.g., schoodle.com/abc123). This URL is shared with participants to allow access to the poll.
+Poll Expiry: Links can be time-limited (e.g., the poll expires 24 hours after creation or after the event creator locks the final time).
+Tracking Participation: Each vote is linked to the event ID and the unique session or participant ID (anonymous).
+
+7. Cloud Hosting and Deployment
+Hosting: Platforms like Heroku, Vercel, or Netlify for simple deployment. You can also use AWS or DigitalOcean for more control.
+Database: MongoDB Atlas (for simplicity) or PostgreSQL (if you prefer relational data). Both have easy-to-set-up cloud options.
+File Storage: If needed, AWS S3 for file storage (e.g., for event images or attachments).
+Example Technologies Stack:
+Frontend: React.js (for the web) with Material-UI or Tailwind CSS
+Backend: Node.js with Express.js (for simplicity and scalability)
+Database: MongoDB or PostgreSQL
+Real-Time Notifications (optional): WebSockets (Socket.io) or Firebase Cloud Messaging
+Hosting: Vercel, Netlify, or AWS for cloud hosting
+Notifications: Email via SendGrid, real-time updates via Socket.io
+
+Simplified Data Flow:
+1. Event Creation:
+The event creator fills in details (event name, description, and time slots) and gets a unique link.
+2. Poll Participation:
+Participants access the event link and vote on time slots.
+3. Vote Collection:
+Votes are saved anonymously, tied to the unique event link.
+4. Poll Closure:
+After all participants have voted, the event creator can finalize the best time slot.
+5. Notification:
+The creator and participants are notified (via email or in-app notifications) about the final decision.
+
+
+# Schoodle System Architecture Overview
+1. Frontend (Client-side)
+The frontend will be a basic web interface where users can:
+
+Organizers create events.
+Attendees respond to events via a unique URL.
+View and modify availability.
+Technologies:
+
+HTML/CSS for static content and layout.
+JavaScript (with Fetch API) to handle user interactions, form submissions, and dynamic updates.
+Frontend Framework (Optional): React, Vue.js, or just vanilla JavaScript depending on the complexity.
+
+2. Backend (Server-side)
+The backend will serve as the API layer. It will be responsible for:
+
+Handling requests from the frontend.
+Managing the business logic (creating events, handling responses).
+Interacting with the PostgreSQL database.
+Technologies:
+
+Node.js for server-side scripting.
+Express.js for routing and handling HTTP requests.
+PostgreSQL for storing event and response data.
+pg (node-postgres) for PostgreSQL database connection.
+UUID for generating unique event IDs.
+
+3. Database (PostgreSQL)
+The database will consist of three key tables:
+
+Events Table: Stores event details (title, description, organizer info).
+Attendees Table: Stores attendee info for each event.
+Responses Table: Stores the availability responses of attendees for each time slot.
+
+Technologies:
+PostgreSQL: Relational database for storing structured data.
+
+## System Flow Overview
+1. Event Creation (Organizer Side):
+
+The organizer fills out the event form (title, description, name, email).
+The backend generates a unique event ID (UUID) and stores the event in the events table.
+A unique URL (e.g., /event/:eventId) is created for the event.
+The organizer shares this URL with potential attendees.
+
+2. Attendee Response (Attendee Side):
+
+Attendees visit the unique event URL.
+They enter their name, email, and availability for each time slot (Yes/No).
+Their data is stored in the attendees and responses tables in the database.
+
+3. Viewing Responses (Attendee Side):
+
+Attendees can see the list of responses (their own and others) after submitting their availability.
+The backend fetches the responses from the database and returns them in the response.
+
+4. Event Data Flow:
+
+Event creation: The events details are saved in the events table.
+Attendee response: The attendees details are saved in the attendees table, and their availability is stored in the responses table.
+Fetching event details: The event and responses are fetched from the database and served to the frontend when attendees visit the unique event URL.
+
+
+## ERD 
++-------------------+       +---------------------+       +----------------------+
+|      Event        | 1----> |    Attendee         | 1----> |   Availability       |
+|-------------------|       |---------------------|       |   Response           |
+| event_id (PK)     |       | attendee_id (PK)    |       |----------------------|
+| title             |       | name                |       | response_id (PK)     |
+| description       |       | email               |       | attendee_id (FK)     |
+| organizer_name    |       | event_id (FK)       |       | event_id (FK)        |
+| organizer_email   |       | created_at          |       | time_slot_id (FK)    |
+| created_at        |       | updated_at          |       | availability         |
++-------------------+       +---------------------+       | updated_at           |
+        | 1                       | 1                   +----------------------+
+        |                         |
+        |                         |
+        |                         v
+        |              +--------------------+
+        |              |    Time Slot       |
+        |              |--------------------|
+        +------------->| time_slot_id (PK)  |
+                       | event_id (FK)      |
+                       | time               |
+                       +--------------------+
+
+Entities:
+
+Event:
+
+Represents the event created by the organizer.
+Attributes:
+event_id (Primary Key)
+title
+description
+organizer_name
+organizer_email
+created_at
+
+
+Attendee:
+
+Represents the attendees who respond to an event.
+Attributes:
+attendee_id (Primary Key)
+name
+email
+event_id (Foreign Key from Event table)
+created_at
+updated_at
+
+
+Availability Response:
+
+Stores the responses of the attendees for each proposed time slot.
+Attributes:
+response_id (Primary Key)
+attendee_id (Foreign Key from Attendee table)
+event_id (Foreign Key from Event table)
+time_slot_id (Foreign Key from Time Slot table)
+availability (Yes/No)
+updated_at
+
+
+Time Slot:
+
+Represents individual time slots proposed by the organizer.
+Attributes:
+time_slot_id (Primary Key)
+event_id (Foreign Key from Event table)
+time
+
+
+ERD Relationships:
+Event to Attendee: One-to-Many (One event can have many attendees)
+
+One event has many attendees who can respond to the event.
+Attendee to Availability Response: One-to-Many (An attendee can have multiple responses, one for each time slot)
+
+An attendee responds to each proposed time slot, indicating availability.
+Event to Time Slot: One-to-Many (One event can have multiple time slots)
+
+The organizer proposes multiple time slots for the event.
+Time Slot to Availability Response: One-to-Many (One time slot can have many responses)
+
+Multiple attendees can respond to the same time slot.
+
+Database Schema PostgreSQL
+Events Table
+```
+CREATE TABLE events (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  organizer_name VARCHAR(100),
+  organizer_email VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+Attendee Table
+```
+CREATE TABLE attendees (
+  id SERIAL PRIMARY KEY,
+  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  availability JSONB,  -- Availability stored as JSON (Yes/No for each time slot)
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
