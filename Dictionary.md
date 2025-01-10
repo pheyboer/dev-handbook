@@ -2503,3 +2503,158 @@ CREATE TABLE attendees (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
+
+Entities:
+Event - Represents an event proposal.
+Attendee - Represents an attendee who is responding to the event.
+Availability - Represents the availability of an attendee for specific time slots (this could be an embedded structure in the Attendee entity or a separate table, depending on your design choice).
+ERD Design Explanation:
+1. Event:
+Attributes:
+id: Unique identifier for the event (Primary Key, UUID or random string).
+title: The title of the event.
+description: Description of the event.
+organizer_name: Name of the person who created the event.
+organizer_email: Email of the event organizer.
+created_at: Timestamp of when the event was created.
+2. Attendee:
+Attributes:
+id: Unique identifier for the attendee (Primary Key).
+event_id: Foreign Key referring to the Event entity (to associate the attendee with a specific event).
+name: Name of the attendee.
+email: Email of the attendee.
+availability: A JSON or array field containing the availability (Yes/No for each time slot).
+created_at: Timestamp of when the attendee's response was recorded.
+Relationships:
+Event to Attendee: One-to-many relationship (An event can have multiple attendees).
+Attendee to Availability: A one-to-many relationship if you decide to store availability in a separate table. Alternatively, availability can be stored as an array or JSON object inside the Attendee table itself.
+ERD Diagram:
+plaintext
+Copy code
++-------------------+           +-------------------+           +------------------+
+|     Event         | 1       * |     Attendee      | *       1 |   Availability   |
++-------------------+           +-------------------+           +------------------+
+| id (PK)           |-----------| id (PK)           |           | id (PK)          |
+| title             |           | event_id (FK)     |-----------| attendee_id (FK) |
+| description       |           | name              |           | time_slot        |
+| organizer_name    |           | email             |           | availability     |
+| organizer_email   |           | availability (JSON)|           +------------------+
+| created_at        |           | created_at        |           
++-------------------+           +-------------------+           
+Explanation of Relationships:
+Event to Attendee:
+
+One Event can have many Attendees. This is a one-to-many relationship where Attendee holds the foreign key event_id to associate each attendee with a specific event.
+Attendee to Availability (optional):
+
+Each Attendee can have multiple availability slots, especially if you want to track availability over different times or dates. This is another one-to-many relationship, where Availability holds a reference to Attendee with a foreign key attendee_id.
+Alternatively, if you prefer to keep it simple, you can store the availability field as a JSON or array within the Attendee table itself (this would remove the need for a separate Availability table).
+Database Schema Representation (SQL):
+1. Event Table:
+sql
+Copy code
+CREATE TABLE events (
+    id TEXT PRIMARY KEY,                  -- Unique Event ID (UUID or random string)
+    title VARCHAR(255),                    -- Event Title
+    description TEXT,                      -- Event Description
+    organizer_name VARCHAR(255),           -- Organizer's Name
+    organizer_email VARCHAR(255),          -- Organizer's Email
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- Date/Time Event Created
+);
+2. Attendee Table:
+sql
+Copy code
+CREATE TABLE attendees (
+    id SERIAL PRIMARY KEY,                  -- Unique Attendee ID
+    event_id TEXT REFERENCES events(id),    -- Foreign Key to Event
+    name VARCHAR(255),                      -- Attendee's Name
+    email VARCHAR(255),                     -- Attendee's Email
+    availability JSONB,                     -- Attendee's Availability (as JSON)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- Date/Time Response Recorded
+);
+3. Availability Table (Optional):
+If you decide to store availability as a separate table instead of a JSON field in the Attendee table, you can create the availability table like this:
+
+sql
+Copy code
+CREATE TABLE availability (
+    id SERIAL PRIMARY KEY,                   -- Unique ID
+    attendee_id INT REFERENCES attendees(id), -- Foreign Key to Attendee
+    time_slot VARCHAR(255),                  -- Time slot (e.g., "9:00 AM", "10:00 AM")
+    availability BOOLEAN                     -- Availability (true = yes, false = no)
+);
+Using JSON for Availability:
+If you store the availability as a JSON object or array inside the Attendee table, the availability field might look like this:
+
+json
+Copy code
+{
+  "9:00 AM": true,
+  "10:00 AM": false,
+  "11:00 AM": true
+}
+Where each time slot (e.g., "9:00 AM") maps to a boolean value (true for available, false for not available).
+
+Explanation of PK and FK Relationships:
+Attendees Table:
+
+Primary Key: attendee_id is the unique identifier for each attendee.
+Foreign Key: event_id is a reference to the Events table. It ensures that each attendee belongs to an event.
+Time Slots Table:
+
+Primary Key: time_slot_id is the unique identifier for each time slot.
+Foreign Key: event_id is a reference to the Events table. It ensures that each time slot is associated with an event.
+Availability Responses Table (Junction Table for M:N Relationship):
+
+Primary Key: response_id is the unique identifier for each response. This ensures each response record is unique.
+Foreign Keys:
+attendee_id (FK): References attendee_id in the Attendees table. This links the response to a specific attendee.
+time_slot_id (FK): References time_slot_id in the Time Slots table. This links the response to a specific time slot.
+event_id (FK): References event_id in the Events table. This ensures that the response is linked to the correct event.
+Join Explanation:
+Attendees to Availability Responses:
+
+The Attendees table’s attendee_id (PK) is linked to the Availability Responses table’s attendee_id (FK).
+This means that each Availability Response belongs to one specific Attendee.
+Time Slots to Availability Responses:
+
+The Time Slots table’s time_slot_id (PK) is linked to the Availability Responses table’s time_slot_id (FK).
+This means that each Availability Response corresponds to one specific Time Slot.
+Events to Attendees and Time Slots:
+
+Attendees and Time Slots both have an event_id (FK) linking them to the Events table’s event_id (PK). This means that both Attendees and Time Slots are related to a specific event.
+Summary of PK and FK Relationships:
+Attendees Table:
+
+attendee_id is the Primary Key.
+event_id is the Foreign Key, linking Attendees to Events.
+Time Slots Table:
+
+time_slot_id is the Primary Key.
+event_id is the Foreign Key, linking Time Slots to Events.
+Availability Responses Table (Junction Table for M:N):
+
+response_id is the Primary Key.
+attendee_id, time_slot_id, and event_id are Foreign Keys:
+attendee_id links to Attendees.
+time_slot_id links to Time Slots.
+event_id links to Events.
+How the Tables Join:
+Attendees to Availability Responses:
+
+Attendees (1) to Availability Responses (N): One Attendee can have multiple responses.
+Join: attendee_id (PK) → attendee_id (FK).
+Time Slots to Availability Responses:
+
+Time Slots (1) to Availability Responses (N): One Time Slot can have multiple responses.
+Join: time_slot_id (PK) → time_slot_id (FK).
+Events to both Attendees and Time Slots:
+
+Events (1) to Attendees (N) and Time Slots (N).
+Join: event_id (PK) → event_id (FK) in both Attendees and Time Slots tables.
+
+
+Relationships:
+Attendees (1) to Availability Responses (N): One attendee can have multiple responses.
+Time Slots (1) to Availability Responses (N): One time slot can have multiple responses.
+Events (1) to Attendees (N) and Time Slots (N): Each event can have multiple attendees and time slots.
