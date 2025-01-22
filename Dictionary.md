@@ -46,6 +46,8 @@
   - Midterm Lecture:
     - other cohort: https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/4589/lectures/14606?workbook_id=web-flex-v2-m05w13
     - my cohort: https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/4589/lectures/15383?workbook_id=web-flex-v2-m05w13
+  * React Lecture:
+    - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/2523/lectures/15511
     
     
 
@@ -2235,3 +2237,44 @@ Requirements:
     {/* Allowed */}
 - JSX is not a template language but it shares the declarative benefits of one. 
 - take any JSX expression and render it to the DOM using ReactDOM.render 
+
+- 2 types of components in React
+  - Funcational
+  - Class
+
+## React Lecture Jan 21
+- React is a library
+  - framework is heavier
+    - database management, routing
+- react is a client side rendering app
+  - Backbone and jquery had limitations
+    - quick DOM updates, complex, and lack of state management
+    - client side rendering depends on your PC resources
+    - virtual DOM solves this - virtual dom sits on top of real dom
+    - client sees virtual dom
+    - allows for quick renders
+  - components - small bits of HTML that we can reuse through out the app
+    - functions that return HTML (uses JSX) (javascript xml)
+    - add javascript code before return line
+- create-react (use snake case no camel case)
+
+- babel - translate newer javascript into older for older browsers
+- webpack: bundles your javascript, html, css, images all for browser
+  - minimizes size of files so it can load better
+  - Vite - can create react apps
+    - not able to use old browsers (older than 2018)
+  
+- components
+  - functional components can only return only element - a wrapper
+  - built in argument props
+  - props returns as an object
+    - labelling the information that is coming into the component
+    - prop names are passed directly into component 
+    - wrapped in curly brackets
+
+- single source of truth: only pass in what the component needs
+- conditional rendering
+- react keeps tracks of components by using keys
+  - avoid using indexes for keys
+  - keys need to be unique to the component
+  - if there is an ID you can use that becuase it is truly unique to each list
