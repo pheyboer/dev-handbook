@@ -2278,3 +2278,20 @@ Requirements:
   - avoid using indexes for keys
   - keys need to be unique to the component
   - if there is an ID you can use that becuase it is truly unique to each list
+# React Libraries
+- Redux
+
+
+# Front-end Framework
+- understand scope of project
+- understand limits of the framework for problems or adding features down the road
+- Angular
+  - This language is a superset of Javascript called Typescript
+  - real time synchronization between the componenet and HTML
+  - strict environment to better recognize errors
+- Svelt
+  - new. not as many libraries as others
+  - fast and lightweight
+  - lacks community support
+- Vue.js
+  - simple syntax - easier learning curve
