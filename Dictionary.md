@@ -2295,3 +2295,78 @@ Requirements:
   - lacks community support
 - Vue.js
   - simple syntax - easier learning curve
+
+### React notes - Data structures
+- Arrays are good at storing information in order and are used to store a collection of independent items
+  - use when we want to store something like a list of tasks, or a browser history
+  - becomes problematic when we want to Create, Read, Modify elements that are not at the beginning or end of an array
+    -  would first need to find item in the array - iterate through, retrieve index then execute modification
+    - another problem is if you want to store related data (list of characteristics)(information about an animal example)
+      - makes information harder to read. if it was stored in object we could have keys describing properties
+- objects are good at storing related information with labels. order is not important, as long as labels attached to values
+  - when order is important objects can become problematic'
+  - have to create the keys yourself - extra step 
+  - slower to access the values since we need to process the object first
+- independent items: array
+- related items: maybe object
+- access specific value? maybe object
+- need to remove first or last element? -array
+- can change data structure 
+
+- complete data structure to store the properties of one metal
+```
+ {
+    name: "1084",
+    type: "Carbon Steel",
+    composition:  ['iron', 'carbon', 'manganese', 'phosphorus', 'sulfur'],
+    forgingTemp: { min: 900, max: 1200 }
+  }
+```
+- Building a data structure:
+  - Determine what data you need
+  - Determine what operations you need to perform on the data
+  - Organize the data
+  - Determine if certain data is related or independent and decide what kind of substructure is needed
+  - Start small, then grow your structure
+
+- React Props
+  - pass data to components as "props" short for properties
+    - properties we give to a componenet
+    - can be piece of data or entire function
+    - JSX pass properties same way assign attributes to HTML elements
+- Passing Props (2 different ways):
+  - 1. list each one as key=value pair
+  - 2. use spread operator to destructure an object {...{key: value}}
+    - useful if you want to pass all the properties of an object as individual variables
+
+- spread operator makes it easier to pass all the properties of an object as individual props to a component, without manually specifying each key-value pair
+
+- Using props
+  - properties passed to component are automattical stored in an object
+  - object is available as a parameter in the component definition
+  - its common for a prop to be an entire function definition.
+    - remember not to call the function when it is being passed down (no parentheses())
+    - pass only the function reference to the component
+
+```
+function doStuff() {
+  console.log("This is the doStuff function.");
+  // do stuff
+}
+
+// CORRECT: doStuff is passed as a reference!
+<Profile doStuff={doStuff} />;
+```
+- when you pass the function as a reference, react only invokes the function when the even occurs(button clicked). when you invoke the function directly it will execute immediately not when the event happens
+- props.children
+  - built in children key
+  - contains anything that is inside the tags of a component
+- props.children is anything that is passed to a component inside its tags
+  - with any component we can access the children through props.children
+  - Event handler names such as onClick, onSubmit, and onChange are only keywords in the JSX tags that resemble HTML. They are not special keywords when used as props in your own components
+
+- Arrays in JSX
+  - .map() loops through an array and modifies each element with callbacks
+- mapping through elements
+  - .map() method allows us to loop through an array and modify each element with a callback
+    -ex. array of numbers and we want to double we can do it with .map()
