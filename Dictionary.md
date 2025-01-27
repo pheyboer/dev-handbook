@@ -2370,3 +2370,12 @@ function doStuff() {
 - mapping through elements
   - .map() method allows us to loop through an array and modify each element with a callback
     -ex. array of numbers and we want to double we can do it with .map()
+  - .map() can modify each element and return a brand new array
+    - can modify each elemtn and return an <li> element for each item using string literals
+    - improve further by removing string literal and pass them in curly braces for React
+    - React supports arrays filled with HTML elements. It will go through each one and attempt to render it in the component.
+    - if we attempt to render, we get warning a key should be provided for all list items
+  - dont index the element
+    - we want the keys to be unique
+    - always use unique key
+    
