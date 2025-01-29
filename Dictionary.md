@@ -2474,7 +2474,7 @@ function doStuff() {
   - if multiple components rendered in a list, react uses key attribute to differntiate
 
 - Lifting state up
-  - 
+  - In React, sharing state is accomplished by moving it up to the closest common ancestor of the components that need it. This is called *“lifting state up”*.
 
 - Stale State
   - never want to modify state directly
@@ -2494,3 +2494,16 @@ const handleClick = (event) => setState(event.target.value ? event.target.value 
   <button onClick={event => setState(event.target.value ? event.target.value : "")} />
 ```
 
+- useReducer Hook
+  - useReducer is called with two parameters, a reducer function and the initial state, which is set to 0.
+```jsx
+  const [sum, dispatch] = useReducer((state, action) => {
+  return state + action;
+  }, 0);
+  ```
+
+  - hook returns an array of 2 elements
+  - dispatch is a function that achieves the same goal as setState
+
+- useReducer can do it all, but useState is still useful for managing simple state transformations
+  - more complex state logic use useReducer
