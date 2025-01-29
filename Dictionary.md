@@ -2445,3 +2445,39 @@ function doStuff() {
   - first element is the current value for the state
   - second element is a function that can update the state and cause a render
   - array destructuring done on left side of assignment operator to create two variables from the array returned by useState
+
+  - useState hook uses array destructuring to return 2 different values
+    - one is used to get a value (getter)
+    - one is used to set a value (setter)
+
+  - to prevent function from being invoked when the page renders we need to pass any arguments to that function inside another function (wrap in outer function)
+```
+  <Button onClick={() => setCount(count + 1)}>Increment</Button>
+```
+
+
+### React State lecture Jan 28
+- we can use veet (veet@latest)
+  - npm run dev to use
+  - instead of div can return empty shell <></> instead of <div></div>
+
+- react state
+  - need a variable that persists between rerenders and something to trigger a render
+
+  - setState is async, and we cant await it
+    - takes a little bit of time, console log will show up first 
+    - if we are troubleshooting states use dev tools not console log
+
+- how does react discern the difference between components
+  - react recognizes a component by its function or class declaration
+  - when using component in JSX react identifies it as a component if it is Capitalized
+  - if multiple components rendered in a list, react uses key attribute to differntiate
+
+- Lifting state up
+  - 
+
+- Stale State
+  - never want to modify state directly
+  - use previous state
+    -prev or previous
+    - instead of reffering to state directly
