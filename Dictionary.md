@@ -2316,7 +2316,7 @@ Requirements:
 - object.values() works well to turn an object containing other objects into an array
 
 - complete data structure to store the properties of one metal
-```
+```jsx
  {
     name: "1084",
     type: "Carbon Steel",
@@ -2350,7 +2350,7 @@ Requirements:
     - remember not to call the function when it is being passed down (no parentheses())
     - pass only the function reference to the component
 
-```
+```jsx
 function doStuff() {
   console.log("This is the doStuff function.");
   // do stuff
@@ -2451,7 +2451,7 @@ function doStuff() {
     - one is used to set a value (setter)
 
   - to prevent function from being invoked when the page renders we need to pass any arguments to that function inside another function (wrap in outer function)
-```
+```jsx
   <Button onClick={() => setCount(count + 1)}>Increment</Button>
 ```
 
@@ -2481,3 +2481,16 @@ function doStuff() {
   - use previous state
     -prev or previous
     - instead of reffering to state directly
+
+- Updating states of components
+  - when doing actions on events create a function that only needs to be referenced
+```jsx
+const handleClick = (event) => setState(event.target.value ? event.target.value : "");
+
+  <button onClick={handleClick} />
+
+  // instead of
+
+  <button onClick={event => setState(event.target.value ? event.target.value : "")} />
+```
+
