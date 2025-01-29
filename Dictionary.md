@@ -2436,3 +2436,12 @@ function doStuff() {
   - state refers to the data that a component manages and stores
     - represents a components current state or condition such as values or properties
   - state enables reat components to respond dynamically
+    - when a components state changes, react automatically re renders
+  - the state in react allows us to dynamically change one or many elements at once based on one variable
+  - to store state we use hooks - useState hook
+
+- Using states in react useState
+  - returns an array
+  - first element is the current value for the state
+  - second element is a function that can update the state and cause a render
+  - array destructuring done on left side of assignment operator to create two variables from the array returned by useState
