@@ -2312,6 +2312,8 @@ Requirements:
 - access specific value? maybe object
 - need to remove first or last element? -array
 - can change data structure 
+- object.entries method returns an array of key value pairs from the object and map is then utilized to extract the values resulting in an array of objects
+- object.values() works well to turn an object containing other objects into an array
 
 - complete data structure to store the properties of one metal
 ```
@@ -2378,4 +2380,59 @@ function doStuff() {
   - dont index the element
     - we want the keys to be unique
     - always use unique key
-    
+
+- Props vs State
+  - Props is:
+      Immutable;
+      Read-only; and
+      Passed down from parent to child components.
+  - State is:
+      Immutable, but can be updated via setState;
+      Read and writeable;
+      Locally owned by its component; and
+      Can only be passed as props.
+- when to use: depends whether or not the component owns the data
+  - when using state data is locally owned and updated by the component itself
+  - props are read only so the data is externally owned by the parent component and passed down to the children components
+
+- data traversal - unidirectional
+  - parent can pass down to component via props
+  - child cannot directly send data back up through props
+    - instead an event handler is used to pass data from child to parent
+  - when communicating between siblings data must first be passed to their common parent component through an event handler function. data can then be sent down to the second sibling component thropugh props by the parent
+
+- events
+  - allow information to be sent from child to parent
+  - must define event handler in parent component and pass it down to the child as a prop
+    - event handler defined in parent component
+    - event handler function passed as prop to child
+    - child calls event function with relevant data as arugments
+    - the parent component handles the event and uses data
+- child components cannot pass data up to its parents
+
+- hooks
+  - prior to hooks functions couldnt handle or manage states
+  - stateless or "dumb components"
+  - hooks utilized to invoke different features of react into functional components
+  - custom hook is a function that starts with the word "use"
+  - 2 most common are useState and useEffect
+
+- useState
+  - in react local variables do not persist between renders
+    - if component is re rendered we lose information we were trying to capture
+
+- Rules of hooks
+  - Call hooks at the Top level 
+    - call hooks at top levels before our render is called and after our function component declared
+    - we call hooks at the top level because React relies on the order of hook calls to maintain the state and effects correctly.
+    - if we dont follow the rule and call hooks inside loops conditions or nested functions it can lead to unpredictable behaviour and errors in app
+  - Call Hooks from React function
+    - not from regular javascript functions.
+    - call from react function components or custom hooks
+
+
+- React State
+  - a state is the current status of something
+  - state refers to the data that a component manages and stores
+    - represents a components current state or condition such as values or properties
+  - state enables reat components to respond dynamically
