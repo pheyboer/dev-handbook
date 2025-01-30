@@ -2507,3 +2507,83 @@ const handleClick = (event) => setState(event.target.value ? event.target.value 
 
 - useReducer can do it all, but useState is still useful for managing simple state transformations
   - more complex state logic use useReducer
+
+- Controlled components
+  - Form elements keep track of their own state
+  - html has built in state management but preferable to use React
+
+  - components that override HTML form elements to let react control their state area called controlled components
+
+  - Pattern:
+    - set a variable that is stored in state as the value attrubute on the form element
+    - use onChange event that uses the setter of your state to set a new value when the input changes
+
+    1. A user types a single character "A" into the input element.
+    2. The onChange event handler is triggered.
+    3. It invokes the setWord function to change the state.
+    4. When the state changes, React calls the component function.
+    5. The useState call returns the current value which is "A".
+    6. The input element has its value set to "A".
+    7. The browser displays the "Your word is: {word}." message as "Your word is: A."
+
+- Fragments
+  - React Rule: JSX expressions must have only one parent element
+    - components can only return JSX with one root element
+    - conditional expressions that resolve to JSX must also only have one root element
+      - fixed by wrapping both elements in a <div>
+        - is <div> necessary for the page?
+        - extra div tags can result in bugs related to CSS
+      - consider using <Fragment>
+        - does not create any extra DOM nodes which can clutter HTML and cause layout problems
+
+```jsx
+        return (
+          <React.Fragment>
+            <h1>A heading</h1>
+            <p>A paragraph</p>
+          </React.Fragment>
+        )
+```
+OR pull fragment with import statement
+```jsx
+import React, { Fragment } from 'react';
+
+return (
+  <Fragment>
+    <h1>A heading</h1>
+    <p>A paragraph</p>
+  </Fragment>
+)
+// Shorthand
+return (
+  <>
+    <h1>A heading</h1>
+    <p>A paragraph</p>
+  </>
+)
+```
+- shorthand method does not accept attributes (props)
+  - need to use <Fragment>
+
+- Conditional Expressions that result in Multiple Elements
+  - if you have 2 expressions that do not resolve to single root elements, wrap in <Fragment>
+
+
+  const userLoggedIn = false;
+```jsx
+return (
+  <Fragment>
+    {userLoggedIn ? 
+    <>
+      <h1>Success!</h1>
+      <p>You are logged in.</p>
+    </>
+    :
+    <>
+      <h1>Warning!</h1>
+      <p>You are not logged in</p>
+    </>
+    }
+  </Fragment>
+)
+```
