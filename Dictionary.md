@@ -2681,4 +2681,60 @@ return (
   - 3. define relationships between entities (FK)
   - 4. draw erd with crows foot notation for relationships
 
-  
+## Algorithms
+- Sorting: Bubble sort, merge sort, quick sort
+- Searching: linear, binary
+- Big O notation: time and space complexity
+- recursion: function calling itsself to solve smaller instances of a problem
+
+- For...in Loop: iterate over object properties
+- For...of loop: iterate over iterable objects (arrays)
+
+- Array Methods:
+  - .forEach()
+  - .map()
+  - .filter()
+  - .reduce()
+
+- APIs
+  - RESTful API principles
+    - stateless use of HTTP methods (GET POST PUT DELETE)
+  - API request using fetch
+```js  
+    fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+```
+
+- API testing: Postman (send requests and inspect response)
+
+## Code organization
+- break code into reusable modules or files
+- keep concerns separated (logic vs UI)
+
+## Refactoring
+```js
+// Before refactoring:
+function processData(data) {
+  // process first part
+  for (let i = 0; i < data.length; i++) {
+    // process data[i]
+  }
+  // process second part (duplicate logic)
+  for (let i = 0; i < data.length; i++) {
+    // another operation on data[i]
+  }
+}
+
+// After refactoring (Extract Function):
+function processItem(item) {
+  // common processing logic
+}
+
+function processData(data) {
+  data.forEach(processItem);
+  // call processItem again if needed in a different context
+}
+```
+
