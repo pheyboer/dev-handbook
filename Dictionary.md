@@ -2628,3 +2628,57 @@ return (
   A Visual Explanation of SQL Joins
   Creating ERDs
   Objects - Iteration
+
+## SQL and Database
+- CRUD create read update delete
+  - ```INSERT INTO table_name (column1, column2) VALUES (value1, value2);```
+  - ```SELECT column1, column2 FROM table_name WHERE condition;```
+  - ```UPDATE table_name SET column1 = value1 WHERE condition;```
+  - ```DELETE FROM table_name WHERE condition;```
+- Filerting and sorting
+  - WHERE: SELECT * FROM employees WHERE age > 30;
+  - ORDER BY: SELECT * FROM employees ORDER BY last_name ASC;
+  - LIMIT/OFFSET: SELECT * FROM employees LIMIT 10 OFFSET 5;
+- Primary Key (PK) - unique identifier for table records
+- Foriegn Key (FK) - field in one table that links to primary key of another
+- Relationships:
+  - One-to-One: One record in table A relates to one record in table B.
+  - One-to-Many: One record in table A relates to many records in table B.
+  - Many-to-Many: Many records in table A relate to many records in table B (often implemented with a junction table).
+- SQL JOIN 
+  - INNER JOIN: Returns rows when there is a match in both tables.
+    SELECT a.column, b.column
+    FROM table_a AS a
+    INNER JOIN table_b AS b ON a.common_field = b.common_field;
+
+  - LEFT (OUTER) JOIN: Returns all rows from the left table and matched rows from the right table.
+    SELECT a.column, b.column
+    FROM table_a AS a
+    LEFT JOIN table_b AS b ON a.common_field = b.common_field;
+
+
+  - RIGHT (OUTER) JOIN: Returns all rows from the right table and matched rows from the left table.
+    SELECT a.column, b.column
+    FROM table_a AS a
+    RIGHT JOIN table_b AS b ON a.common_field = b.common_field;
+
+
+  - FULL (OUTER) JOIN: Returns rows when there is a match in one of the tables.
+    SELECT a.column, b.column
+    FROM table_a AS a
+    FULL OUTER JOIN table_b AS b ON a.common_field = b.common_field;
+
+
+- Venn diagram explanation:
+  - INNER JOIN is the intersection.
+  - LEFT JOIN is the whole left circle with the intersection.
+  - RIGHT JOIN is the whole right circle with the intersection.
+  - FULL JOIN is the union of both circles.
+
+- Creating ERD
+  - 1. List all entities
+  - 2. identify PK for each entity
+  - 3. define relationships between entities (FK)
+  - 4. draw erd with crows foot notation for relationships
+
+  
