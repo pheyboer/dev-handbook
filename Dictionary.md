@@ -2587,3 +2587,44 @@ return (
   </Fragment>
 )
 ```
+## State Management Lecture Jan 30 - Immutibility
+  - most bugs in apps are related to the state
+  - useReducer is like redux
+
+- look up principle Copy by Value
+
+  - non primitive values are copy by reference
+  - references object instead of copying the value
+
+- use Vite now because create react is depcreciated
+
+
+- never update your variables directly in react 
+- spread operator to make copy 
+- libraries to help with immutibility but know the steps involved
+
+- useReducer
+
+- Look up:
+  - spread operator
+  - object.assign
+  - virtual DOM
+  - how to automatically add curly brackets for object destructuring
+  - dispatch - update in real time
+
+- Tech interview 2
+  - go over higher array methods
+
+- final Project
+  - can use Zutan
+
+# Technical Interview #2
+- Topics: SQL, Algorithms, APIs, Code organization (code separation/linting), refactoring, testing, ERD, Table relationships, using objects and loops
+- Review: 
+  Database Design
+  Visualizing Databases
+  Relationships Between Tables
+  JOINing Tables
+  A Visual Explanation of SQL Joins
+  Creating ERDs
+  Objects - Iteration
