@@ -1,9 +1,12 @@
 # Peter's Notes
 
 ## Summary
-This repository contains notes by [Peter](https://github.com/pheyboer) for Lighthouse Webdevelopment
+This repository contains notes by [Peter](https://github.com/pheyboer) for Lighthouse Web development
 
-# Table of Contents
+
+
+
+<!-- # Table of Contents
 * [Week 1](/Week_1)
   * [Day 1](/Week_1/Day_1)
   * [Day 2](/Week_1/Day_2)
@@ -26,4 +29,4 @@ This repository contains notes by [Peter](https://github.com/pheyboer) for Light
   * [Day 2](/Week_6/Day_2)
 * [Week 7](/Week_7)
   * [Day 1](/Week_7/Day_1)
-  * [Day 2](/Week_7/Day_2)
+  * [Day 2](/Week_7/Day_2) -->

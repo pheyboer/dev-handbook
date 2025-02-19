@@ -1,14 +1,12 @@
 # Dictionary of Terms and Notes
 
-# Tech Interview
-
+### UDEMY
+  - https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22628657#overview
 ### Odin Project
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
-### UDEMY
-  - https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22628657#overview
-
 ## Lecture Notes
+
   * Objects  https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
   * Callbacks  https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
     - https://vimeo.com/1015946338/633db77663
@@ -35,13 +33,7 @@
   * Responsive Design and SASS
     - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m4w10/sassLecture
   * SQL
-    - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/220/lectures/15297?workbook_id=web-flex-v2-m05w11 
-    - PostgreSQL peterheyboer pass lighthouse
-    - LightBnB Instructions:
-      - cd /home/peterheyboer/lighthouse/LightBnB
-      - ```sudo service postgresql start``` peter heyboer lighthouse every time
-      - sudo -u postgres psql -d lightbnb
-      - \i migrations/01_schema.sql
+    - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/220/lectures/15297?workbook_id=web-flex-v2-m05w11
   * Database Design
     - https://web.compass.lighthouselabs.ca/activities/975/lectures/15326
   * SQL from our Apps
@@ -135,16 +127,6 @@
     - within last 4 days dont add new featurtes
       - dont present buggy app
 
-# Holidays
-  - work on udemy
-  - stretch work
-  - revisit project
-  - codewars or leetcode or neetcode
-  - take a peek at the node skeleton
-    - https://github.com/lighthouse-labs/node-skeleton
-  - learn and understand the midterm
-  - read on javascript methods
-
 # Final Project
   - can use midterm skeleton code
 
@@ -161,6 +143,13 @@
   1. nvm use 20
   2. ```sudo service postgresql start``` peter heyboer lighthouse
   3. ```psql -U development -d lightbnb``` logs into lightbnb database as development user
+
+- PostgreSQL peterheyboer pass lighthouse
+    - LightBnB Instructions:
+      - cd /home/peterheyboer/lighthouse/LightBnB
+      - ```sudo service postgresql start``` peter heyboer lighthouse every time
+      - sudo -u postgres psql -d lightbnb
+      - \i migrations/01_schema.sql
   
 ## Test Topics
  - Test 1:
