@@ -32,6 +32,8 @@
     - https://github.com/letsandeepio/2024-09-23-Sep-23-Flex/tree/main/w8-client-side-javascript-jquery
   * AJAX
     - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m3w9/AJAXLecture
+  * Responsive Design and SASS
+    - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m4w10/sassLecture
   * SQL
     - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/220/lectures/15297?workbook_id=web-flex-v2-m05w11 
     - PostgreSQL peterheyboer pass lighthouse
@@ -40,14 +42,28 @@
       - ```sudo service postgresql start``` peter heyboer lighthouse every time
       - sudo -u postgres psql -d lightbnb
       - \i migrations/01_schema.sql
+  * Database Design
+    - https://web.compass.lighthouselabs.ca/activities/975/lectures/15326
+  * SQL from our Apps
+    - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m5w12/sqlAppsLecture
   * Team Git Workflow Breakout
     - https://web.compass.lighthouselabs.ca/activities/4076/lectures/15347
     - https://gist.github.com/andydlindsay/c0dd09a93d603b64a6fec7addd3a92e5
   - Midterm Lecture:
     - other cohort: https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/4589/lectures/14606?workbook_id=web-flex-v2-m05w13
     - my cohort: https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/4589/lectures/15383?workbook_id=web-flex-v2-m05w13
-  * React Lecture:
+  * React Lecture JSX and props:
     - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/2523/lectures/15511
+  * What is React State?
+    - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m7w17/ReactState
+  * React State Management and Immutable Update Patterns
+    - https://web.compass.lighthouselabs.ca/activities/2673/lectures/15552
+  * React Custom Hooks
+    - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m7w18/CustomHooksLecture
+  * Data Fetching & Other Side Effects
+    - https://web.compass.lighthouselabs.ca/p/web-flex-2/activities/2675/lectures/15585
+  * Class Based Components Lecture
+   - https://github.com/senhorgomes/lectures-flex-sep-23/tree/main/m7w19/ClassesLecture
     
     
 
@@ -276,8 +292,11 @@
   - 2 ways to access or modify the properties of objects
   - Dot notation:
     - access or set properties on object
+    - dot and key to access value
+    - cant use if property has special characters
   - Bracket Notation:
     -  can use any string, character, or number as property names
+    - brackets have expression that evaluate to a value
   - Make more notes on differences
 
 
@@ -2616,7 +2635,10 @@ return (
   - go over higher array methods
 
 - final Project
-  - can use Zutan
+  - can use Zutan??
+
+
+
 
 # Technical Interview #2
 - Topics: SQL, Algorithms, APIs, Code organization (code separation/linting), refactoring, testing, ERD, Table relationships, using objects and loops
@@ -2691,10 +2713,12 @@ return (
 - For...of loop: iterate over iterable objects (arrays)
 
 - Array Methods:
-  - .forEach()
-  - .map()
-  - .filter()
-  - .reduce()
+  - .forEach() - iterates through array, does not return new array or value
+    - logging, updating DOM element
+  - .map() - transforms array by function - returns new array
+  - .filter() - creates new array with element provided
+  - .reduce() - reduce array to single value
+    - reducer function on each value
 
 - APIs
   - RESTful API principles
@@ -2738,3 +2762,328 @@ function processData(data) {
 }
 ```
 
+## Testing
+- Mocha and Chai
+```js
+  // Using Mocha and Chai for assertion:
+  const { expect } = require('chai');
+  describe('Array', function() {
+    it('should start empty', function() {
+      const arr = [];
+      expect(arr.length).to.equal(0);
+    });
+  });
+```
+
+## Object manipulation
+- Object.keys() - returns array of objects keys
+- Object.values() - returns array of objects values
+- Object.entries() - returns array of objects key value pairs
+
+## Asynchronus control flow
+- managing operations without blocking main thread
+- call stack and stack queue
+- setTimeout setInterval
+
+## Callbacks
+- functions passed as arugments to other functions, executed once asynchronous operation completes
+
+## Promises
+- create promise
+- consume promise with .then() .catch() .finally()
+- chain promises for sequential asyncrhonus operations
+
+## SQL practice
+
+/*
+Sample Dataset
+Imagine we have two tables: Employees and Departments.
+
+Employees Table
+employee_id	first_name	last_name	department_id	salary	hire_date
+1	Alice	Johnson	1	60000	2018-03-15
+2	Bob	Smith	2	55000	2019-07-22
+3	Charlie	Davis	1	70000	2017-01-10
+4	Diana	Brown	3	50000	2020-11-05
+5	Evan	Wilson	2	65000	2016-09-30
+Departments Table
+department_id	department_name
+1	Engineering
+2	Marketing
+3	Sales
+
+*/
+//Write a query to select the first name, last name, and salary of employees who earn more than 60000.
+```
+SELECT first_name, last_name, salary 
+FROM Employees
+WHERE salary > 60000;
+```
+//Calculate the average salary for each department.
+```
+SELECT department_id, AVG(salary) AS average_salary
+FROM Employees
+GROUP BY department_id;
+```
+//List each employee’s full name along with their department name.
+```
+SELECT CONCAT(first_name, ' ', last_name) AS full_name, department_name
+FROM Employees
+JOIN Departments ON Employees.department_id = Departments.department_id;
+```
+// Find the employees who earn more than the average salary of their department.
+```
+SELECT first_name, last_name, salary, department_id
+FROM Employees
+WHERE salary > (
+  SELECT AVG(salary)
+  FROM Employees
+  WHERE department_id = Employees.department_id
+);
+```
+//Retrieve all employees hired after January 1, 2018, and order the results by hire date in ascending order.
+```
+SELECT employee_id, first_name, last_name, hire_date
+FROM Employees
+WHERE hire_date > '2018-01-01'
+ORDER BY hire_date ASC;
+```
+//Find the departments that have more than one employee.
+```
+SELECT department_id, COUNT(employee_id) AS employee_count
+FROM Employees
+GROUP BY department_id
+HAVING COUNT(employee_id) > 1;
+```
+//Increase the salary of all employees in the Marketing department by 10%. Assume the department_id for Marketing is 2.
+```
+UPDATE Employees
+SET salary = salary * 1.10
+WHERE department_id = 2;
+```
+//Delete all employees from the Sales department. Assume the department_id for Sales is 3.
+```
+DELETE FROM Employees
+WHERE department_id =3;
+```
+
+## Create simple RESTful API
+```js
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+// Sample data store
+let users = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' }
+];
+
+app.use(express.json());
+
+// GET /users
+app.get('/users', (req, res) => {
+  res.json(users);
+});
+
+// POST /users
+app.post('/users', (req, res) => {
+  const newUser = {
+    id: users.length + 1,
+    name: req.body.name
+  };
+  users.push(newUser);
+  res.status(201).json(newUser);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+```
+
+## API Calls
+- using fetch
+```js
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => {
+    // Check if the response is OK (status in the range 200-299)
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    // Parse the JSON from the response
+    return response.json();
+  })
+  .then(data => {
+    // Log the data received from the API
+    console.log('Data received:', data);
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the fetch
+    console.error('There was a problem with the fetch operation:', error);
+  });
+```
+### using async await
+```js
+async function fetchTodo() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    
+    // Check if the response is OK (status in the range 200-299)
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    const data = await response.json();
+    console.log('Data received:', data);
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+}
+
+fetchTodo();
+```
+
+
+
+## ERD
+Design an Entity Relationship Diagram (ERD) for a simple library system that includes the following entities:
+
+- Books: Attributes include book_id, title, and author_id.
+- Authors: Attributes include author_id, name.
+- Members: Attributes include member_id, name.
+- Loans: Attributes include loan_id, book_id, member_id, and loan_date.
+
+## Summing object.values
+```js
+//example object
+const sales = {
+  apple: 10,
+  banana: 20,
+  orange: 15
+};
+
+function totalSales(sales) {
+  const values = Object.values(sales);
+  return values.reduce((total, num) => total + num, 0)
+}
+```
+
+## Object.entries
+```js
+const user = { name: 'Alice', age: 30, city: 'New York' };
+
+function objectToStringArray(obj) {
+  return Object.entries(obj).map(([key, value]) => `${key}: ${value}`)
+}
+```
+## TI #2
+look up IIFE
+now we have bundlers 
+
+## React custom hooks lecture Feb 4
+- custom hooks
+  - 3 rules
+    - 1. needs to be javascript function
+    - 2. when we import it, it needs to be called at the top of our functional component
+    - 3. needs to start with the word ```use```
+
+  - separate into foler called hooks (javascript file- this is a strict javascipt function) (jsx file returns html or jsx)
+  - import and export
+  - arrays need to be imported in the same order - could create potential bugs
+  - import object instead because the order will not matter
+  - a hook is also an independent state
+    - same hook different states
+- useState
+- useEffect - execute code after first render
+  - only executes once (dependancy array) after initial render
+  - put api fetch call in here
+
+- can use Bryans api for movies in final project if we want
+
+- React component
+  - JS function that returns jsx
+
+- Component Render
+  - call the function
+
+## Photolabs and React notes
+- In React, it is required that each item in a list of children has a unique identifier called a key. The value must be named key and each key must be unique.
+
+## Lecture Feb 6 - useEffect hook
+- dependency array and use effect hook
+
+- cleaning up side effects
+
+- pure function: function that walways returns the same output for the same input and has no side effects (which is a keyword)
+  - key concept of functional programming
+
+- impure function: function that might not return the same output with the same input. and might modify an external state (side effect)
+
+- side effect would be reaching out to external dependency
+  - variable outside of function
+  - making api call
+  - updating dom
+
+- pure is important : predictable behaviour
+  - separation of concerns
+  - reuseability
+  - testability
+  - performance optimization (memoization)
+
+  - hard to test impure functions
+
+- reacts only job is to calcuate ui 
+- side effects timers or intervals 
+- rendering is calculating the UI part
+
+- useeffect hook for side effects
+- useEffect: import then declare it.
+  - dependency array 
+  - empty dependency array: 
+  - no dependency array: side effect will run everytime component is rendered
+  - [] - side effect will run once when component mounts
+  - [state variable] side effect will run evertime given dependency changes
+
+  snippet to generate component**
+
+- clean up side effects with a return statement 
+
+- for project: fetch data to display in app
+
+- fetch MDN docs
+  - how does fetch work?
+      - inside of useEffect
+
+- look innetwork to see request
+- look at lecture for TopicList.jsx help and useeffect
+- unique key 
+- dont use key=index use id ex topic.id
+- bad practice to use index remove it from project and use unique key 
+
+- for project can use fetch or Axios 
+
+
+## Photolabs project
+### Instructions
+- start psql ```sudo service postgresql start```
+```psql -U labber -d photolabs_development```
+- in backend
+- npm start
+
+- npm run start in backend and frontend
+http://localhost:8001/api/photos
+http://localhost:8001/api/topics
+http://localhost:8001/api/topics/photos/:id :id is 1 or 2 or 3
+
+
+## Testing in react
+
+- 4 categories
+  - static
+  - unit
+  - integration
+  - end to end
+
+## Lecture Feb 18 Automated testing in react
+- using CRA instead of VITE 
+- if using vite have to use vitest
