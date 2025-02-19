@@ -5,13 +5,14 @@
 ### Odin Project
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
-## Lecture Notes
+## Lecture Links
 
   * Objects  https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
   * Callbacks  https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
     - https://vimeo.com/1015946338/633db77663
     - https://github.com/andydlindsay/flex-sep23-2024/tree/main/m01w02-2
-  * TDD 
+  * TDD with Mocha & Chai
+    - https://web.compass.lighthouselabs.ca/activities/101/lectures/14872
   * Asynchronus Control Flow https://github.com/andydlindsay/sep16-2024/tree/main/w02d02
   * Networking and HTTP
     - Part 1: https://vimeo.com/1012900013/6c1c4c8c17
@@ -59,7 +60,7 @@
     
     
 
-## Projects
+<!-- ## Projects
 
 # Midterm Project
   - Group - find out later this week. when group is formed it starts
@@ -150,7 +151,7 @@
       - ```sudo service postgresql start``` peter heyboer lighthouse every time
       - sudo -u postgres psql -d lightbnb
       - \i migrations/01_schema.sql
-  
+   -->
 ## Test Topics
  - Test 1:
     - Count numbers in Array
@@ -178,7 +179,7 @@
   - Test 5: SQL
     - ability to craft SQL SELECT statements
     
-  ## For testing use node version 10 (nvm use 10) regularly use node version 20 (nvm use 20)
+  ### For testing use node version 10 (nvm use 10) regularly use node version 20 (nvm use 20)
 
 
 ## Technical Interviews
@@ -205,8 +206,8 @@
       - Write out pseudocode for each step
 
 ## Example Technical Interview Question
-  - video: https://vimeo.com/1024956107/7ec592c4a7?share=copy
-  - example: https://github.com/jatanassian/flex-september-2024/tree/main/breakout_tech-interview
+  - Video: https://vimeo.com/1024956107/7ec592c4a7?share=copy
+  - Example: https://github.com/jatanassian/flex-september-2024/tree/main/breakout_tech-interview
 
 ## VSCode Shortcuts
   https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
