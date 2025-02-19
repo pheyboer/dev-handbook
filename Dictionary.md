@@ -248,12 +248,12 @@
   https://www.vivekmchawla.com/erd-crows-foot-relationship-symbols-cheat-sheet/ 
 
 
-## Variables
+## Terminology
+### Variables
   - var - function scoped or globally scoped
   - let - block scoped (inside loop or conditionals)
   - const - block scoped
 
-## Terms
   ### Node.js
     - Javascript runtime built on CHrome's V8 Javascript engine
     - Core API provides EventEmitter class that is the basis for event driven patterns
