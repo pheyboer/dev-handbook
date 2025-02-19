@@ -5,7 +5,7 @@
 ### Odin Project
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
-## Lecture Links
+## Lecture Resources
 
   * Objects  https://github.com/andydlindsay/sep16-2024/tree/main/w01d03
   * Callbacks  https://github.com/FrancisBourgouin/lectures-web-ft-sep16-2024/tree/main/w1d4
@@ -208,6 +208,8 @@
 ## Example Technical Interview Question
   - Video: https://vimeo.com/1024956107/7ec592c4a7?share=copy
   - Example: https://github.com/jatanassian/flex-september-2024/tree/main/breakout_tech-interview
+
+# Shortcuts and Cheatsheets
 
 ## VSCode Shortcuts
   https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
