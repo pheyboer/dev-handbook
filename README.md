@@ -12,3 +12,5 @@ This repository contains notes by [Peter](https://github.com/pheyboer) for Light
 * Cheatsheets and Shortcuts
 * Terminology
 * Notes
+* Example problems
+* Technical Interview Resources
