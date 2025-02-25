@@ -3079,3 +3079,84 @@ http://localhost:8001/api/topics/photos/:id :id is 1 or 2 or 3
 ## Lecture Feb 18 Automated testing in react
 - using CRA instead of VITE 
 - if using vite have to use vitest
+
+## React Testing Library
+- Unit test broken into 3 phases
+  1. Initialize the component that we want to test
+  2. Trigger the change that executes the unit
+  3. Verify that the unit produced the expected result
+
+  - test render
+```js
+    it("renders without crashing", () => {
+      render(<Button />);
+    });
+```
+- Stored in ```__tests__``` and has ```.test.js``` at the end 
+
+```js
+it("renders its `children` prop as text", () => {
+  const { getByText } = render(<Button>Default</Button>);
+  expect(getByText("Default")).toBeInTheDocument();
+});
+```
+- render function imported from react-testing-library
+- expect function injected into glocal scope by Jest
+- getByText query function returned by render function but is part of dom-testing-library
+- toBeInDocument function is a matcher provided by Jest in jest-dom library
+
+- Jest
+  - Common matchers
+    - toBe
+    - toHaveLength
+    - toHaveProperty
+    - toBeGreaterThan
+
+- jest-dom
+  - dom specific matchers
+  - library is the source of toBeInDocument matcher
+  - toHaveClass and toHaveValue
+
+- dom-testing-library
+  - query is combination of a query variant and a query type
+  - getByText
+    - variant is getBy
+    - type is ByText
+  - Access functions by destructuring the object returned by the render function in react-testing-library  
+
+- Test Design
+  - 3 phases
+    - setup
+    - change
+    - verify
+  - can use expect function a few times in the same test to verify more than one behaviour within a single test
+
+- xit and test.skip
+  - to skip test
+```js
+xit("does something it is supposed to do", () => {
+  // ...
+});
+
+// or if using test
+test.skip("does something it is supposed to do", () => {
+  // ...
+});
+```
+
+- JEST commands watch mode
+  - npm test -- --watch
+  - Watch Usage
+
+Press a to run all tests.
+Press f to run only failed tests.
+Press q to quit watch mode.
+Press p to filter by a filename regex pattern.
+Press t to filter by a test name regex pattern.
+Press Enter to trigger a test run.
+
+- Mock functions can be used to track calls to the function, check the arguments it was called with, and even dictate what value it should return.
+
+### Lecture End to End testing with cypress
+- static testing is eslint
+- cypress is end to end framework for web test automation in Javascript 
