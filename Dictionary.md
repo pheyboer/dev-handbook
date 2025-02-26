@@ -3160,3 +3160,7 @@ Press Enter to trigger a test run.
 ### Lecture End to End testing with cypress
 - static testing is eslint
 - cypress is end to end framework for web test automation in Javascript 
+
+## Lecture Real World React
+- React Router
+- Material UI - free, styled component
