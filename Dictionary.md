@@ -3164,3 +3164,9 @@ Press Enter to trigger a test run.
 ## Lecture Real World React
 - React Router
 - Material UI - free, styled component
+
+## Lecture - Concluding React
+- Building Components
+- Props
+- Fetching Data from an API
+- Immutable Patterns
