@@ -3170,3 +3170,10 @@ Press Enter to trigger a test run.
 - Props
 - Fetching Data from an API
 - Immutable Patterns
+
+- jsx converted to js using babel compiler
+- react app return jsx
+
+## Ruby
+- Class based OOP 
+- No event loop - Callbacks and Promises are not used
