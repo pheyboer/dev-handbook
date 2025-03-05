@@ -3177,3 +3177,7 @@ Press Enter to trigger a test run.
 ## Ruby
 - Class based OOP 
 - No event loop - Callbacks and Promises are not used
+- Version Control/Management 'rbenv'
+
+## Ruby Intro Lecture
+
