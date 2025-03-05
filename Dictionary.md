@@ -3180,4 +3180,15 @@ Press Enter to trigger a test run.
 - Version Control/Management 'rbenv'
 
 ## Ruby Intro Lecture
+- Ruby has gems like node has package manager
+
+- hashs are objects but they use keys in ruby
+- everything is an object
+- no c style loop they have their own methods and functions
+- functions parenthesis are optional
+- multi line print out use puts
+- puts in place of console.log
+
+- callbacks are blocks
+- arrow functions are lambdas
 
