@@ -247,10 +247,14 @@
  https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf
 
 ## Crow foot notation cheet sheet
-  https://www.vivekmchawla.com/erd-crows-foot-relationship-symbols-cheat-sheet/ 
+  https://www.vivekmchawla.com/erd-crows-foot-relationship-symbols-cheat-sheet/
+
+## React Cheatsheet
+  https://devhints.io/react
 
 ## Ruby Cheatsheet
   https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/Ruby-Cheatsheet.md
+  https://dev.to/ericchapman/my-beloved-ruby-cheat-sheet-208o
   
 
 
@@ -3198,3 +3202,38 @@ Press Enter to trigger a test run.
 
 - Ruby Cheatsheet
   - https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/Ruby-Cheatsheet.md
+  - https://dev.to/ericchapman/my-beloved-ruby-cheat-sheet-208o
+
+
+- Functions do three things:
+
+  - They name pieces of code the way variables name strings and numbers.
+  - They take arguments the way your scripts take ARGV.
+  - Using 1 and 2 they let you make your own "mini-scripts" or "tiny commands."
+
+- Functions in Ruby
+
+  - Create a function by using the word ```def``` in Ruby
+
+  - *args (asterisk args) which is a lot like your argv parameter but for functions.
+
+  - The variables in your function are not connected to the variables in your script
+
+- Function Checklist Ruby
+  - Did you start your function definition with def?
+  - Does your function name have only characters and _ (underscore) characters?
+  - Did you put an open parenthesis ( right after the function name?
+  - Did you put your arguments after the parenthesis ( separated by commas?
+  - Did you make each argument unique (meaning no duplicated names)?
+  - Did you put a close parenthesis ) after the arguments?
+  - Did you indent all lines of code you want in the function two spaces?
+  - Did you end your function with end lined up with the def above?
+
+  
+- When you run ("use" or "call") a function, check these things:
+
+  - Did you call/use/run this function by typing its name?
+  - Did you put the ( character after the name to run it?
+  - Did you put the values you want into the parenthesis separated by commas?
+  - Did you end the function call with a ) character?
+  - Functions that don't have parameters do not need the () after them, but would it be clearer if you wrote them anyway?
