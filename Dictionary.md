@@ -249,6 +249,10 @@
 ## Crow foot notation cheet sheet
   https://www.vivekmchawla.com/erd-crows-foot-relationship-symbols-cheat-sheet/ 
 
+## Ruby Cheatsheet
+  https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/Ruby-Cheatsheet.md
+  
+
 
 ## Terminology
 ### Variables
@@ -3192,3 +3196,5 @@ Press Enter to trigger a test run.
 - callbacks are blocks
 - arrow functions are lambdas
 
+- Ruby Cheatsheet
+  - https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/Ruby-Cheatsheet.md
