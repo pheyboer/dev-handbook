@@ -3274,3 +3274,31 @@ Press Enter to trigger a test run.
   - Both Module and Class constants create a namespace within which other constants can be placed. This type of nesting can be limitless.
 
   - In Ruby, when you require a library, it typically defines constants directly in the global namespace. On the other hand, JavaScript allows you to assign the exports of a required module to a variable, which controls the scope of where these items are accessible.
+
+- OOP in Ruby
+  - without OOP one small change at any point in the program would trigger a ripple effect of errors due to dependencies throughout the entire program.
+  - created containers for data that could be changed and manipulated without affecting the entire program
+
+- Encapsulation
+  - describes the idea of bundling or combining the data and the operations that work on that data into a single entity - eg. an object
+  - also hides functionality to make it unavailable to the rest of the code base - form of data protection
+  - the principle of combining data and the operations relevant to that data encapsulation
+    - bundle state (data) and behaviour (operations) to form an object
+
+- Polymorphism
+  - ability for different types of data to respond to a common interface
+
+- Inheritance
+  - class acquires behaviours of another class (reffered to as a superclass)
+
+- Objects in Ruby
+  - anything that can be said to have a value is an object
+    - numbers, strings, arrays, classes, modules
+    - not objects: methods, blocks, and variables
+  - objects are made from classes
+
+- Classes define objects
+  - ruby defines the attributes and bahaviours of its objects in classes
+
+-workflow of creating a new object or instance from a class is called instantiation
+
