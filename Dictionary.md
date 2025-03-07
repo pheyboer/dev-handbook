@@ -3187,7 +3187,7 @@ Press Enter to trigger a test run.
 - No event loop - Callbacks and Promises are not used
 - Version Control/Management 'rbenv'
 
-## Ruby Intro Lecture
+# Ruby
 - Ruby has gems like node has package manager
 
 - hashs are objects but they use keys in ruby
@@ -3229,7 +3229,7 @@ Press Enter to trigger a test run.
   - Did you indent all lines of code you want in the function two spaces?
   - Did you end your function with end lined up with the def above?
 
-  
+
 - When you run ("use" or "call") a function, check these things:
 
   - Did you call/use/run this function by typing its name?
@@ -3237,3 +3237,40 @@ Press Enter to trigger a test run.
   - Did you put the values you want into the parenthesis separated by commas?
   - Did you end the function call with a ) character?
   - Functions that don't have parameters do not need the () after them, but would it be clearer if you wrote them anyway?
+
+- Boolean Logic Statements
+  - solve them easily by this process:
+
+    - Find an equality test (== or !=) and replace it with its truth.
+    - Find each &&/|| inside parentheses and solve those first.
+    - Find each ! and invert it.
+    - Find any remaining &&/|| and solve it.
+    - When you are done you should have true or false.
+
+  -  Shortcut: Any && expression that has a false is immediately false, so you can stop there. Any || expression that has a true is immediately true, so you can stop there. But make sure that you can process the whole expression because later it becomes helpful.
+
+- REPL
+  - irb is Ruby's command line REPL (read-eval-print-loop) much like how node is JavaScript's. All language REPLs work roughly the same way:
+
+  - Read: A user is prompted to input Ruby expression like 5 + 4, "apples".reverse, etc.
+  - Evaluate: After the user hits enter, the REPL evaluates the expression.
+  - Print: The REPL prints out what the expression evaluates to, e.g., 5 + 4 evaluates to 9.
+  - Loop: We return to the first step, where the user is prompted to input a Ruby expression.
+
+- Blocks and Yield in Ruby
+  - In Ruby, methods can receive a code block in order to perform arbitrary segments of code.
+  - When a method expects a block, you can invoke it by calling the yield function.
+  - Blocks are similar to methods (functions)
+  - If arguments are how we pass in data to methods, blocks are how we pass in behavior
+  - In Ruby, blocks can be passed into methods as a sort of "invisible argument,"
+  - blocks have access to variables outside of their definition
+
+  - Passing a block into a Ruby mehtod is like passing a callback function into javascript function 
+
+- Constants
+  - Math.class # => Module
+  - Math::PI.class # => Float
+
+  - Both Module and Class constants create a namespace within which other constants can be placed. This type of nesting can be limitless.
+
+  - In Ruby, when you require a library, it typically defines constants directly in the global namespace. On the other hand, JavaScript allows you to assign the exports of a required module to a variable, which controls the scope of where these items are accessible.
