@@ -3300,5 +3300,21 @@ Press Enter to trigger a test run.
 - Classes define objects
   - ruby defines the attributes and bahaviours of its objects in classes
 
--workflow of creating a new object or instance from a class is called instantiation
+- workflow of creating a new object or instance from a class is called instantiation
+
+- module is a collection of behaviors that is usable in other classes via mixins
+  - a module is 'mixed in' to a class using the include method invocation 
+
+- can use the ancestors method on any class to find out the method lookup chain.
+
+- Create an object in Ruby
+  - define a class and instantiate it by using the ```.new``` method to create an instance (method)
+
+- States and Behaviours
+  - state referes to the data associated to an individual object
+  - behaviours are what objects are capable of doing
+
+- In OOP languages, composition and aggregation are design principles used to establish relationships between classes.
+
+- instance variables hold references to other objects enabling the container class to access and interact with the contained objects methods and properties
 
