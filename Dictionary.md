@@ -3314,7 +3314,42 @@ Press Enter to trigger a test run.
   - state referes to the data associated to an individual object
   - behaviours are what objects are capable of doing
 
-- In OOP languages, composition and aggregation are design principles used to establish relationships between classes.
 
 - instance variables hold references to other objects enabling the container class to access and interact with the contained objects methods and properties
 
+- Initalizing a new object
+```rb
+class GoodDog
+  def initialize
+    puts "This object was initialized!"
+  end
+end
+
+sparky = GoodDog.new        # => "This object was initialized!"
+```
+
+- Instance Variable
+  - @ symbol in front
+  - variable that exists as long as the object instance exists and it is one of the ways we die data to objects
+  - By removing the @ symbol, we're now calling the instance method, rather than the instance variable.
+  - you could do this but its generally a good idea to call the getter method instead
+
+
+- In OOP languages, composition and aggregation are design principles used to establish relationships between classes.
+
+- Composition: container contains one or more objects of other classes as part of its state
+
+- Aggregation
+  - form of association less tightly coupled than composition
+  - lifetime of the contained objects does not depend on the lifetime of the container
+  - container can reference the object, and it can coordinate their operations but they exist independently of the container
+
+- attr_accessor method
+  - ruby's built in way to automatically create setter and getter methods
+  - if we only want getter without setting use attr_reader
+  - only setter use attr_writer
+
+- Calling methods with Self
+  - setter mehod could not work because Ruby thinks we are initalizing local variables
+  - self.name tells Ruby were calling a method
+  - avoid self where not required
