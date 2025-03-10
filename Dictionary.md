@@ -3200,11 +3200,11 @@ Press Enter to trigger a test run.
 - callbacks are blocks
 - arrow functions are lambdas
 
-- Ruby Cheatsheet
+### Ruby Cheatsheet
   - https://github.com/ThibaultJanBeyer/cheatsheets/blob/master/Ruby-Cheatsheet.md
   - https://dev.to/ericchapman/my-beloved-ruby-cheat-sheet-208o
 
-
+### Functions
 - Functions do three things:
 
   - They name pieces of code the way variables name strings and numbers.
@@ -3238,7 +3238,7 @@ Press Enter to trigger a test run.
   - Did you end the function call with a ) character?
   - Functions that don't have parameters do not need the () after them, but would it be clearer if you wrote them anyway?
 
-- Boolean Logic Statements
+### Boolean Logic Statements
   - solve them easily by this process:
 
     - Find an equality test (== or !=) and replace it with its truth.
@@ -3257,7 +3257,7 @@ Press Enter to trigger a test run.
   - Print: The REPL prints out what the expression evaluates to, e.g., 5 + 4 evaluates to 9.
   - Loop: We return to the first step, where the user is prompted to input a Ruby expression.
 
-- Blocks and Yield in Ruby
+### Blocks and Yield in Ruby
   - In Ruby, methods can receive a code block in order to perform arbitrary segments of code.
   - When a method expects a block, you can invoke it by calling the yield function.
   - Blocks are similar to methods (functions)
@@ -3291,7 +3291,7 @@ Press Enter to trigger a test run.
 - Inheritance
   - class acquires behaviours of another class (reffered to as a superclass)
 
-- Objects in Ruby
+### Objects in Ruby
   - anything that can be said to have a value is an object
     - numbers, strings, arrays, classes, modules
     - not objects: methods, blocks, and variables
@@ -3353,3 +3353,46 @@ sparky = GoodDog.new        # => "This object was initialized!"
   - setter mehod could not work because Ruby thinks we are initalizing local variables
   - self.name tells Ruby were calling a method
   - avoid self where not required
+
+  - use self when calling setter methods from within the class
+  - use self for class method definitions
+
+
+  - from within a class:
+    - self, inside of an instance method references the instance (object) that called the method - the calling object
+    - self, outside of an instance method, references the class and can be used to define class methods
+
+  - self is a way of being explicit about what our program is referencing and what our intentions are as far as behavior
+
+ ### Class Methods
+  - class level methods
+  - methods we can call directly on the class itsself, without having to instantiate any objects
+  - prepend the method name with self
+
+```rb
+  def self.what_am_i         # Class method definition
+    "I'm a GoodDog class!"
+  end
+  ```
+
+- class variables are created using two @@
+
+- constants
+  - when creating classes you might want to change variables
+  - create constant
+  - define by using upper case at begining of variable name
+    - whole variable can be upper case
+
+- to_s Method
+  - puts method automatically calls to_s on its arugments
+  - puts sparky is equivalent to puts sparky.to_s
+  - calls to_s for any argument that is not an array
+  - p sparky is equivalent to puts sparky.inspect.
+  - Ruby expects #to_s to always return a string (overriding #to_s)
+
+### Class Inheritance
+  - < symbol to indicate inheritance
+    - all of the methods in that class are available to the other class for use
+  - super keyword
+    - call methods earlier in the method lookup path
+    
