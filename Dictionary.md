@@ -2,6 +2,8 @@
 
 ### UDEMY
   - https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22628657#overview
+### Ruby on Rails
+  - https://www.railstutorial.org/book
 ### Odin Project
   - https://www.theodinproject.com/paths/foundations/courses/foundations#javascript-basics 
 
@@ -151,6 +153,13 @@
       - ```sudo service postgresql start``` peter heyboer lighthouse every time
       - sudo -u postgres psql -d lightbnb
       - \i migrations/01_schema.sql
+
+  - Connecting to psql
+    - psql -U your_username -d your_database -h your_server_ip -p 5432 -W
+
+  - ruby exercises
+    - BUNDLE_GEMFILE=~/lighthouse/ar-exercises/Gemfile bundle exec ruby exercises/exercise_1.rb
+
    -->
 ## Test Topics
  - Test 1:
@@ -3328,11 +3337,13 @@ end
 sparky = GoodDog.new        # => "This object was initialized!"
 ```
 
-- Instance Variable
+### Instance Variable
   - @ symbol in front
   - variable that exists as long as the object instance exists and it is one of the ways we die data to objects
   - By removing the @ symbol, we're now calling the instance method, rather than the instance variable.
   - you could do this but its generally a good idea to call the getter method instead
+
+  - instance variables have @ (often called attribute)
 
 
 - In OOP languages, composition and aggregation are design principles used to establish relationships between classes.
@@ -3390,9 +3401,103 @@ sparky = GoodDog.new        # => "This object was initialized!"
   - p sparky is equivalent to puts sparky.inspect.
   - Ruby expects #to_s to always return a string (overriding #to_s)
 
-### Class Inheritance
+## Class Inheritance
   - < symbol to indicate inheritance
     - all of the methods in that class are available to the other class for use
   - super keyword
     - call methods earlier in the method lookup path
-    
+    - use super to invoke the speak method from the superclass
+
+  ### Modules
+  - Inheritance vs Modules
+    - interface inheritance: class doesnt inherit from another type but instead inherits the interface provided by the mixin module
+
+  - you can onlu subclass (class inheritance) from one class. you can mix in as many modules as you would like.
+
+  - is-a relationship
+  - has-a relationship
+
+  - objects cannot be created from modules (cant instantiate)
+
+ ### Namespacing
+ - organizing similar classes under a module
+  - use modules to group related classes
+  - call classes in a module by appending the class name to the module name with two colons(::)
+
+  - second use case for modules
+    - using modules as a container for methods, called module methods
+
+  ### Access Control
+  - implemented through use of access modifiers
+    - allows or restricts access to a particular thing
+    - in ruby allow or restrict access to methods defined in a class
+  - public, private and protected access modifiers
+    - public: available to anyone who know the class or object name
+    - private: methods that are doing work in a class but dont need to be available to the rest of the program
+    - private: only available to other methods in the class
+      - can call private methods with self (inside class)
+      - not accessible outside of the class definition at all, and are only access from inside the class when called without self
+    - protected: similar to private, cant be invoked outside the class
+      - difference protected methods allow access between class instances. private does not
+
+  - Accidental Method Overriding
+    - through inheritance, a subclass can override a superclass' method
+
+## Active Record
+  - developed as part of rails with purpose of defining database models to allow web app to work easily with a SQL database using Classes
+  -  each AR class (Model) corresponds to existing table in database
+    - provides attributes that map to each column/field in the table
+    - we can CRUD records in table using Class and its instances
+
+
+# Rails
+
+- Starting Rails Server
+  - ```bin/rails server```
+
+
+### Create database model
+- Active Record is a feature of Rails that maps relational databases to Ruby code.
+  - SQLite is default for Rails
+- Command to generate model
+```rb
+bin/rails generate model Product name:string
+```
+- Migrations: set of changes we want to make to database
+  - run ```bin/rails db:rollback``` to undo the last migration.
+
+### Parts of a URL
+http://example.org/products?sale=true&sort=asc
+
+In this URL, each part has a name:
+
+- https is the protocol
+- example.org is the host
+- /products is the path
+- ?sale=true&sort=asc are the query parameters
+
+### Model View Controller MVC
+- architectural pattern adopted to build modern web apps
+  - separates data in app and code used to display it
+- M is active record
+
+
+# Project Planning Lecture
+- wont be given boilerplate
+  -  can use react / rails
+  - can use free resources
+  - "plans are worthless but planning is everything"
+
+- can use other tech
+  - one time someone made chrome extension ( react native)
+  - swift UI to build IOS apps
+  - someone made a crypto currency
+  - android dev studio
+  - react native / flutter for ios and andriod apps
+
+- Figure out tech stack first
+  - only modify tech stack while planning
+
+  - figure out font size colors background colors
+
+  - Figma
