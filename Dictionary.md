@@ -3480,6 +3480,44 @@ In this URL, each part has a name:
 - architectural pattern adopted to build modern web apps
   - separates data in app and code used to display it
 - M is active record
+- when app has directory called app/ with subdirectories called models views and controllers, this is a hint it follows MVC pattern
+
+- Benefits of MVC
+  - The MVC architecture in Rails provides several benefits for maintenance and development:
+
+  - Separation of Concerns: By dividing the application into models, views, and controllers, Rails allows developers to work on separate aspects of the application independently. This separation helps in organizing the code better, making it easier to manage and reducing the chances of conflicts between code handling the business logic and the presentation layer.
+  - Reusability: Components in Rails, especially models and views, can be reused across different parts of the application. For example, the same User model can be used to handle data for both user profiles and user authentication.
+  - Scalability: MVC supports scalability. As the application grows, developers can focus on scaling individual aspects of the application (like optimizing database queries in models) without affecting the entire architecture.
+  - Ease of Testing: MVC facilitates testing since each component can be tested independently. For example, models can be tested separately from views and controllers.
+
+- when interacting with rails app, browser sends request, recieved by web server, and passed to rails controller
+  - commonly the controller interacts with a model (ruby object) and is in charge of communicating with the database
+
+- Summary of steps:
+  - The browser issues a request for the /users URL.
+  - Rails routes /users to the index action in the Users controller.
+  - The index action asks the User model to retrieve all users (User.all).
+  - The User model pulls all the users from the database.
+  - The User model returns the list of users to the controller.
+  - The controller captures the users in the @users variable, which is passed to the index view.
+  - The view uses embedded Ruby to render the page as HTML.
+  - The controller passes the HTML back to the browser.
+
+  - The browser issues a request for the /users/:id URL.
+  - Rails routes /users/:id to the show action in the Users controller.
+  - The show action asks the User model to retrieve a specific user (User.find(params[:id])).
+  - The User model pulls the specific user from the database.
+  - The User model returns the user to the controller.
+  - The controller captures the user in the @user variable, which is passed to the show view.
+  - The view uses embedded Ruby to render the page as HTML, including the user's data.
+  - The controller passes the HTML back to the browser.
+
+- controller contains a collection of related actions
+
+
+
+
+
 
 
 # Project Planning Lecture
