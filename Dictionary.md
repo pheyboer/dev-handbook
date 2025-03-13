@@ -3539,3 +3539,34 @@ In this URL, each part has a name:
   - figure out font size colors background colors
 
   - Figma
+
+
+
+
+## Jungle Rails Project
+
+- For Ruby/ Rails installing and pointing to gemfile
+bundle install --gemfile=./Gemfile
+
+sudo service postgresql start
+ peter heyboer lighthouse
+psql -U development -d 
+
+bundle install --gemfile=/home/peterheyboer/lighthouse/Jungle-Rails/Gemfile
+
+
+- use ruby 3.1.1 
+- use rails '6.1.5.1
+- start psql
+- uncomment username/password in database.yml
+- reset database
+- was the conflict rails 7.2?
+- problems: couldnt find gemfile
+
+sudo service postgresql start
+
+psql -U development -d jungle_development
+pass development
+
+- start server 
+bin/rails s -b 0.0.0.0
