@@ -3570,3 +3570,65 @@ pass development
 
 - start server 
 bin/rails s -b 0.0.0.0
+
+- have 2 terminals open 1 for server
+
+The bin/rails db:setup command, which in turn calls the bin/rails db:schema:load command, uses this schema.rb
+
+- might need gem update
+gem update --system 3.3.22
+gem install bundler:2.6.5
+bundle install (worked) inside project 
+ruby 3.1.1 - no other versions on pc
+rails 7.1
+changed gem puma to 6.0
+
+- start server 
+bin/rails s -b 0.0.0.0
+
+to check routes
+bin/rails routes
+
+## Lecture Advanced Topics - Typescript
+
+- Javascript written in 15 days not the best
+- Typescript 
+- Dx developer experience
+
+- superset of javascript
+  - built by microsoft
+  - javascript is not a compiled language
+  -runtime
+  - interpreter
+
+  -complied langues c++
+
+- type script is not a languge 
+  - adds a syntax ontop of javascript that makes life easier
+- complies to readable JS
+
+statically typed language - have to provide all the variables
+
+types
+
+- automatic code completion
+
+npm install typescript --save-dev
+  - dev dependecny - not sent to user, javacsript is sent
+
+Types:
+  - primitive value types
+  - explicit
+  - implicit
+  - literal
+
+
+- React and typescript
+  - .tsx file
+
+- generix (advanced) 
+
+
+- Order Args
+  - object order
+  - sending props in typescript
