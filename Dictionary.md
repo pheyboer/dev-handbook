@@ -3589,6 +3589,13 @@ bin/rails s -b 0.0.0.0
 to check routes
 bin/rails routes
 
+- Rails MVC
+  - routes.db
+
+- ERB
+  - embedded ruby - templating system allows you to embed ruby code inside HTML
+  - commonly used in Rails views (.html.erb) to dynamically generate HTML content
+
 ## Lecture Advanced Topics - Typescript
 
 - Javascript written in 15 days not the best
@@ -3632,3 +3639,24 @@ Types:
 - Order Args
   - object order
   - sending props in typescript
+
+### Rails Overview Lecture March 18
+- Learning about Rails and Terminal commands
+
+- React is CSR - client side
+- Rails is SSR - server side
+
+- MVC - slower than virtual DOM
+
+- displaying how to use the terminal/command line 
+- Bryan is using rails 7.2.2.1 in lecture
+- create new app: ```rails new App-Name --database=postgresql```
+- SQL is default
+- if you dont have database run ```rails db:create```
+- ```rails generate model```
+- rails is intuitive so you dont need to make ERD with relationships
+- ```rails db:migrate```
+  - combines everything is migrate folder and populates schema
+- gem for rails to mock information - faker gem - if you need data to 
+- ```rails generate controller```
+
