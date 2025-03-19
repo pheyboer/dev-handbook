@@ -3545,6 +3545,20 @@ In this URL, each part has a name:
 
 ## Jungle Rails Project
 
+- Instructions to start
+  - PSQL
+    - sudo service postgresql start
+    - psql -U development -d jungle_development
+  - start server 
+    - bin/rails s -b 0.0.0.0
+  - check routes
+    - bin/rails routes
+
+- Versions:
+  - ruby 3.1.1 - no other versions on pc
+  - rails 7.1
+  - changed gem puma to 6.0
+
 - For Ruby/ Rails installing and pointing to gemfile
 bundle install --gemfile=./Gemfile
 
@@ -3579,9 +3593,7 @@ The bin/rails db:setup command, which in turn calls the bin/rails db:schema:load
 gem update --system 3.3.22
 gem install bundler:2.6.5
 bundle install (worked) inside project 
-ruby 3.1.1 - no other versions on pc
-rails 7.1
-changed gem puma to 6.0
+
 
 - start server 
 bin/rails s -b 0.0.0.0
@@ -3659,4 +3671,8 @@ Types:
   - combines everything is migrate folder and populates schema
 - gem for rails to mock information - faker gem - if you need data to 
 - ```rails generate controller```
+
+- ```rails routes``` to generate all routes in app
+
+- model controller view path
 
