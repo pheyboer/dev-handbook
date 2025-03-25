@@ -237,6 +237,11 @@
   - ```git push```
   - Double check branches and origin
 
+  - git checkout -b branch-name 
+    - to create new branch and switch to it
+  - git push origin branch-name
+    - push changes from new branch
+
   ### For Lighthouse Labs Testing
  - Git clone
   - Go to directory
@@ -3419,13 +3424,22 @@ sparky = GoodDog.new        # => "This object was initialized!"
 
   - objects cannot be created from modules (cant instantiate)
 
- ### Namespacing
+
+
+ ### Namespacing in Ruby
  - organizing similar classes under a module
   - use modules to group related classes
   - call classes in a module by appending the class name to the module name with two colons(::)
 
   - second use case for modules
     - using modules as a container for methods, called module methods
+
+  - Namespacing is a way of bundling logically related objects together
+    - modules is the tool for this
+    - classes or modules with conflicting names can co exist while avoiding collisions
+    - can think of it as storing different files with the same names under separate directories
+
+
 
   ### Access Control
   - implemented through use of access modifiers
@@ -3449,6 +3463,12 @@ sparky = GoodDog.new        # => "This object was initialized!"
     - provides attributes that map to each column/field in the table
     - we can CRUD records in table using Class and its instances
 
+## Database Migrations
+  - journaling system for database changes
+  - bd migrate folder
+  - each time you create a migration it is timestamped
+  - ```bin/rails db:migrate```
+  - db:rollback to go back one migration
 
 # Rails
 
@@ -3553,11 +3573,16 @@ In this URL, each part has a name:
     - bin/rails s -b 0.0.0.0
   - check routes
     - bin/rails routes
+  - reset database
+    - bin/rails db:reset
 
 - Versions:
   - ruby 3.1.1 - no other versions on pc
   - rails 7.1
   - changed gem puma to 6.0
+
+BUNDLE_GEMFILE=~/lighthouse/Jungle-Rails/Gemfile bundle install
+
 
 - For Ruby/ Rails installing and pointing to gemfile
 bundle install --gemfile=./Gemfile
@@ -3676,3 +3701,61 @@ Types:
 
 - model controller view path
 
+## Advanced State management in React Lecture - March 20
+- useReducer took over Redux for state management
+- tailwind to make the app look good in the demo
+
+
+- React Context: dont use it for things that change very often
+- Global Stores:
+- cant use prop drilling with thousands of components (big projects/apps)
+  - global stores -  single source of truth that all components can access.
+  - need global stores when:
+    - multiple components need access to same data (authentication, user settings, themes)
+    - complex state that changes frequently
+    - when passing props becomes too difficult
+  - context - state provider.jsx
+  - import createContext
+
+  - steps
+    - create the context
+    - create provider component
+    - define values in the state provider using the value prop
+    - wrap your app with provider
+    - use global state to access states in components
+    - 
+- zustand
+  - 
+
+- state management
+  - redux
+  - mobx
+  - react query
+  - zustand
+  - recoil
+  - jotai
+  - valtio
+  - apollo client
+
+
+## Final Project - Ideas
+- keep main idea simple, and build on/ add features
+
+- Gamified budget tracker
+  - virtual currency - crypto?
+  - challenges/missions
+  - ai budget assisstant
+  - real life discounts
+
+- Accessibility app
+  - Skill swap?
+    - Features: Profile system, skill matching, messaging, scheduling.
+
+- Gamified Habit Tracker
+  - turn daily habits into games
+  - this is like finch mental health app
+
+- AI powered code debugger
+  - like phyton tutor 
+
+## Blog Post Peer Reviewd - Research and Reflect
