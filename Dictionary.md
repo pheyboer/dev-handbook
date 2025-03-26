@@ -3747,6 +3747,53 @@ Types:
   - ai budget assisstant
   - real life discounts
 
+
+
+# Blog Post Peer Reviewd - Research and Reflect
+4. Popular ORMs in JavaScript
+Level: Normal
+
+We've learned about ORMs and Active Record. What about ORM libraries in JavaScript? Research some of the most popular options and try to get acquainted with at least one of them.
+
+Write about your experience in adopting the ORM that you experimented with, or compare it with another.
+
+This may even help you with your final project, should you choose to use Node for the backend, instead of Rails.
+
+- Popular ORMs in Javascript
+  - why is this important
+    - Understand different ORM paradigms (Active Record vs. schema-first).
+    - See how Node.js ORMs differ from Rails' Active Record.
+    - be able to choose the right tool for your project
+
+
+  - why write about it
+
+  - who would read it
+    - developers looking to choose ORM
+    - developers working with JS who need a database layer
+    - rails developers trainsitioning to Node.js who want an Active Record alternative
+    - Developers trying to understand Active Record vs. Schema-First ORM approaches.
+
+- ORM libraries in Javascript
+  - comparing Sequelize and Prisma
+
+  - Outline
+    - What is an ORM?
+    - Why are ORMs useful in JavaScript?
+    - Brief intro to Sequelize and Prisma.
+      - 2 most popular
+      - represent 2 different approaches
+
+    - overview of each
+      - describe approaches
+    - comparison
+    - my experience
+
+
+
+
+
+## Brainstorm Final Project
 - Accessibility app
   - Skill swap?
     - Features: Profile system, skill matching, messaging, scheduling.
@@ -3758,4 +3805,83 @@ Types:
 - AI powered code debugger
   - like phyton tutor 
 
-## Blog Post Peer Reviewd - Research and Reflect
+- learn component libraries
+
+- mui.com
+- formik
+- tailwind
+- daisy UI
+
+- shadcn
+- lottie files - free animations
+
+- svgs - icons
+  - icons8
+
+-UIverse
+- uiverse.io
+
+- if you are using a library make sure to credit it
+
+for final latest version of react and or vite
+
+
+# Blog Post - Peer Reviewed
+
+
+# Final Project
+- Accessibility app??
+
+- Skill swap?
+    - Features: Profile system, skill matching, messaging, scheduling.
+
+  🌟 Core Features (Must-Have)
+1️⃣ User Accounts (Authentication)
+Sign Up / Login with email and password
+
+Basic User Profile (username, email, bio, skills)
+
+2️⃣ Skills Management
+Users can add skills they know (can_teach) and want to learn
+
+Proficiency levels (Beginner, Intermediate, Advanced)
+
+3️⃣ Skill Swaps (Matching & Requests)
+Users can browse skills others are offering
+
+Users can send a swap request (teacher ↔ learner pairing)
+
+Swap has a status: Pending → Accepted → Completed
+
+Users can cancel swaps before completion
+
+4️⃣ Dashboard / Feed
+Show available skill swaps
+
+Filter by skill type
+
+5️⃣ Database & Backend API
+Routes for:
+
+User signup/login
+
+Fetching users and their skills
+
+Sending skill swap requests
+
+Updating swap status
+
+Tech: Node.js (Express), PostgreSQL (Sequelize/Prisma)
+
+🚀 Stretch Goals (If Time Allows)
+🔹 User Profiles with Images
+🔹 Basic Messaging (pre-made responses like "Let’s swap!")
+🔹 Skill Categories for easier browsing
+
+🔧 Tech Stack
+✅ Frontend: React + TailwindCSS (or Bootstrap for speed)
+✅ Backend: Node.js + Express.js
+✅ Database: PostgreSQL (Sequelize or Prisma)
+✅ Auth: Firebase Auth or JWT-based authentication
+✅ Deployment: Vercel (Frontend) + Render/Fly.io (Backend)
+
