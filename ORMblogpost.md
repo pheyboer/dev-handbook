@@ -6,24 +6,17 @@ ORMs allow developers to perform CRUD operations (Create, Read, Update, Delete) 
 
 ## Benefits of using an ORM
 
-### Simplicity
+### Simplicity and Developer Experience
 - ORMs take away the complexities of SQL queries and allows developers to interact with databses using familiar programming paradigms. This leads to a faster development process and reduced learning curves and especially benefits developers who arent SQL experts
 
 
 
-### Portability
+### Portability and SQL Dialect Handling
   - ORMs typically support multiple database systems. This means you can switch from SQLite during development to PostgreSQL in production with minimal code changes. Your application becomes database-agnostic, as the ORM handles the translation of your code to the appropriate SQL dialect.
 
 
+### Security and Maintainability
 
-
-### Security
-
-### Maintainability
-
-### SQL Dialects and why they matter
-
-### The Active Record Pattern
 
 ## Popular Javascript ORMs: Two Different Approaches
 
@@ -40,6 +33,12 @@ ORMs allow developers to perform CRUD operations (Create, Read, Update, Delete) 
 - Key features and strengths
 
 ## Comparison
+
+### Working with models and data
+
+### Handling relationships
+
+### Developer Experience
 
 ## When to choose which ORM
 
