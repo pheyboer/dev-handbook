@@ -117,7 +117,12 @@ async function createUser() {
 
 ```
 
-- Key features and strengths
+- Key features and strengths:
+  - Type-safe database client with autocompletion in modern IDEs
+  - Schema migrations through Prisma Migrate
+  - Declarative data modeling with clear relation definitions
+  - Good TypeScript support
+  - Powerful query API
 
 ## Comparison
 
