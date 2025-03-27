@@ -3077,6 +3077,8 @@ now we have bundlers
 - for project can use fetch or Axios 
 
 
+
+
 ## Photolabs project
 ### Instructions
 - start psql ```sudo service postgresql start```
@@ -3738,14 +3740,6 @@ Types:
   - apollo client
 
 
-## Final Project - Ideas
-- keep main idea simple, and build on/ add features
-
-- Gamified budget tracker
-  - virtual currency - crypto?
-  - challenges/missions
-  - ai budget assisstant
-  - real life discounts
 
 
 
@@ -3780,6 +3774,7 @@ This may even help you with your final project, should you choose to use Node fo
   - Outline
     - What is an ORM?
     - Why are ORMs useful in JavaScript?
+    - Why use ORM instead of raw SQL
     - Brief intro to Sequelize and Prisma.
       - 2 most popular
       - represent 2 different approaches
@@ -3791,6 +3786,103 @@ This may even help you with your final project, should you choose to use Node fo
 
 
 
+- Understand how data is stored and retrieved
+- ORM knowlege helps with API Integration
+
+- Installation Process Notes
+
+What is an ORM? (Brief explanation)
+
+Why use an ORM instead of raw SQL?
+
+Sequelize vs. Prisma - Key Differences
+
+Syntax & API Style
+
+Performance
+
+Ease of Use
+
+TypeScript Support
+
+Query Complexity
+
+Setup & Hands-on Experience
+
+Install & configure both
+
+Perform CRUD operations
+
+Compare DX (Developer Experience)
+
+Which One Should You Use? (When to choose Sequelize vs. Prisma)
+
+Conclusion & Personal Thoughts
+
+## PostgreSQL - psql
+- to start psql
+  - sudo service postgresql start
+  - then enterpassword
+- enter interactive shell
+  - sudo -u postgres psql
+- to see databses:
+  - \l
+- switch to database:
+  - \c databse_name
+
+- Installing ORM
+  - created database called orm_test_db
+
+- Setting up Sequelize
+  - created sequelize demo directory
+  - npm init -y
+    - makes package.json
+  - npm install sequelize pg pg-hstore
+  - npm install dotenv
+    - adds as dependencies in package.json
+  - created .env file in root directory to store database credentials
+    - fill out .env with single line or separate variables
+  - create config.js folder in config directory
+  - create models folder with user.js in it
+  - define a model
+  - create index.js file
+
+  - sequelize - the orm itself
+  - pg - PostgreSQL driver for Node.js
+  - pg-hstore - helps with handling JSON data
+  - dotenv - loads environment variables from a .env file
+
+- Setting up Prisma
+  - make directory
+  - npm init -y
+
+  - npm install @prisma/client
+  - npm install --save-dev prisma
+  - nvm use 18
+  - npx prisma init
+
+  - configure schema.prisma
+  - set up .env
+  - run prisma migration
+    - npx prisma migrate dev --name init
+    - creates database table
+  - create index.js
+
+Compare Sequelize vs. Prisma
+Ease of Use
+✅ Prisma: Easier to read/write, built-in TypeScript support.
+
+✅ Sequelize: More flexible but requires more boilerplate.
+
+Performance
+✅ Prisma: Faster queries due to optimized query engine.
+
+✅ Sequelize: Slightly slower in complex queries.
+
+Best for
+Sequelize → If you need flexibility and full control.
+
+Prisma → If you want a modern, easier-to-use ORM.
 
 
 ## Brainstorm Final Project
