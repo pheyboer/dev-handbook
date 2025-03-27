@@ -127,10 +127,21 @@ async function createUser() {
 ## Comparison
 
 ### Working with models and data
+  - Sequelize requires you to define models programmatically using JavaScript objects
+
+  - Prisma takes a more declarative approach with its schema file. Once you define your schema and generate the client, you get strongly-typed operations
 
 ### Handling relationships
+  - Sequelize defines relationships between models using related methods
+
+  - Prisma defines relationships in the schema file, mkaing them explicit and type-safe
 
 ### Developer Experience
+  - Sequelize offers:
+    - 
+
+  - Prisma offers:
+    - 
 
 ## When to choose which ORM
 
