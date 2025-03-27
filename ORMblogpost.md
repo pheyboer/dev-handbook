@@ -27,25 +27,96 @@ In the JavaScript ecosystem, two of the most popular ORMs are Sequelize and Pris
 ### Sequelize: The Active Record Approach
   - Sequelize follows the Active Record pattern similar to Ruby on Rails' Active Record. In this pattern models are defined as classes that correspond directly to the database tables and include methods for database operations
 
+```js  
+  // Installation
+  // npm install sequelize pg pg-hstore
+
+  // Connection setup
+  const { Sequelize, DataTypes } = require('sequelize');
+  const sequelize = new Sequelize('postgres://user:pass@localhost:5432/dbname');
+
+  // Model definition
+  const User = sequelize.define('User', {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastName: {
+      type: DataTypes.STRING
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true
+    }
+  });
+
+  // Using the model
+  async function createUser() {
+    await sequelize.sync(); // Creates the table if it doesn't exist
+    const user = await User.create({
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john@example.com'
+    });
+    console.log('User created:', user.toJSON());
+  }
+
+```
 
 
-
-
-
-- Overview and philosophy
-- Installation and setup
-- Basic model definition
-- Key features and strengths
+- Key features and strengths:
+  - Familiar pattern for developeres coming from Ruby on Rails
+  - Extensive documentation and mature ecosystem
+  - Flexible query interface with support for complex operations
+  - Built in validation and hooks
+  - Support for all major relational databases
 
 ### Prisma: The Schema-First Approach
   - Prisma follows a different approach and places the schema definition at the center of the database workflow. You can define your data model in a declarative schema file, and Prisma automatically generates a type-safe client tailored to your database structure
 
+```js
+  // Installation
+  npm install prisma @prisma/client
+  npx prisma init
 
+  // Schema definition in prisma/schema.prisma
+  datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+  }
 
+  generator client {
+    provider = "prisma-client-js"
+  }
 
-- Overview and philosophy
-- Installation and setup
-- Schema definition
+  model User {
+    id        Int      @id @default(autoincrement())
+    firstName String
+    lastName  String?
+    email     String   @unique
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+  }
+
+```
+```js
+// Using the generated client
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+async function createUser() {
+  const user = await prisma.user.create({
+    data: {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john@example.com'
+    }
+  });
+  console.log('User created:', user);
+}
+
+```
+
 - Key features and strengths
 
 ## Comparison
