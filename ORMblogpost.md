@@ -16,17 +16,33 @@ ORMs allow developers to perform CRUD operations (Create, Read, Update, Delete) 
 
 
 ### Security and Maintainability
+  - Many ORMs automatically handle SQL injection prevention by properly sanitizing inputs and using parameterized queries. It is a built in protection that helps developers avoid common security errors that can occur when writing raw SQL.
+  - With an ORM your data access logic follows a consistent pattern throughout your application. Changes to database schema can be managed in one place, opposed to finding and updating raw SQL queries throughout your codebase.
 
 
 ## Popular Javascript ORMs: Two Different Approaches
 
+In the JavaScript ecosystem, two of the most popular ORMs are Sequelize and Prisma. They represent two fundamentally different approaches to database interaction: the Active Record pattern vs. the Schema-First approach.
+
 ### Sequelize: The Active Record Approach
+  - Sequelize follows the Active Record pattern similar to Ruby on Rails' Active Record. In this pattern models are defined as classes that correspond directly to the database tables and include methods for database operations
+
+
+
+
+
+
 - Overview and philosophy
 - Installation and setup
 - Basic model definition
 - Key features and strengths
 
 ### Prisma: The Schema-First Approach
+  - Prisma follows a different approach and places the schema definition at the center of the database workflow. You can define your data model in a declarative schema file, and Prisma automatically generates a type-safe client tailored to your database structure
+
+
+
+
 - Overview and philosophy
 - Installation and setup
 - Schema definition
