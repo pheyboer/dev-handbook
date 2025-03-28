@@ -144,5 +144,18 @@ async function createUser() {
     - 
 
 ## When to choose which ORM
+- Sequelize
+  - If you prefer the Active Record pattern
+  - Require maximum flexibility with complex queries
+  - Working with legacy databases with complex relationships
+  - Comfortable with a more imperative programming style
+  - Already have experience with Ruby on Rails or similar framework
+
+- Prisma
+  - If you prioritize type safety and developer experience
+  - Prefer a declarative schema definition
+  - Want excellent TypeScript integration
+  - Starting a new project without legacy database contraints
+  - Value clear separation between schema and data access code
 
 ## Thoughts
