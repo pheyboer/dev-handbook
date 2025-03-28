@@ -267,3 +267,13 @@ Your choice should depend on your team's experience, project requirements, and p
 
 No matter which ORM you choose, using one will improve your productivity compared to writing raw SQL queries, while making your code more maintainable and portable across different database systems.
 
+## References
+Sequelize Official Documentation: https://sequelize.org/docs/v6/
+Prisma Official Documentation: https://www.prisma.io/docs
+Sequelize Associations Guide: https://sequelize.org/docs/v6/core-concepts/assocs/
+Prisma Schema Reference: https://www.prisma.io/docs/orm/reference/prisma-schema-reference
+
+Sequelize Official Repository: https://github.com/sequelize/sequelize
+Prisma Official Repository: https://github.com/prisma/prisma
+
+Rosario, V. (2024). “Battle of the Node.js ORMs: Sequelize vs. Prisma”. Dev.to https://dev.to/victor1890/battle-of-the-nodejs-orms-sequelize-vs-prisma-3j8b
