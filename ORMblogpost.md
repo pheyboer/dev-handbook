@@ -240,10 +240,19 @@ async function createUser() {
 ```
 ### Developer Experience
   - Sequelize offers:
-    - 
+    - More flexibility for complex queries
+    - More imperative programming style
+    - Mature ecosystem with plugins and middleware
+    - Manual TypeScript support
+
 
   - Prisma offers:
-    - 
+    - Stronger type safety
+    - Auto-completion in modern IDEs
+    - Auto-generated migration files
+    - Intuitive querying API
+    - Great TypeScript integration
+
 
 ## When to choose which ORM
 - Sequelize
@@ -266,6 +275,9 @@ Both Sequelize and Prisma offer powerful solutions for database access in JavaSc
 Your choice should depend on your team's experience, project requirements, and programming style preferences. For new TypeScript projects, Prisma's type safety and developer experience make it a great choice. For complex existing databases or teams with Active Record experience, Sequelize's flexibility might be more valuable.
 
 No matter which ORM you choose, using one will improve your productivity compared to writing raw SQL queries, while making your code more maintainable and portable across different database systems.
+
+The best approach could be to experiment with both ORMs to get a feel for their strengths and weaknesses before making a decision for a large project.
+
 
 ## References
 Sequelize Official Documentation: https://sequelize.org/docs/v6/
