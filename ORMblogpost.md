@@ -54,9 +54,9 @@ In the JavaScript ecosystem, two of the most popular ORMs are Sequelize and Pris
   async function createUser() {
     await sequelize.sync(); // Creates the table if it doesn't exist
     const user = await User.create({
-      firstName: 'John',
+      firstName: 'Peter',
       lastName: 'Doe',
-      email: 'john@example.com'
+      email: 'peter@example.com'
     });
     console.log('User created:', user.toJSON());
   }
@@ -107,9 +107,9 @@ const prisma = new PrismaClient();
 async function createUser() {
   const user = await prisma.user.create({
     data: {
-      firstName: 'John',
+      firstName: 'Peter',
       lastName: 'Doe',
-      email: 'john@example.com'
+      email: 'peter@example.com'
     }
   });
   console.log('User created:', user);
@@ -129,13 +129,115 @@ async function createUser() {
 ### Working with models and data
   - Sequelize requires you to define models programmatically using JavaScript objects
 
+```js
+  // CRUD operations with Sequelize
+  // Create
+  const newUser = await User.create({ firstName: 'Jane', email: 'jane@example.com' });
+
+  // Read
+  const allUsers = await User.findAll();
+  const user = await User.findByPk(1);
+  const filteredUsers = await User.findAll({
+    where: {
+      lastName: 'Doe'
+    }
+  });
+
+  // Update
+  await User.update({ lastName: 'Smith' }, { where: { id: 1 } });
+  // or
+  user.lastName = 'Smith';
+  await user.save();
+
+  // Delete
+  await User.destroy({ where: { id: 1 } });
+
+ ``` 
+
   - Prisma takes a more declarative approach with its schema file. Once you define your schema and generate the client, you get strongly-typed operations
+
+```js
+  // CRUD operations with Prisma
+  // Create
+  const newUser = await prisma.user.create({
+    data: { firstName: 'Jane', email: 'jane@example.com' }
+  });
+
+  // Read
+  const allUsers = await prisma.user.findMany();
+  const user = await prisma.user.findUnique({ where: { id: 1 } });
+  const filteredUsers = await prisma.user.findMany({
+    where: { lastName: 'Doe' }
+  });
+
+  // Update
+  await prisma.user.update({
+    where: { id: 1 },
+    data: { lastName: 'Smith' }
+  });
+
+  // Delete
+  await prisma.user.delete({ where: { id: 1 } });
+
+```
 
 ### Handling relationships
   - Sequelize defines relationships between models using related methods
+```js
+  // Define models
+  const User = sequelize.define('User', { /* fields */ });
+  const Post = sequelize.define('Post', { /* fields */ });
+
+  // Define relationships
+  User.hasMany(Post);
+  Post.belongsTo(User);
+
+  // Query with relationships
+  const userWithPosts = await User.findByPk(1, {
+    include: Post
+  });
+
+  // Create related records
+  const user = await User.findByPk(1);
+  const post = await user.createPost({ title: 'My First Post' });
+
+  ```
 
   - Prisma defines relationships in the schema file, mkaing them explicit and type-safe
 
+```md
+  model User {
+    id    Int     @id @default(autoincrement())
+    posts Post[]
+  }
+
+  model Post {
+    id       Int    @id @default(autoincrement())
+    title    String
+    author   User   @relation(fields: [authorId], references: [id])
+    authorId Int
+  }
+
+```
+```js
+  // Query with relationships
+  const userWithPosts = await prisma.user.findUnique({
+    where: { id: 1 },
+    include: { posts: true }
+  });
+
+  // Create related records
+  const userWithPost = await prisma.user.create({
+    data: {
+      firstName: 'Peter',
+      email: 'peter@example.com',
+      posts: {
+        create: { title: 'My First Post' }
+      }
+    }
+  });
+
+```
 ### Developer Experience
   - Sequelize offers:
     - 
@@ -159,3 +261,9 @@ async function createUser() {
   - Value clear separation between schema and data access code
 
 ## Thoughts
+Both Sequelize and Prisma offer powerful solutions for database access in JavaScript applications, but with different approaches. Sequelize follows the traditional Active Record pattern that Rails developers might find familiar, while Prisma offers a more modern schema-first approach with excellent TypeScript support.
+
+Your choice should depend on your team's experience, project requirements, and programming style preferences. For new TypeScript projects, Prisma's type safety and developer experience make it a great choice. For complex existing databases or teams with Active Record experience, Sequelize's flexibility might be more valuable.
+
+No matter which ORM you choose, using one will improve your productivity compared to writing raw SQL queries, while making your code more maintainable and portable across different database systems.
+
