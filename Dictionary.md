@@ -3631,6 +3631,16 @@ bin/rails routes
 - Rails MVC
   - routes.db
 
+
+- Problems installing Ruby / Rails
+  - gem update
+  - gem install bundler
+  
+  - gem install pry
+
+
+
+
 - ERB
   - embedded ruby - templating system allows you to embed ruby code inside HTML
   - commonly used in Rails views (.html.erb) to dynamically generate HTML content
@@ -3819,6 +3829,43 @@ Which One Should You Use? (When to choose Sequelize vs. Prisma)
 
 Conclusion & Personal Thoughts
 
+### Structure for blog post
+Introduction
+
+What is an ORM? (expand your existing definition)
+Why ORMs are crucial in JavaScript ecosystems
+Benefits of Using ORMs (build on your existing points)
+
+Simplicity & Developer Productivity
+Portability & Database Agnosticism
+Security & SQL Injection Prevention
+Maintainability & Code Organization
+Popular JavaScript ORMs: Sequelize vs. Prisma
+
+Different Paradigms (Active Record vs. Schema-First)
+Installation & Setup Experience
+Detailed Comparison
+
+Syntax & Model Definition
+Query Building & Complexity
+TypeScript Integration
+Migration Management
+Performance Considerations
+Documentation & Community Support
+Practical Example: CRUD Operations
+
+Setting up models/schema
+Creating records
+Querying data
+Updating records
+Deleting records
+When to Choose Which ORM
+
+Project requirements that favor Sequelize
+Project requirements that favor Prisma
+Migration considerations for Rails developers
+Conclusion & Personal Experience
+
 ## PostgreSQL - psql
 - to start psql
   - sudo service postgresql start
@@ -3922,58 +3969,6 @@ for final latest version of react and or vite
 
 
 # Final Project
-- Accessibility app??
-
-- Skill swap?
-    - Features: Profile system, skill matching, messaging, scheduling.
-
-  🌟 Core Features (Must-Have)
-1️⃣ User Accounts (Authentication)
-Sign Up / Login with email and password
-
-Basic User Profile (username, email, bio, skills)
-
-2️⃣ Skills Management
-Users can add skills they know (can_teach) and want to learn
-
-Proficiency levels (Beginner, Intermediate, Advanced)
-
-3️⃣ Skill Swaps (Matching & Requests)
-Users can browse skills others are offering
-
-Users can send a swap request (teacher ↔ learner pairing)
-
-Swap has a status: Pending → Accepted → Completed
-
-Users can cancel swaps before completion
-
-4️⃣ Dashboard / Feed
-Show available skill swaps
-
-Filter by skill type
-
-5️⃣ Database & Backend API
-Routes for:
-
-User signup/login
-
-Fetching users and their skills
-
-Sending skill swap requests
-
-Updating swap status
-
-Tech: Node.js (Express), PostgreSQL (Sequelize/Prisma)
-
-🚀 Stretch Goals (If Time Allows)
-🔹 User Profiles with Images
-🔹 Basic Messaging (pre-made responses like "Let’s swap!")
-🔹 Skill Categories for easier browsing
-
-🔧 Tech Stack
-✅ Frontend: React + TailwindCSS (or Bootstrap for speed)
-✅ Backend: Node.js + Express.js
-✅ Database: PostgreSQL (Sequelize or Prisma)
-✅ Auth: Firebase Auth or JWT-based authentication
-✅ Deployment: Vercel (Frontend) + Render/Fly.io (Backend)
-
+- Budget tracker app
+## Intro to Rspec
+- 
