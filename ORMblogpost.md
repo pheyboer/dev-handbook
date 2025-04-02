@@ -280,12 +280,12 @@ The best approach could be to experiment with both ORMs to get a feel for their 
 
 
 ## References
-Sequelize Official Documentation: https://sequelize.org/docs/v6/
-Prisma Official Documentation: https://www.prisma.io/docs
-Sequelize Associations Guide: https://sequelize.org/docs/v6/core-concepts/assocs/
-Prisma Schema Reference: https://www.prisma.io/docs/orm/reference/prisma-schema-reference
+- Sequelize Official Documentation: https://sequelize.org/docs/v6/
+- Prisma Official Documentation: https://www.prisma.io/docs
+- Sequelize Associations Guide: https://sequelize.org/docs/v6/core-concepts/assocs/
+- Prisma Schema Reference: https://www.prisma.io/docs/orm/reference/prisma-schema-reference
 
-Sequelize Official Repository: https://github.com/sequelize/sequelize
-Prisma Official Repository: https://github.com/prisma/prisma
+- Sequelize Official Repository: https://github.com/sequelize/sequelize
+- Prisma Official Repository: https://github.com/prisma/prisma
 
-Rosario, V. (2024). “Battle of the Node.js ORMs: Sequelize vs. Prisma”. Dev.to https://dev.to/victor1890/battle-of-the-nodejs-orms-sequelize-vs-prisma-3j8b
+- Rosario, V. (2024). “Battle of the Node.js ORMs: Sequelize vs. Prisma”. Dev.to https://dev.to/victor1890/battle-of-the-nodejs-orms-sequelize-vs-prisma-3j8b
