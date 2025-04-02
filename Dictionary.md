@@ -3970,5 +3970,17 @@ for final latest version of react and or vite
 
 # Final Project
 - Budget tracker app
+- https://hopeful-goodall-ba63af.netlify.app/
+
 ## Intro to Rspec
-- 
+- call the to method on the object returned from our call to the expect method
+- next thing following the to method is a "matcher"
+  - Matchers are special methods that can check whether the argument passed to expect meets some criteria
+
+## Extra certifications
+  - aws
+  - gcc - google cloud certification
+  - meta full stack
+
+  - free certifications
+  - courses
