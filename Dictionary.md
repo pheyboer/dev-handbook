@@ -3972,11 +3972,6 @@ for final latest version of react and or vite
 - Budget tracker app
 - https://hopeful-goodall-ba63af.netlify.app/
 
-## Intro to Rspec
-- call the to method on the object returned from our call to the expect method
-- next thing following the to method is a "matcher"
-  - Matchers are special methods that can check whether the argument passed to expect meets some criteria
-
 ## Extra certifications
   - aws
   - gcc - google cloud certification
@@ -3984,3 +3979,135 @@ for final latest version of react and or vite
 
   - free certifications
   - courses
+
+
+## Rspec Testing Framework - Behaviour Driven Development for Ruby
+- call the to method on the object returned from our call to the expect method
+- next thing following the to method is a "matcher"
+  - Matchers are special methods that can check whether the argument passed to expect meets some criteria
+
+- TDD: write small test, run and watch it fail, write code to make it pass. refactor code
+- BDD: write tests as specifications of system behaviour
+
+# Lighthouse Web Notes - WSL Ubuntu machine
+
+# Final Project
+
+## PostgreSQL and App instructions
+- Run app:
+  1. **Frontend**: `cd client && npm install && npm run dev`
+  2. **Backend**: `cd server && npm install && node index.js`
+
+
+# Coin Control App
+- Budget planning app aimed to make sticking to a budget more enjoyable using React + Vite, Express, JavaScript and Postgresql
+
+
+## Routes:
+- Covers essentials for 
+  - Creating and managing budgets
+  - Organizing expenses into categories
+  - Adding, viewing, editing, and deleting transactions
+  - Visualization of data in dashboard
+
+
+### Budgets
+GET    /api/budgets            → Get all budget plans
+POST   /api/budgets            → Create a new budget plan
+GET    /api/budgets/:id        → View a specific budget
+PUT    /api/budgets/:id        → Update a budget plan
+DELETE /api/budgets/:id        → Delete a budget
+
+
+### Transactions
+GET    /api/transactions       → Get all transactions
+POST   /api/transactions       → Create a new transaction
+GET    /api/transactions/:id   → View a specific transaction
+PUT    /api/transactions/:id   → Edit a transaction
+DELETE /api/transactions/:id   → Delete a transaction
+
+
+### Recurring Bills
+GET    /api/bills              → Get all recurring bills
+POST   /api/bills              → Add a recurring bill
+GET    /api/bills/:id          → View a recurring bill
+PUT    /api/bills/:id          → Edit a bill (amount, due date, frequency)
+DELETE /api/bills/:id          → Delete a recurring bill
+
+
+### Income
+GET    /api/income             → Get income sources
+POST   /api/income             → Add income (amount, frequency, last 2 pay dates)
+PUT    /api/income/:id         → Edit income details
+DELETE /api/income/:id         → Delete income
+
+### Goals
+GET    /api/goals              → View all goals
+POST   /api/goals              → Create a new savings goal
+GET    /api/goals/:id          → View goal details
+PUT    /api/goals/:id          → Update goal info or progress
+DELETE /api/goals/:id          → Delete goal
+PATCH  /api/goals/:id/progress → Add to current amount
+
+### Categories
+GET    /api/categories         → View all spending categories
+POST   /api/categories         → Add a new category
+PUT    /api/categories/:id     → Update category
+DELETE /api/categories/:id     → Remove category
+
+### Dashboard/Summaries
+GET    /api/dashboard          → Summary: current balance, upcoming bills, next income
+GET    /api/summary/spending   → Pie chart data (spending by category)
+
+
+
+### User Stories
+MVP User Stories
+Authentication
+As a user, I want to log in with my email and password, so that I can access my personal budget data securely.
+As a user, I want to log out of my account, so that I can protect my financial information when I’m done using the app.
+
+Recurring Bills
+As a user, I want to add recurring bills with a name, amount, and due date, so that I can track my regular expenses.
+As a user, I want to specify the frequency of each bill (weekly, bi-weekly, or monthly), so that the app knows when to deduct it from my budget.
+As a user, I want the system to automatically deduct bill amounts from my budget on the specified dates, so that I can see my remaining funds without manual updates.
+
+Income Tracking
+As a user, I want to add my income amount and frequency (bi-weekly or monthly), so that the app can track my cash inflow.
+As a user, I want to input the last two payment dates for my income, so that the app can predict future payment dates based on the frequency.
+As a user, I want the system to use the current date to predict when my next income will arrive, so that I can plan my budget accordingly.
+
+Budget Management
+As a user, I want to see my current balance updated with all income and bill deductions up to today, so that I know how much money I have left.
+As a user, I want to view a list of upcoming bills due soon (e.g., within the next week or month), so that I can prepare for upcoming expenses.
+As a user, I want to see a basic pie chart of my spending by category (e.g., bills vs. savings), so that I can understand where my money is going.
+
+### Tech Stack
+Tech Stack Rundown for Coin Control
+Frontend
+Framework: React (v19.0.0)
+Used for building the user interface with reusable components.
+Build Tool: Vite
+A fast build tool and development server optimized for modern web projects.
+Styling: Sass
+A CSS preprocessor used for writing modular and maintainable styles with features like variables, nesting, and mixins.
+Linting: ESLint
+Configured with plugins for React and React Hooks to enforce code quality and best practices.
+
+Backend
+Framework: Express (v5.1.0)
+A lightweight and flexible Node.js framework for building the backend API.
+Language: JavaScript
+Used for server-side logic and handling HTTP requests.
+
+Development Tools
+Node.js:
+Provides the runtime for both the frontend and backend development.
+npm:
+Used for managing dependencies and scripts for both the client and server.
+
+Project Structure
+Client Folder:
+Contains the React frontend, including components, styles, and assets.
+Server Folder:
+Contains the Express backend for handling API requests.
