@@ -4111,3 +4111,5 @@ Client Folder:
 Contains the React frontend, including components, styles, and assets.
 Server Folder:
 Contains the Express backend for handling API requests.
+
+- revised Coin Control App MVP to have 3 tables and less routes
