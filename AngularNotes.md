@@ -40,20 +40,34 @@
   - opens browser with Angular template
 
 ## TypeScript
+- Angular uses TypeScript
 - Similar to JavaScript and C#
 - Adds additional functionality
 - Syntax is slightly different
 - .ts for TypeScript
 
 - initalizing a field
+
+```ts
 export class AppComponent {
 
   title = 'app';
   items = []
 
 }
-
+```
 - TypeScript Array Field
   - add private if want private
 
-- 
+- Naming convention for TypeScript
+  - PascalCase and camelCase
+
+- TypeScript is a superset of JavaScript that adds static types
+
+- TypeScript code for Method
+
+```ts
+sum() : number {
+  return 0;
+}
+```
