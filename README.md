@@ -1,3 +1,10 @@
+# Dev Handbook
+
+A curated, personal collection of notes and mental models from my journey through full-stack web development.  
+Covers technical concepts, workflow tips, job prep, and personal reflections. Continuously updated as I grow.
+
+> Everything in this repo was written by me as a way to solidify learning and support my long-term growth as a developer.
+
 # Web Development Notes & Glossary
 
 ## Overview
